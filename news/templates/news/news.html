@@ -1,0 +1,17 @@
+{% extends "news/base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'news/main.css' %}"/>
+{% endblock %}
+
+{% block header %}
+<ul class="container">
+  {% for post in posts %}
+  <li class="container-fluid">
+    <h1 class="news-title">{{ post.title }}</h1>
+    <p>By {{ post.author }} on {{ post.date_posted }}</p>
+    <p class="news-preview">{{post.preview}}</p>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

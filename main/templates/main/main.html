@@ -1,0 +1,118 @@
+{% extends "news/base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/main.css' %}"/>
+{% endblock %}
+
+{% block header %}
+
+<div class="hero">
+  <div class="hero-wrap">
+    <h1 class="hero-header">skate<span class="xp cap">xp</span></h1>
+    <h3 class="hero-text">
+      We are a local non-profit organization bringing the best skateboard
+      experiences to kids everyday! Come skate, build, and learn with us today!
+    </h3>
+    <a class="hero-link" href="{% url 'main-mission'%}">
+      <button type="button" class="hero-button">learn more</button>
+    </a>
+  </div>
+</div>
+
+<div class="offerings main1" id="startchange">
+  <h1>take part in the skateboarding experience</h1>
+  <a class="link" href="{% url 'news-home'%}">
+    <button type="button" class="sign-up btn btn-primary">welcome</button>
+  </a>
+</div>
+
+<div class="separator" id="scroller"></div>
+
+<div class="programs-div">
+  <div class="cardgroup">
+    <div
+      class="outer-card"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="600"
+      data-aos-offset="450"
+    >
+      <img
+        src="{{STATIC_URL}}media\images\newarkgroup.jpg"
+        alt="group of kids at skatepark relaxing"
+        class="img-card card-img"
+        alt="skateboarder riding in a pool"
+      />
+
+      <div class="inner-card">
+        <h4 class="title-card">p.e. program</h4>
+        <p class="text-card">
+          Skate XP is stoked to be offering Berkeley High school students a PE
+          waiver for skateboarding. Sign-up today and start earning physical
+          education credits for Berkeley High school students! Skate XP BHS PE
+          Waiver Program is a wonderfully mixed group of 9th and 10th graders
+          with a wide range of skateboarding ability. It is important to us that
+          everyone feels welcome. Scholarships available.
+        </p>
+        <a class="link" href="#">
+          <button type="button" class="btn btn-primary card-button">
+            learn more
+          </button>
+        </a>
+      </div>
+    </div>
+    <div
+      class="outer-card"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="600"
+      data-aos-offset="450"
+    >
+      <img src="{{STATIC_URL}}media\images\vistameet.jpg" class="img-card card-img" alt="skatexp meeting for skate spotters" />
+      <div class="inner-card">
+        <h4 class="title-card">skate spotters</h4>
+        <p class="text-card">
+          Skate XP is working to help create new skate spots and parks for the
+          community in the East Bay. We are currently gathering input on designs
+          for a skate spot at James Kenney Recreation center in Berkeley and
+          looking for ways to expand the skateboarding experience. Get in touch
+          to see how you can help expand the opportunities for the local
+          skateboarders.
+        </p>
+        <a class="link" href="#"
+          ><button type="button" class="btn btn-primary card-button">
+            contribute
+          </button>
+        </a>
+      </div>
+    </div>
+    <div
+      class="outer-card"
+      data-aos="fade-down"
+      data-aos-easing="linear"
+      data-aos-duration="600"
+      data-aos-offset="450"
+    >
+      <img src="{{STATIC_URL}}media\images\napagroup.jpg" class="img-card card-img" alt="kids at skate camp" />
+
+      <div class="inner-card">
+        <h4 class="title-card">hot doggers</h4>
+        <p class="text-card">
+          A program designed for the experienced younger skater – one who
+          already has a solid ollie, some grinding ability, and is hungry to
+          progress and be challenged both as an individual and as a member of
+          the hot doggers. The hot doggers meet twice a week at various skate
+          spots/skate parks. Get-togethers are mentored by a skate XP staff
+          member who is qualified to bring “the stoke“ and motivate skaters to
+          move forward in skateboarding, and in life.
+        </p>
+        <a class="link" href="#">
+          <button type="button" class="btn btn-primary card-button">
+            sign-up
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

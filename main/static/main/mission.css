@@ -1,0 +1,132 @@
+body {
+    background-color: var(--black);
+    color: var(--white);
+  }
+  
+  .mission-outer {
+    max-width: max-content;
+  }
+  .mission {
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .mission-div {
+    height: 550px;
+    margin-top: 30vh;
+    padding-left: 10vw;
+  
+  }
+  
+  .mission-header {
+    font-variant: small-caps;
+  }
+  
+  .mission-text {
+    padding: 35px;
+    text-align: right;
+    float: right;
+    color: #d1d1d1;
+  }
+  
+  .image-div {
+    display: flex;
+    justify-content: center;
+    max-height: 450px;
+  }
+  
+  .header-row {
+    display: flex;
+    align-items: center;
+    padding-bottom: 55px;
+  }
+  
+  .vision-row {
+    justify-content: flex-end;
+  }
+  
+  .vision {
+      font-variant: small-caps;
+  }
+  
+  .vision-div {
+    margin: 0;
+    width: 100%;
+    padding: 10vw;
+    margin-top: 150px;
+    background-color: #181b1f;
+    color: #d1d1d1;
+    height: 850px;
+    text-align: right;
+    text-align: -webkit-right;
+  }
+  
+  .text {
+      line-height: 1.75rem;
+      letter-spacing: .02rem;
+  }
+  #whitecircle {
+    background-color: #d1d1d1;
+    color: black;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 50px 0 0;
+    display: flex;
+    align-items: center;
+    border: 2px solid black;
+  }
+  
+  #blackcircle {
+    background-color: var(--black);
+    color: black;
+    border: 2px solid black;
+  
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+  }
+  .mini-whitecircle {
+    background-color: #d1d1d1;
+    color: black;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 2px solid black;
+  }
+  
+  @media screen and (max-width: 450px) {
+    .vision-text {
+      padding: 0;
+      font-size: 100%;
+    }
+  
+    #blackcircle {
+      width: 35px;
+      height: 35px;
+    }
+    .mini-whitecircle {
+      width: 15px;
+      height: 15px;
+    }
+  
+    #whitecircle {
+      width: 75px;
+      height: 75px;
+    }
+  
+    .mission-div {
+      padding: 0 0 0  
+    }
+    .vision-div {
+      padding: 0;
+    }
+  }

@@ -1,0 +1,88 @@
+{% extends "news/base.html" %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/mission.css' %}"/>
+{% endblock %}
+{% block header %}
+
+
+<div class="mission-outer container-fluid">
+  <div class="container-fluid mission-div">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col-xl-4">
+      <div
+        class="mission header-row"
+        data-aos="fade-right"
+        data-aos-easing="linear"
+      >
+        <div class="whitecircle" id="whitecircle">
+          <div id="blackcircle">
+            <div class="mini-whitecircle"></div>
+          </div>
+        </div>
+        <h1
+          class="mission-header"
+          data-aos="fade-right"
+          data-aos-easing="linear"
+        >
+          our mission
+        </h1>
+      </div>
+      <p class="text" data-aos="fade-left" data-aos-easing="linear">
+        To build an inclusive community through advocating for and maintaining
+        publicly accessible skateparks, skatepark stewardship, initiating and
+        supporting skate programs, and creating mentorship and support for all
+      </p>
+    </div>
+  </div>
+
+  <div class="container-fluid vision-div row">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col-xl-4 container-fluid">
+      <div class="header-row vision-row">
+        <div
+          class="whitecircle"
+          id="whitecircle"
+          data-aos="fade-right"
+          data-aos-easing="linear"
+        >
+          <div id="blackcircle">
+            <div class="mini-whitecircle"></div>
+          </div>
+        </div>
+
+        <h1 class="vision" data-aos="fade-right" data-aos-easing="linear">
+          vision
+        </h1>
+      </div>
+      <p
+        class="vision-text text"
+        data-aos="fade-right"
+        data-aos-easing="linear"
+      >
+        Skate XP envisions a world where the sound of Skateboarding = the Sound
+        of Success. Skateboarding is an individualized activity that builds
+        lasting friendships and community. The Skateboard Experience fosters
+        these connections and broadens their scope, providing access for
+        skateboarders into their surrounding communities, granting them
+        opportunities for personal growth, career opportunities, and achieving
+        individualized long-term success.
+      </p>
+    </div>
+  </div>
+  <div class="container-fluid values-div">
+    <h1 class="values">values</h1>
+    <ul class="value-list">
+      <li class="value-items">Inclusivity</li>
+      <li class="value-items">Individuality</li>
+      <li class="value-items">Collaboration</li>
+      <li class="value-items">Respect</li>
+      <li class="value-items">Community</li>
+      <li class="value-items">Courage</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

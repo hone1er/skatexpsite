@@ -1,0 +1,423 @@
+:root {
+    --red: #990f02;
+    --darkred: #8a0d02;
+    --blue: #007bff;
+    --white: #f0f0f0;
+    --black: #343a40;
+    --font-family-sans-serif: "Montserrat", sans-serif !important;
+    --font-family-monospace: "Montserrat", sans-serif !important;
+    --darkgray: #575d68;
+  }
+  
+  body {
+    font-family: var(--font-family-sans-serif);
+    background-color: var(--white);
+    
+  }
+  
+  .btn-primary {
+    background-color: var(--red);
+    border-color: var(--red);
+  }
+  .btn-primary:hover {
+    background-color: var(--darkred);
+    border-color: var(--darkred);
+  }
+  
+  .cap {
+    text-transform: uppercase;
+  }
+  
+  .sign-up {
+    background-color: var(--red);
+    border-color: var(--red);
+  }
+
+  
+  nav {
+      box-shadow: 0 4px 2px -2px rgba(41, 41, 41, 0.342);
+    }
+    .navbar-collapse {
+      justify-content: flex-end;
+    }
+    .navbar-nav {
+      margin-right: 0 !important;
+    }
+    
+    .nav-item {
+      margin: 20px;
+    }
+    
+    .brand {
+      margin-left: 20px;
+    }
+    
+    .xp {
+      color: var(--red);
+    }
+  .hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 1250px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .hero::after {
+    content: "";
+    background-image: url(/static/images/landingskate.jpg);
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    /* Set a specific height */
+    min-height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .hero-button {
+    margin: 20px 0;
+    border: 2px solid #111;
+    background-color: transparent;
+    width: 150px;
+    padding: 10px;
+    font-variant: small-caps;
+  }
+  
+  .hero-link {
+    text-decoration: none;
+    color: var(--black);
+  }
+  
+  .hero-link:hover {
+    color: var(--white);
+    text-decoration: none;
+  }
+  
+  .hero-button:hover > .hero-link {
+    color: var(--white);
+  }
+  
+  .hero-button:hover {
+    background-color: var(--darkred);
+    color: var(--white);
+    transition: 0.2s;
+    border: 2px solid transparent;
+  }
+  
+  .hero-header {
+    font-size: 4rem;
+    align-self: flex-start;
+    max-width: 650px;
+    margin: 0 auto;
+    margin: 15px 0;
+  }
+  .hero-text {
+    font-size: 1.1rem;
+    max-width: 650px;
+    line-height: 1.6rem;
+  }
+  
+  .hero-wrap {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    bottom: 30vh;
+    right: 75px;
+  }
+  .xp {
+    color: var(--red);
+  }
+  
+  .offerings {
+    background-color: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    height: 450px;
+    font-size: 1.25rem;
+    font-variant: small-caps;
+  }
+  
+  .offerings h1 {
+    margin: 25px auto;
+  }
+  
+  .link {
+    color: var(--white);
+  }
+  
+  .link:hover {
+    color: var(--white);
+    text-decoration: none;
+  }
+  
+  /* 
+  programs
+  */
+  .separator {
+    background-image: url();
+  }
+  
+  .programs-div h1 {
+    color: var(--white);
+  }
+  .card img {
+    height: auto;
+    width: 100%;
+  }
+  
+  .card-body {
+    background-color: var(--white);
+    color: black;
+  }
+  
+  /*  */
+  
+  /* FOOTER */
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  footer {
+    background-color: var(--black);
+  
+  }
+  .footer {
+    padding: 50px;
+    color: var(--white);
+  }
+  
+  hr.vertical {
+    height: 75px; /* you might need some positioning for this to work, see other questions about 100% height */
+    width:0;
+    border: 2px solid black;
+  }
+  
+  .socials > ul {
+    display: flex;
+    align-items: center;
+    width: 125px;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 5px;
+  }
+  
+  .socials > ul > li {
+    width: 35px;
+  }
+  .fa {
+    color: var(--white);
+  }
+  
+  .icons {
+    font-size: 10px;
+  }
+  
+  /*  */
+  @media screen and (min-width: 1018px) {
+   
+    .hero {
+      box-shadow: 02px -2px 2px 0px rgba(128, 128, 128);
+    }
+  }
+  
+  @media screen and (max-width: 1018px) {
+   
+    /* Style the active link (or home/logo) */
+    .active {
+      background-color: #04aa6d;
+      color: white;
+    }
+  
+    .hero-header {
+      transition: 0.5s;
+    }
+  
+    .hero-wrap {
+      transition: 0.5s;
+      left: 0px;
+      padding: 15px;
+      bottom: 185px;
+    }
+  
+    .offerings {
+      padding: 5px;
+      height: 300px;
+    }
+    .offerings h1 {
+      font-size: 1.35rem;
+    }
+    .title-card {
+      font-size: 150%;
+    }
+  }
+  
+  @media screen and (max-width: 470px) {
+    .offerings h1 {
+      font-size: 1.05rem;
+    }
+    .text-card {
+      height: 400px;
+    }
+  }
+  
+  .cardgroup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cardgroup::after {
+    content: "";
+    background-color: #000000;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+    opacity: 0.8;
+    top: calc(100vh + 850px);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+    /* Set a specific height */
+    min-height: 500px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .outer-card {
+    margin: 100px 15px;
+    box-shadow: 1px 1px 7px 5px rgba(68, 68, 68, 0.151);
+    width: min-content;
+  }
+  .img-card {
+    max-width: 800px;
+    width: 90vw;
+    height: auto;
+    min-width: 300px;
+  }
+  
+  .inner-card {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background-color: #f0f0f0;
+  
+    min-height: 350px;
+  }
+  
+  .card-button {
+    width: 100%;
+    height: 70px;
+    background-color: transparent;
+    border-width: 2px;
+    color: var(--black);
+    font-weight: 600;
+    box-shadow: 2px 2px 6px 3px rgba(85, 52, 52, 0.247);
+  }
+  
+  .card-button:hover {
+    box-shadow: 2px 2px 8px 3px rgba(85, 52, 52, 0.527);
+  }
+  .title-card {
+    height: 70px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px 3px rgba(68, 68, 68, 0.151);
+    margin: 0 0 25px 0;
+    padding: 18px;
+    font-variant: small-caps;
+    background-color: var(--black);
+    color: var(--white);
+    letter-spacing: 0.32rem;
+    font-size: 150%;
+  }
+  
+  .text-card {
+    display: flex;
+    align-items: center;
+    padding: 20px 20px 10px 20px;
+    margin: 0 0 25px 0;
+    color: #575d68;
+    background-color: var(--white);
+    box-shadow: 2px 2px 6px 3px rgba(68, 68, 68, 0.068);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    letter-spacing: 0.05rem;
+    height: 275px;
+    min-height: fit-content;
+    line-height: 1.55rem;
+    font-kerning: auto;
+  }
+  
+  
+  
+  @media screen and (max-width: 1310px) {
+    .text-card {
+      height: 400px;
+    }
+  
+    .title-card {
+      font-size: 120%;
+    }
+  }
+  
+  @media screen and (min-width: 1000px) {
+    .cardgroup {
+      width: 100%;
+      height: min-content;
+      min-height: 600px;
+      max-height: 1250px;
+      flex-direction: row;
+    }
+  
+    .card-img {
+      max-width: 600px;
+      width: 25vw;
+      min-width: 320px;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .text-card {
+      height: 225px;
+    }
+    .outer-card {
+      margin: 20px 0px;
+    }
+    .cardgroup::after {
+      min-width: auto;
+      min-height: 750px;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .text-card {
+      height: 405px;
+    }
+  }
