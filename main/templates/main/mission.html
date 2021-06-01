@@ -1,10 +1,6 @@
-{% extends "news/base.html" %}
-{% load static %}
-{% block styles %}
-<link rel="stylesheet" href="{% static 'main/mission.css' %}"/>
-{% endblock %}
-{% block header %}
-
+{% extends "news/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'main/mission.css' %}" />
+{% endblock %} {% block header %}
 
 <div class="mission-outer container-fluid">
   <div class="container-fluid mission-div">
@@ -73,15 +69,29 @@
     </div>
   </div>
   <div class="container-fluid values-div">
+    <div class="values-card">
     <h1 class="values">values</h1>
     <ul class="value-list">
-      <li class="value-items">Inclusivity</li>
-      <li class="value-items">Individuality</li>
-      <li class="value-items">Collaboration</li>
-      <li class="value-items">Respect</li>
-      <li class="value-items">Community</li>
-      <li class="value-items">Courage</li>
+      <li class="value-items" data-icon="&#128761;">
+        <span>Inclusivity</span>
+      </li>
+      <li class="value-items" data-icon="&#128761;">
+        <span>Individuality</span>
+      </li>
+      <li class="value-items" data-icon="&#128761;">
+        <span>Collaboration</span>
+      </li>
+      <li class="value-items" data-icon="&#128761;">
+        <span>Respect</span>
+      </li>
+      <li class="value-items" data-icon="&#128761;">
+        <span>Community</span>
+      </li>
+      <li class="value-items" data-icon="&#128761;">
+        <span>Courage</span>
+      </li>
     </ul>
+  </div>
   </div>
 </div>
 
