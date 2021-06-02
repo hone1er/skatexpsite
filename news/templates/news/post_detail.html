@@ -1,0 +1,12 @@
+{% extends "news/base.html" %}{% load static %}{% block styles %}
+<link rel="stylesheet" href="{% static 'news/post-detail.css' %}"/>
+{% endblock %} {% block content %}
+<h1>NEWS STORY</h1>
+<div class="wrapper">
+  <div class="title-wrap">
+    <h1 class="news-title">{{ object.title }}</h1>
+    <p>By {{ object.author }} on {{ object.date_posted }}</p>
+  </div>
+    <p class="news-content">{{object.content}}</p>
+  </li>
+{% endblock content %}

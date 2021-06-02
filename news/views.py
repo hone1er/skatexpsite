@@ -1,30 +1,24 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from news.models import Post
+from django.views.generic import ListView, DetailView
 # Create your views here.
 
-posts = [
-    {
-        'author': 'Sean M', 
-        'title': 'XP news',
-        'preview': 'click to read more',
-        'content': 'This is a test of a news article',
-        'date_posted': 'Today'
-    },
-    {
-        'author': 'Joe V', 
-        'title': 'Hotdoggers update',
-        'preview': 'click to read more',
-        'content': 'This is a test of a news article again',
-        'date_posted': 'December 1, 2020'
-    }
-]
+
 
 def home(request):
     context = {
-        'posts': posts
+        'posts': Post.objects.all()
     }
     return render(request, 'news/news.html', context)
 
-def story(request):
-    
-    return render(request, 'news/story.html', {'title': 'Story'})
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'news/news.html'
+    context_object_name = 'posts'
+    ordering = ['-date_posted']
+
+class PostDetailView(DetailView):
+    model = Post
+
+

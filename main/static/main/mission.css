@@ -103,6 +103,13 @@ body {
   margin: 0 auto;
   border: 2px solid black;
 }
+.value-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .values-div {
   display: flex;
   flex-direction: column;
@@ -130,14 +137,18 @@ body {
 .values {
   font-variant: small-caps;
 }
-ul li {
+
+.value-list {
+  margin: 0 auto;
+}
+.value-items {
   position: relative;
   left: -10px;
   list-style: none;
   text-align: left;
   padding: 7.5px;
 }
-ul li::before {
+.value-items::before {
   content: attr(data-icon);
   /* Make slightly larger than the li font-size
     but smaller than the li grid-gap */
