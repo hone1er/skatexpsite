@@ -56,7 +56,7 @@ body {
   width: 100%;
   padding: 10vw;
   background-color: #181b1f;
-  background-image: radial-gradient(#181b1f, #0d0f11);
+  background-image: radial-gradient(#24282e, #0d0f11);
 
   color: #d1d1d1;
   height: 850px;
@@ -127,17 +127,33 @@ body {
   padding: 25px;
   border-radius: 8px;
 }
+
+.value-list {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 0 auto;
+}
+
+.value-list-container {
+  display: flex;
+  flex-wrap: wrap;
+
+}
 .values {
   font-variant: small-caps;
 }
-ul li {
+.value-items {
   position: relative;
   left: -10px;
   list-style: none;
   text-align: left;
   padding: 7.5px;
+  font-size: 110%;
 }
-ul li::before {
+.value-items::before {
   content: attr(data-icon);
   /* Make slightly larger than the li font-size
     but smaller than the li grid-gap */
