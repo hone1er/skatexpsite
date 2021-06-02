@@ -1,17 +1,27 @@
-{% extends "news/base.html" %}
-{% load static %}
-{% block styles %}
-<link rel="stylesheet" href="{% static 'news/main.css' %}"/>
-{% endblock %}
+{% extends "news/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'news/main.css' %}" />
+{% endblock %} {% block header %}
 
-{% block header %}
-<ul class="container">
-  {% for post in posts %}
-  <li class="container-fluid">
-    <h1 class="news-title">{{ post.title }}</h1>
-    <p>By {{ post.author }} on {{ post.date_posted }}</p>
-    <p class="news-preview">{{post.preview}}</p>
-  </li>
-  {% endfor %}
-</ul>
+<div class="container news-container">
+  <div class="row">
+    <!-- Blog Entries Column -->
+    <div class="col-md-8 mt-3 left">
+      {% for post in posts %}
+      <div class="card mb-4">
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-text text-muted h6">
+            {{ post.author }} | {{ post.date_posted}}
+          </p>
+          <p class="card-text">{{post.content|slice:":200" }}</p>
+          <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary"
+            >Read More &rarr;</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
 {% endblock %}

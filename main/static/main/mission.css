@@ -103,6 +103,13 @@ body {
   margin: 0 auto;
   border: 2px solid black;
 }
+.value-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .values-div {
   display: flex;
   flex-direction: column;
@@ -144,6 +151,10 @@ body {
 }
 .values {
   font-variant: small-caps;
+}
+
+.value-list {
+  margin: 0 auto;
 }
 .value-items {
   position: relative;
