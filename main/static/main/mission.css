@@ -1,12 +1,12 @@
 body {
-  background-color: var(--black);
+  background-color: #e6e6e6;
   color: var(--white);
   box-shadow: 0px 0px 15px 3px rgba(27, 27, 27, 0.521);
 
 }
 
 .mission-outer {
-  max-width: 1800px;
+  max-width: 1500px;
 }
 .mission {
   display: flex;
@@ -17,7 +17,9 @@ body {
 .mission-div {
   min-height: 550px;
   padding: 30vh 0 30vh 10vw;
-  background-image: radial-gradient(var(--black), #181b1f);
+  background-color: #b0c4df;
+  background-image: radial-gradient(ellipse at right top, #b0c4df, #dddddd);
+  color: var(--black);
 }
 
 .mission-header {
@@ -55,11 +57,8 @@ body {
   margin: 0;
   width: 100%;
   padding: 10vw;
-  background-color: #181b1f;
-  background-image: radial-gradient(#24282e, #0d0f11);
-
-  color: #d1d1d1;
-  height: 850px;
+  background-image: radial-gradient(ellipse at left top, var(--black), #181b1f);
+  color: var(--white);
   text-align: right;
   text-align: -webkit-right;
 }
@@ -118,9 +117,9 @@ body {
   margin: 0;
   width: 100%;
   padding: 10vw;
-  background-color: var(--black);
-  background-image: radial-gradient(var(--black), #282d33);
-  color: #d1d1d1;
+  background-color: #b0c4df;
+  background-image: radial-gradient(ellipse at right top, #b0c4df, #dddddd);
+  color: var(--black);
   height: 850px;
   text-align: right;
   text-align: -webkit-right;

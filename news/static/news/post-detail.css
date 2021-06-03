@@ -1,5 +1,5 @@
 .wrapper {
-    max-width: 1200px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -14,5 +14,6 @@
 }
 
 .news-content {
-    line-height: 1.75rem;
+    line-height: 1.85rem;
+    letter-spacing: .03rem;
 }
