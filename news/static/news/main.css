@@ -19,3 +19,22 @@ body {
     min-height: 100vh;
     padding-top: 10vh;
 }
+
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 'first' 'first' 'others';
+    background-color: #fff;
+    color: #444;
+  }
+
+  .first-card {
+      grid-area: 'first';
+      height: fit-content;
+  }
+
+  .other-cards {
+      grid-area: 'others';
+      height: fit-content;
+  }

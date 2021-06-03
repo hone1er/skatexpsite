@@ -5,9 +5,9 @@
 <div class="container news-container">
   <div class="row">
     <!-- Blog Entries Column -->
-    <div class="col-md-8 mt-3 left">
-      {% for post in posts %}
-      <div class="card mb-4">
+    <div class="wrapper">
+      {% for post in posts|slice:":1"%}
+      <div class="card first-card">
         <div class="card-body">
           <h2 class="card-title">{{ post.title }}</h2>
           <p class="card-text text-muted h6">
@@ -20,8 +20,25 @@
         </div>
       </div>
       {% endfor %}
-    </div>
+    
+    
+      {% for post in posts|slice:"1:"%}
+      <div class="card other-cards">
+        <div class="card-body">
+          <h2 class="card-title">{{ post.title }}</h2>
+          <p class="card-text text-muted h6">
+            {{ post.author }} | {{ post.date_posted}}
+          </p>
+          <p class="card-text">{{post.content|slice:":200" }}</p>
+          <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary"
+            >Read More &rarr;</a
+          >
+        </div>
+      </div>
+      {% endfor %}
+   
   </div>
+</div>
 </div>
 
 {% endblock %}
