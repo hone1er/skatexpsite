@@ -1,4 +1,4 @@
-{% extends "news/base.html" %}{% load static %}{% block styles %}
+{% extends "main/base.html" %}{% load static %}{% block styles %}
 <link rel="stylesheet" href="{% static 'news/post-detail.css' %}"/>
 {% endblock %} {% block content %}
 <h1>NEWS STORY</h1>
@@ -9,4 +9,5 @@
   </div>
     <p class="news-content">{{object.content}}</p>
   </li>
+</div>
 {% endblock content %}

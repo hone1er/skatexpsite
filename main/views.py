@@ -9,3 +9,4 @@ def home(request):
 def mission(request):
         return render(request, 'main/mission.html')
 
+

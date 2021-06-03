@@ -4,14 +4,6 @@ from django.views.generic import ListView, DetailView
 # Create your views here.
 
 
-
-def home(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'news/news.html', context)
-
-
 class PostListView(ListView):
     model = Post
     template_name = 'news/news.html'
@@ -20,5 +12,6 @@ class PostListView(ListView):
 
 class PostDetailView(DetailView):
     model = Post
+
 
 

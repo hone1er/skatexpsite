@@ -1,0 +1,13 @@
+{% extends "main/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
+{% endblock %} {% block header %}
+{% for object in programs %}
+<div class="wrapper">
+    <div class="title-wrap">
+      <h1 class="news-title">{{ object.title }}</h1>
+    </div>
+      <p class="news-content">{{object.content}}</p>
+    </li>
+  </div>
+{% endfor %}
+{% endblock %}
