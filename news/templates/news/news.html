@@ -1,19 +1,19 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'news/main.css' %}" />
 {% endblock %} {% block header %}
-
+<!-- 
 <div class="container news-container">
   <div class="row">
-    <!-- Blog Entries Column -->
+    Blog Entries Column
     <div class="wrapper">
       {% for post in posts|slice:":1"%}
-      <div class="card first-card">
-        <div class="card-body">
-          <h2 class="card-title">{{ post.title }}</h2>
-          <p class="card-text text-muted h6">
+      <div class="first-card">
+        <div class="body">
+          <h2 class="title">{{ post.title }}</h2>
+          <p class="text text-muted h6">
             {{ post.author }} | {{ post.date_posted}}
           </p>
-          <p class="card-text">{{post.content|slice:":200" }}</p>
+          <p class="text">{{post.content|slice:":200" }}</p>
           <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary"
             >Read More &rarr;</a
           >
@@ -22,23 +22,81 @@
       {% endfor %}
     
     
-      {% for post in posts|slice:"1:"%}
+      {% for post in posts|slice:"1:2"%}
       <div class="card other-cards">
-        <div class="card-body">
-          <h2 class="card-title">{{ post.title }}</h2>
-          <p class="card-text text-muted h6">
+        <div class="body">
+          <h2 class="title">{{ post.title }}</h2>
+          <p class="text text-muted h6">
             {{ post.author }} | {{ post.date_posted}}
           </p>
-          <p class="card-text">{{post.content|slice:":200" }}</p>
+          <p class="text">{{post.content|slice:":200" }}</p>
           <a href="{% url 'post-detail' post.id  %}" class="btn btn-primary"
             >Read More &rarr;</a
           >
         </div>
       </div>
-      {% endfor %}
-   
+      {% endfor %}   
   </div>
 </div>
-</div>
+</div> -->
 
+<div class="container">
+  <div class="frontpage">
+    <div class="fp-cell fp-cell--1">
+      <div class="fp-item">
+        <ul class="old-post-list">
+          {% for post in posts|slice:"3:"%}
+          <a class="old-link" href="{% url 'post-detail' post.id  %}">
+          <li class="old-post-item">
+            <div class="old-img"></div>
+            <div class="old-title">{{ post.title }}</div>
+            <div class="old-auth">
+              by {{ post.author }} on {{ post.date_posted }}
+            </div>
+          </li>
+        </a>  
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% for post in posts|slice:":1"%}
+    <div class="fp-cell fp-cell--2">
+      <a class="old-link" href="{% url 'post-detail' post.id  %}">
+      <div class="fp-item">
+        <div class="info-wrap">
+        <div class="old-title">{{ post.title }}</div>
+        <div class="old-auth">
+          by {{ post.author }} on {{ post.date_posted }}
+        </div>
+      </div>
+      <div class="image-wrap">
+        <img src="{{STATIC_URL}}..\media\images\landingskate.jpg" alt="">
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}
+    {% for post in posts|slice:"2:3"%}
+
+    <div class="fp-cell fp-cell--3">
+      <div class="fp-item">
+        <div class="old-title">{{ post.title }}</div>
+        <div class="old-auth">
+          by {{ post.author }} on {{ post.date_posted }}
+        </div>
+      </div>
+    </div>
+    {% endfor %} {% for post in posts|slice:"3:4"%}
+
+    <div class="fp-cell fp-cell--4">
+      <div class="fp-item">
+        <div class="old-title">{{ post.title }}</div>
+        <div class="old-auth">
+          by {{ post.author }} on {{ post.date_posted }}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock %}
