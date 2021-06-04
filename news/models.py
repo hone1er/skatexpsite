@@ -6,7 +6,7 @@ class Post(models.Model):
     preview = models.CharField(max_length=200)
     author = models.CharField(max_length=100, blank=True)
     content = models.TextField()
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='images', blank=True)
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
