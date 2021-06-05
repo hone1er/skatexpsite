@@ -49,7 +49,7 @@
           {% for post in posts|slice:"3:"%}
           <a class="old-link" href="{% url 'post-detail' post.id  %}">
           <li class="old-post-item">
-            <div class="old-img"><img class="post-img" src="{{ post.image.url }}" alt=""></div>
+            <div class="old-img"><img src="{{ post.image.url }}" alt=""></div>
             <div class="old-title">{{ post.title }}</div>
             <div class="old-auth">
               by {{ post.author }} on {{ post.date_posted }}
@@ -65,7 +65,7 @@
       <h1 class="latest-news">latest news</h1>
       <a class="old-link" href="{% url 'post-detail' post.id  %}">
       <div class="fp-item post-item latest-item">
-        <div class="info-wrap">
+        <div class="info-wrap new-info-wrap">
         <div class="new-title">{{ post.title }}</div>
         <div class="new-auth">
           by {{ post.author }} on {{ post.date_posted }}
