@@ -29,8 +29,7 @@ body {
 }
 
 .latest-item {
-  position: relative;
-  bottom: 40px;
+  height: unset !important;
 }
 
 .latest-image-wrap {
@@ -86,12 +85,14 @@ body {
 .old-header {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin-top: 27px;
+    margin-top: 25px;
     padding: 20px;
-    border-bottom: 1px solid var(--black);
     border-top: 1px solid var(--black);
+    border-bottom: 1px solid var(--black);
+    color: var(--black);
+    background-color: var(--white);
     font-size: 1.2rem;
     font-variant: small-caps;
 }

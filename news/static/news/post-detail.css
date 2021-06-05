@@ -42,3 +42,13 @@ body {
 li {
     list-style: none;
 }
+
+.image-wrap {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.image {
+  width: 80%;
+  margin: 0 auto;
+}
