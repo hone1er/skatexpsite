@@ -135,11 +135,11 @@ nav {
 }
 
 .hero-wrap {
-  max-width: 1200px;
+  max-width: 340px;
   margin: auto;
   position: relative;
-  bottom: 30vh;
-  right: 75px;
+  bottom: 22vh;
+  right: 25vw;
 }
 .xp {
   color: var(--red);
@@ -284,7 +284,7 @@ hr.vertical {
 .cardgroup {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -311,14 +311,13 @@ hr.vertical {
 .outer-card {
   margin: 100px 15px;
   box-shadow: 1px 1px 7px 5px rgba(68, 68, 68, 0.151);
-  width: 450px;
+  width: 300px;
 }
 
 .img-card {
-  max-width: 800px;
+  max-width: 300px;
   width: 100%;
   height: auto;
-  min-width: 300px;
 }
 
 .inner-card {
@@ -327,12 +326,11 @@ hr.vertical {
   padding: 25px;
   background-color: #f0f0f0;
 
-  min-height: 350px;
 }
 
 .card-button {
   width: 100%;
-  height: 60px;
+  height: 50px;
   background-color: transparent;
   border-width: 2px;
   color: var(--black);
@@ -352,7 +350,7 @@ hr.vertical {
   border-radius: 4px;
   box-shadow: 2px 2px 5px 3px rgba(68, 68, 68, 0.151);
   margin: 0 0 15px 0;
-  padding: 18px;
+  padding: 10px;
   font-variant: small-caps;
   background-color: var(--black);
   color: var(--white);
@@ -369,39 +367,34 @@ hr.vertical {
   background-color: var(--white);
   box-shadow: 2px 2px 6px 3px rgba(68, 68, 68, 0.068);
   border-radius: 8px;
-  font-size: 0.85rem;
+  font-size: 0.80rem;
   letter-spacing: 0.05rem;
-  height: 260px;
   min-height: fit-content;
   line-height: 1.55rem;
   font-kerning: auto;
 }
 
 
-@media screen and (max-width: 1440px) {
-  .text-card {
-    height: 390px;
-  }
-}
+
 
 
 /* larger than 995px */
 @media screen and (min-width: 995px) {
 
+  
   .outer-card {
-    max-width: 32%;
+    max-width: 360px;
   }
   .cardgroup {
     width: 100%;
+    max-width: 1111px;
+    margin: 0 auto;
     height: min-content;
     min-height: 600px;
     max-height: 1250px;
     flex-direction: row;
   }
 
-  .card-img {
-    max-width: 100%;
-  }
 }
 /* smaller than 995px */
 @media screen and (max-width: 995px) {
@@ -420,6 +413,6 @@ hr.vertical {
 
 @media screen and (max-width: 600px) {
   .text-card {
-    height: 405px;
+    height: fit-content;
   }
 }
