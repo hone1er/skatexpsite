@@ -19,7 +19,9 @@
 </div>
 <div class="detail-wrapper">
   <div class="staff-detail">
-    <div class="image-wrap">
+    <div class="image-wrap" data-aos="flip-right"
+    data-aos-offset="-300"
+    data-aos-easing="linear">
       <img
         class="staff-image"
         src="{{ object.image.url }}"
@@ -28,16 +30,20 @@
       />
     </div>
     <div class="staff-content">
-      <h1 class="staff-name" data-aos="fade-left" data-aos-easing="linear">
+      <h1
+        class="staff-name"
+        data-aos="fade-left"
+        data-aos-offset="-300"
+        data-aos-easing="linear"
+      >
         {{ object.first_name}} {{ object.last_name }}
       </h1>
-      <p
-        data-aos="fade-zoom-in"
-        data-aos-easing="ease-in-back"
-        data-aos-delay="300"
-      >
-        {{ object.content | safe}}
-      </p>
+      <div data-aos="fade-zoom-in"
+      data-aos-easing="ease-in-back"
+      data-aos-delay="150"
+      data-aos-offset="-300">
+      <p>{{ object.content | safe}}</p>
+    </div>
     </div>
   </div>
 </div>

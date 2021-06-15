@@ -1,209 +1,112 @@
 body {
-  background-color: #e6e6e6;
+  background-color: var(--black);
   color: var(--white);
-  box-shadow: 0px 0px 15px 3px rgba(27, 27, 27, 0.521);
-
+  box-shadow: 0px 0px 15px 3px rgba(27, 27, 27, 0.295);
 }
 
-.mission-outer {
+.outer-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 555px;
   max-width: 1500px;
+  margin: auto;
+  justify-content: space-evenly;
 }
-.mission {
+
+.right {
+  border-top: 1px solid var(--white);
+  border-left: 1px solid var(--white);
+  border-bottom: 1px solid var(--white);
+  align-self: flex-end;
+  position: relative;
+  bottom: 0px;
+  margin-bottom: 10px !important;
+  margin-top: 0 !important;
+
+}
+
+.left {
+
+  align-self: flex-start;
+  margin-top: 10px !important;
+  margin-bottom: 0 !important;
+
+}
+
+.box {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 10px 60px;
+  width: 60%;
+  margin: 20px 0;
+  max-width: 750px;
 }
 
-.mission-div {
-  min-height: 550px;
-  padding: 30vh 0 30vh 10vw;
-  background-color: #b0c4df;
-  background-image: radial-gradient(ellipse at right top, #b0c4df, #dddddd);
-  color: var(--black);
-}
-
-.mission-header {
-  font-variant: small-caps;
-}
-
-.mission-text {
-  padding: 35px;
-  text-align: right;
-  float: right;
-  color: #d1d1d1;
-}
-
-.image-div {
+.header-wrap {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  max-height: 450px;
-}
-
-.header-row {
-  display: flex;
   align-items: center;
-  padding-bottom: 55px;
 }
 
-.vision-row {
-  justify-content: flex-end;
-}
-
-.vision {
+.header {
+  font-size: 1.8rem;
   font-variant: small-caps;
-}
-
-.vision-div {
   margin: 0;
-  min-height: 550px;
-  width: 100%;
-  padding: 30vh 10vw 30vh 0;
-  background-image: radial-gradient(ellipse at left top, var(--black), #181b1f);
-  color: var(--white);
-  text-align: right;
-  text-align: -webkit-right;
-}
-
-.text {
-  line-height: 1.75rem;
-  letter-spacing: 0.02rem;
-}
-#whitecircle {
-  background-color: #d1d1d1;
-  color: black;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  text-align: center;
-  margin: 0 50px 0 0;
-  display: flex;
-  align-items: center;
-  border: 2px solid black;
-}
-
-#blackcircle {
-  background-color: var(--black);
-  color: black;
-  border: 2px solid black;
-
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
-  text-align: center;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-}
-.mini-whitecircle {
-  background-color: #d1d1d1;
-  color: black;
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-  margin: 0 auto;
-  border: 2px solid black;
-}
-.value-list-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.values-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  width: 100%;
-  padding: 10vw;
-  background-color: #b0c4df;
-  background-image: radial-gradient(ellipse at right top, #b0c4df, #dddddd);
-  color: var(--black);
-  height: 850px;
-  text-align: right;
-  text-align: -webkit-right;
-}
-.values-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 5px 3px rgba(27, 27, 27, 0.521);
-  padding: 25px;
-  border-radius: 8px;
-}
-
-.value-list {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  margin: 0 auto;
-}
-
-.value-list-container {
-  display: flex;
-  flex-wrap: wrap;
 
 }
-.values {
-  font-variant: small-caps;
+.wheel {
+  margin-bottom: 15px;
 }
 
-.value-list {
-  margin: 0 auto;
-}
-.value-items {
-  position: relative;
-  left: -10px;
-  list-style: none;
-  text-align: left;
-  padding: 7.5px;
-  font-size: 110%;
-}
-.value-items::before {
-  content: attr(data-icon);
-  /* Make slightly larger than the li font-size
-    but smaller than the li grid-gap */
-  font-size: 1.25em;
-}
-span {
-  position: relative;
-  left: 10px;
-}
-
-.navbar-toggler {
-  border-color: transparent !important;
-}
-@media screen and (max-width: 450px) {
-  .vision-text {
-    padding: 0;
-    font-size: 100%;
+@media screen and (max-width: 1200px) {
+  .box {
+    width: 100%;
   }
 
-  #blackcircle {
-    width: 35px;
-    height: 35px;
+}
+
+
+@media screen and (max-width: 990px) {
+  .box {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 5px;
+
   }
-  .mini-whitecircle {
-    width: 15px;
-    height: 15px;
+  .inner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .left {
+
   }
 
-  #whitecircle {
-    width: 75px;
-    height: 75px;
+  .right {
+border: none;
   }
 
-  .mission-div {
-    padding-left:5px;
-    padding-right: 5px;
+  .right-inner > p {
+    justify-content: flex-end;
+    border-right: 1px solid var(--white);
+    height: 10%;
+    border-top: 1px solid var(--white);
+    padding: 10px;
   }
-  .vision-div {
-    padding-left:5px;
-    padding-right: 5px;
+
+  svg {
+    max-width: 150px;
+  }
+  img {
+    max-width: 150px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .inner {
+    justify-content: center;
   }
 }

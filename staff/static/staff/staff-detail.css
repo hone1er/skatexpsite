@@ -1,3 +1,6 @@
+body {
+  background-color: var(--black);
+}
 .image-wrap {
   display: flex;
   justify-content: center;
@@ -7,7 +10,7 @@
 .staff-image {
   max-width: 400px;
   border-radius: 50%;
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
 }
 
 .staff-content {
@@ -15,7 +18,7 @@
   margin: 30px auto;
   letter-spacing: 1.62px;
   line-height: 21px;
-  background-color: var(--darkgray);
+  background-color: var(--blue);
   border-radius: 11px;
   padding: 150px 50px 50px 50px;
   color: var(--white);
@@ -37,6 +40,6 @@ svg {
 }
 
 .return-link {
-  color: var(--black);
+  color: var(--white);
   
 }
