@@ -1,10 +1,6 @@
-{% extends "main/base.html" %}
-{% load static %}
-{% block styles %}
-<link rel="stylesheet" href="{% static 'main/main.css' %}"/>
-{% endblock %}
-
-{% block header %}
+{% extends "main/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'main/main.css' %}" />
+{% endblock %} {% block header %}
 
 <div class="hero">
   <div class="hero-wrap">
@@ -47,12 +43,8 @@
       <div class="inner-card">
         <h4 class="title-card">p.e. program</h4>
         <p class="text-card">
-          Skate XP is stoked to be offering Berkeley High school students a PE
-          waiver for skateboarding. Sign-up today and start earning physical
-          education credits for Berkeley High school students! Skate XP BHS PE
-          Waiver Program is a wonderfully mixed group of 9th and 10th graders
-          with a wide range of skateboarding ability. It is important to us that
-          everyone feels welcome. Scholarships available.
+          Skate XP offers Berkeley High school students a PE waiver program for
+          skateboarding. Skate and earn credits!
         </p>
         <a class="link" href="{% url 'pe-program' %}">
           <button type="button" class="btn btn-primary card-button">
@@ -68,16 +60,16 @@
       data-aos-duration="600"
       data-aos-offset="450"
     >
-      <img src="{{STATIC_URL}}media\images\vistameet.jpg" class="img-card card-img" alt="skatexp meeting for skate spotters" />
+      <img
+        src="{{STATIC_URL}}media\images\vistameet.jpg"
+        class="img-card card-img"
+        alt="skatexp meeting for skate spotters"
+      />
       <div class="inner-card">
         <h4 class="title-card">skate spotters</h4>
         <p class="text-card">
-          Skate XP is working to help create new skate spots and parks for the
-          community in the East Bay. We are currently gathering input on designs
-          for a skate spot at James Kenney Recreation center in Berkeley and
-          looking for ways to expand the skateboarding experience. Get in touch
-          to see how you can help expand the opportunities for the local
-          skateboarders.
+          Skate XP is creating new skate spots and skate parks in the East Bay.
+          Learn more about ways to contribute!
         </p>
         <a class="link" href="#"
           ><button type="button" class="btn btn-primary card-button">
@@ -93,18 +85,17 @@
       data-aos-duration="600"
       data-aos-offset="450"
     >
-      <img src="{{STATIC_URL}}media\images\napagroup.jpg" class="img-card card-img" alt="kids at skate camp" />
+      <img
+        src="{{STATIC_URL}}media\images\napagroup.jpg"
+        class="img-card card-img"
+        alt="kids at skate camp"
+      />
 
       <div class="inner-card">
         <h4 class="title-card">hot doggers</h4>
         <p class="text-card">
-          A program designed for the experienced younger skater – one who
-          already has a solid ollie, some grinding ability, and is hungry to
-          progress and be challenged both as an individual and as a member of
-          the hot doggers. The hot doggers meet twice a week at various skate
-          spots/skate parks. Get-togethers are mentored by a skate XP staff
-          member who is qualified to bring “the stoke“ and motivate skaters to
-          move forward in skateboarding, and in life.
+          A program designed for the experienced younger skater – one who hungry to
+          progress and be challenged!
         </p>
         <a class="link" href="{% url 'hotdoggers' %}">
           <button type="button" class="btn btn-primary card-button">
