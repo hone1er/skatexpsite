@@ -141,19 +141,11 @@ nav {
 }
 
 .hero-wrap {
-<<<<<<< HEAD
-  max-width: 400px;
-  margin: auto;
-  position: relative;
-  bottom: 25vh;
-  right: 180px;
-=======
   max-width: 340px;
   margin: auto;
   position: relative;
   bottom: 22vh;
   right: 25vw;
->>>>>>> 42abb2bb3716dfbae8663bcfcdc1da476897f323
 }
 .xp {
   color: var(--red);
