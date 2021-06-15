@@ -7,7 +7,7 @@
     <h1 class="news-title">{{ object.title }}</h1>
     <p>By {{ object.author }} on {{ object.date_posted }}</p>
   </div>
-    <p class="news-content">{{object.content}}</p>
+    <p class="news-content">{{object.content | safe }}</p>
   </li>
 </div>
 {% for post in posts %}

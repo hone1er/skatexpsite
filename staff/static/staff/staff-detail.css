@@ -1,0 +1,42 @@
+.image-wrap {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  position: relative;
+}
+.staff-image {
+  max-width: 400px;
+  border-radius: 50%;
+  margin: 50px auto 0 auto;
+}
+
+.staff-content {
+  max-width: 1000px;
+  margin: 30px auto;
+  letter-spacing: 1.62px;
+  line-height: 21px;
+  background-color: var(--darkgray);
+  border-radius: 11px;
+  padding: 150px 50px 50px 50px;
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  bottom: 150px;
+  z-index: 0;
+}
+
+.staff-name {
+  text-decoration: underline;
+  margin-bottom: 25px;
+}
+
+svg {
+  margin: 15px 0 0 15px;
+  width: 30px;
+  height: auto;
+}
+
+.return-link {
+  color: var(--black);
+  
+}

@@ -26,9 +26,9 @@
     />
     <link rel="stylesheet" href="{% static 'main/main.css' %}" />
     {% block styles %} {% endblock %} {% if title %}
-    <title>skateXP news - {{ title }}</title>
+    <title>skatexp news - {{ title }}</title>
     {% else %}
-    <title>skateXP news</title>
+    <title>skatexp news</title>
     {% endif %}
   </head>
   <body>
@@ -36,7 +36,7 @@
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
           <div class="container-fluid inner-nav">
-            <a class="navbar-brand" href="/">skate<span class="xp">XP</span></a>
+            <a class="navbar-brand" href="/">SKATE <span class="xp">XP</span></a>
             <button
               class="navbar-toggler"
               type="button"
@@ -55,14 +55,14 @@
                     class="nav-link"
                     aria-current="page"
                     href="{% url 'main-home'%}"
-                    >Home</a
+                    >home</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'main-mission'%}">Mission</a>
+                  <a class="nav-link" href="{% url 'main-mission'%}">mission</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{% url 'news-home'%}">News</a>
+                  <a class="nav-link" href="{% url 'news-home'%}">news</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a
@@ -73,7 +73,7 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Programs
+                    programs
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
@@ -90,10 +90,13 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Donate</a>
+                  <a class="nav-link" href="{% url 'staff-main'%}">staff</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="#">donate</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">contact</a>
                 </li>
               </ul>
             </div>

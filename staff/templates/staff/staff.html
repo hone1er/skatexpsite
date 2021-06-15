@@ -1,0 +1,28 @@
+{% extends "main/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'staff/staff.css' %}" />
+{% endblock %} {% block header %}
+
+<div class="outer-staff">
+  <div class="outer-img">
+    <img class="inner-img" src="{% static 'staff/skateboarding.png' %}" />
+    <div class="theteam">
+      <div class="the">the</div>
+      <span class="team">team</span>
+    </div>
+  </div>
+  <div class="staff-wrapper">
+    {% if staff %} {% for staffmember in staff %}
+    <a class="staff-link" href="{% url 'staff-detail' staffmember.id  %}">
+      <div class="staff-member">
+        <img class="staff-img" src="{{ staffmember.image.url }}" alt="" />
+        <div class="staff-name">
+          {{ staffmember.first_name }}
+          <span class="staff-last"> {{ staffmember.last_name }}</span>
+        </div>
+      </div>
+    </a>
+    {% endfor %} {% endif %}
+  </div>
+  <div class="right-div"></div>
+</div>
+{% endblock %}

@@ -1,11 +1,11 @@
 :root {
-  --red: #990f02;
-  --darkred: #8a0d02;
+  --red: #c01f11;
+  --darkred: #a5170a;
   --blue: #007bff;
   --white: #f0f0f0;
   --black: #343a40;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
-  --font-family-mono: 'Roboto', sans-serif;
+  --font-family-mono: "Roboto", sans-serif;
   --darkgray: #575d68;
 }
 
@@ -13,8 +13,6 @@ body {
   font-family: var(--font-family-mono);
   background-color: var(--white);
 }
-
-
 
 .btn-primary {
   background-color: var(--red);
@@ -35,7 +33,7 @@ body {
 }
 
 .inner-nav {
-  max-width: 1250px;
+  max-width: 1440px;
 }
 
 nav {
@@ -52,12 +50,21 @@ nav {
   margin: 20px;
 }
 
+.nav-link {
+  font-variant: small-caps !important;
+  font-size: 1.5rem;
+}
+
 .navbar-brand {
   margin-left: 20px;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .xp {
   color: var(--red);
+  font-size: 2rem;
+  font-weight: bold;
 }
 .hero {
   width: 100%;
@@ -86,7 +93,6 @@ nav {
   min-height: 500px;
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -135,11 +141,11 @@ nav {
 }
 
 .hero-wrap {
-  max-width: 1200px;
+  max-width: 400px;
   margin: auto;
   position: relative;
-  bottom: 30vh;
-  right: 75px;
+  bottom: 25vh;
+  right: 180px;
 }
 .xp {
   color: var(--red);
@@ -202,7 +208,6 @@ nav {
 
 footer {
   background-color: #212529;
-
 }
 .footer {
   padding: 50px;
@@ -363,7 +368,7 @@ hr.vertical {
 .text-card {
   display: flex;
   align-items: center;
-  padding: 20px   ;
+  padding: 20px;
   margin: 0 0 25px 0;
   color: #575d68;
   background-color: var(--white);
@@ -377,17 +382,14 @@ hr.vertical {
   font-kerning: auto;
 }
 
-
 @media screen and (max-width: 1440px) {
   .text-card {
     height: 390px;
   }
 }
 
-
 /* larger than 995px */
 @media screen and (min-width: 995px) {
-
   .outer-card {
     max-width: 32%;
   }
@@ -405,7 +407,6 @@ hr.vertical {
 }
 /* smaller than 995px */
 @media screen and (max-width: 995px) {
-
   .text-card {
     height: fit-content;
   }

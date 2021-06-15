@@ -22,7 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('main.urls')),
     path('news/', include('news.urls')),
-    path('programs/', include('programs.urls'))
+    path('programs/', include('programs.urls')),
+    path('staff/', include('staff.urls')),
+    path('djrichtextfield/', include('djrichtextfield.urls'))
+
     
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
