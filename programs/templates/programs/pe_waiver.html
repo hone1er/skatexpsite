@@ -1,10 +1,14 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
 {% endblock %} {% block header %}
-
-  <form action="/programs/pe_waiver/" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
+{% for object in programs %}
+<div class="wrapper">
+  <div class="title-wrap">
+    <h1 class="news-title">{{ object.title | safe }}</h1>
+  </div>
+    <p class="news-price">{{object.price | safe}}</p>
+  </li>
+</div>
+<div class="content">{{object.description | safe}}</div>
+{% endfor %}
 {% endblock %}

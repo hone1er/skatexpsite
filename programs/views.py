@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from programs.models import Program, SignUp
+from programs.models import Program
 from django.views.generic import ListView, DetailView, CreateView
-from .forms import NameForm
 from django.http import HttpResponseRedirect
 
 

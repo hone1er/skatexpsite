@@ -24,7 +24,9 @@ urlpatterns = [
     path('news/', include('news.urls')),
     path('programs/', include('programs.urls')),
     path('staff/', include('staff.urls')),
-    path('djrichtextfield/', include('djrichtextfield.urls'))
+    path('djrichtextfield/', include('djrichtextfield.urls')),
+    path('contact', include('contact.urls')),
+
 
     
     
