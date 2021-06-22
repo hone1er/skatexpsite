@@ -3,12 +3,16 @@
 {% endblock %} {% block header %}
 {% for object in programs %}
 <div class="wrapper">
-  <div class="title-wrap">
-    <h1 class="news-title">{{ object.title | safe }}</h1>
+    <div class="title-wrap">
+      <h1 class="title">{{ object.title }}</h1>
+    </div>
+    <div class="price-wrap">
+    <p class="price">COST: </p>
+      <p class="price"> ${{object.price}}</p>
+    </div>
+    </li>
+    <div class="content">{{object.description | safe}}</div>
+    <button class="btn-primary sign-up">sign-up</button>
   </div>
-    <p class="news-price">{{object.price | safe}}</p>
-  </li>
-</div>
-<div class="content">{{object.description | safe}}</div>
 {% endfor %}
 {% endblock %}

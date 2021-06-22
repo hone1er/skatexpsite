@@ -28,7 +28,17 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# email setup
+SENDGRID_API_KEY = config('SENDGRID_API_KEY')
 
+# config/settings.py
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+DEFAULT_FROM_EMAIL = 'info@skatexp.org'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,6 +46,8 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'programs.apps.ProgramsConfig',
     'staff.apps.StaffConfig',
+    'phonenumber_field',
+
     'contact.apps.ContactConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,7 +56,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'djrichtextfield',
-    'ckeditor'
+    'ckeditor',
 ]
 
 MIDDLEWARE = [

@@ -55,7 +55,9 @@ body {
   font-size: 1.8rem;
   font-variant: small-caps;
   margin: 0;
-
+  font-weight: 600;
+  color: var(--black);
+  margin-bottom: 10px;
 }
 .wheel {
   margin-bottom: 15px;
@@ -68,7 +70,6 @@ body {
 
 }
 
-
 @media screen and (max-width: 990px) {
   .box {
     max-width: 100%;
@@ -80,6 +81,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
   }
   .left {
 
@@ -89,7 +91,7 @@ body {
 border: none;
   }
 
-  .right-inner > p {
+  .borders  {
     justify-content: flex-end;
     border-right: 1px solid var(--white);
     height: 10%;

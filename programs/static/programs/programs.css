@@ -1,0 +1,53 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  background-color: var(--black);
+  color: var(--white);
+  margin: 50px auto;
+  padding: 50px;
+  border-radius: 18px;
+}
+
+.title-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 25px 0 50px;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-variant: small-caps;
+  font-weight: bold;
+}
+
+.price-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 0 50px;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-variant: small-caps;
+  padding: 5px;
+}
+
+.content {
+  line-height: 1.75rem;
+  letter-spacing: 0.09rem;
+  padding: 10px 50px;
+  border-radius: 18px;
+}
+
+.sign-up {
+  margin: 35px;
+  width: 125px;
+  height: 55px;
+  border-radius: 8px;
+  justify-self: flex-end;
+}
