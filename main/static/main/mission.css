@@ -62,7 +62,7 @@ body {
   font-variant: small-caps;
   margin: 0;
   font-weight: 700;
-  color: #222;
+  color: var(--black);
   margin-bottom: 25px;
 }
 
@@ -116,7 +116,7 @@ h5 {
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: var(--black);
+  background-color: var(--darkgray);
   color: var(--white);
   height: 250px;
   font-size: 3.5rem;

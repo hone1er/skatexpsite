@@ -1,18 +1,18 @@
 :root {
-  --red: #c01f11;
-  --darkred: #a5170a;
+  --red: #e03131;
+  --darkred: #c92a2a;
   --blue: #007bff;
-  --white: #f0f0f0;
-  --black: #343a40;
+  --white: #f1f3f5;
+  --black: #212529;
   --blue: #5c7f94;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
   --font-family-mono: "Roboto", sans-serif;
-  --darkgray: #575d68;
+  --darkgray: #495057;
 }
 
 body {
   font-family: var(--font-family-mono);
-  background-color: #5c7f94;
+  background-color: var(--blue);
 }
 
 .btn-primary {
@@ -34,7 +34,7 @@ body {
 }
 
 .inner-nav {
-  max-width: 1300px;
+  max-width: 1400px;
 }
 
 nav {
@@ -54,6 +54,7 @@ nav {
 }
 
 .nav-link {
+  
   font-variant: small-caps !important;
   font-size: 1.5rem;
 }
@@ -197,7 +198,7 @@ nav {
 }
 
 .offerings {
-  background-color: var(--black);
+  background-color: var(--darkgray);
   display: flex;
   flex-direction: column;
   justify-content: center;
