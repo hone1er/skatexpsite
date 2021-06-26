@@ -1,9 +1,13 @@
+html body {
+  overflow-x: hidden;
+}
+
 .wrapper {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  max-width: 1280px;
+  max-width: 1440px;
   background-color: var(--black);
   color: var(--white);
   margin: 50px auto;
@@ -11,43 +15,110 @@
   border-radius: 18px;
 }
 
-.title-wrap {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 25px 0 50px;
+.left {
+  padding: 3.5rem;
+}
+.cost {
+  font-size: 1.25rem;
+  font-variant: small-caps;
+  font-weight: lighter;
+  border: 3.5px solid var(--white);
+  border-radius: 30px;
+  padding: 2.5px 35px;
+  width: fit-content;
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-variant: small-caps;
   font-weight: bold;
-}
-
-.price-wrap {
-  display: flex;
-  width: 100%;
-  justify-content: flex-start;
-  padding: 0 50px;
-}
-
-.price {
-  font-size: 1.5rem;
-  font-variant: small-caps;
-  padding: 5px;
+  margin-bottom: 2.5rem;
 }
 
 .content {
   line-height: 1.75rem;
   letter-spacing: 0.09rem;
-  padding: 10px 50px;
+  padding: 10px 0;
   border-radius: 18px;
 }
 
 .sign-up {
-  margin: 35px;
+  margin: 2rem 0;
   width: 125px;
   height: 55px;
   border-radius: 8px;
   justify-self: flex-end;
+  color: var(--white);
+}
+
+.right-title {
+  font-size: 8rem;
+  font-variant: small-caps;
+  line-height: 7rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.subtitle {
+  color: var(--red);
+  font-size: 1rem;
+}
+
+.right {
+  width: 100%;
+  min-height: 600px;
+  max-height: 1250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  text-align: left;
+  padding: 0 3rem;
+  padding-top: 14rem;
+  font-size: 2rem;
+}
+
+.right::after {
+  content: "";
+  background-image: url(/static/images/pe.jpeg);
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+  bottom: 0px;
+  right: 0;
+  position: absolute;
+  /* Set a specific height */
+  min-height: 600px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+}
+
+@media screen and (max-width: 995px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    padding: 0;
+    contain: content;
+  }
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .right {
+    padding: 5px 15%;
+  }
+  .left {
+    padding: 50px 15%;
+  }
+
+  .right-title {
+    font-size: 4rem;
+    line-height: 3rem;
+  }
 }

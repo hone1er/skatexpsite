@@ -1,7 +1,20 @@
+html {
+  overflow-x: hidden;
+}
 body {
   background-color: var(--blue);
+  background-color: #5c7f94;
+  background-image: linear-gradient(180deg, #5c7f94 45%, #97D9E1 74%, #ffffff 100%);
+  
+  
+
   color: var(--white);
   box-shadow: 0px 0px 15px 3px rgba(27, 27, 27, 0.295);
+  overflow-x: hidden;
+}
+
+.cross-link {
+  color: var(--white);
 }
 
 .outer-wrap {
@@ -21,17 +34,10 @@ body {
   align-self: flex-end;
   position: relative;
   bottom: 0px;
-  margin-bottom: 10px !important;
-  margin-top: 0 !important;
-
 }
 
 .left {
-
   align-self: flex-start;
-  margin-top: 10px !important;
-  margin-bottom: 0 !important;
-
 }
 
 .box {
@@ -40,7 +46,7 @@ body {
   align-items: center;
   padding: 10px 60px;
   width: 60%;
-  margin: 20px 0;
+  margin: 8% 0;
   max-width: 750px;
 }
 
@@ -52,22 +58,90 @@ body {
 }
 
 .header {
-  font-size: 1.8rem;
+  font-size: 3.2rem;
   font-variant: small-caps;
   margin: 0;
-  font-weight: 600;
-  color: var(--black);
-  margin-bottom: 10px;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 25px;
 }
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+    moz-transform: rotate(0deg);
+    ms-transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    moz-transform: rotate(360deg);
+    ms-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.imageSpin {
+  animation-name: spin;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  -webkit-animation-name: spin;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 2s;
+}
+
 .wheel {
   margin-bottom: 15px;
 }
+
+h5 {
+  color: var(--red);
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+.values {
+  margin-bottom: 20px;
+}
+
+.values-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--black);
+  color: var(--white);
+  height: 250px;
+  font-size: 3.5rem;
+}
+
+.inner-values {
+  max-width: 550px;
+  text-align: center;
+  margin: auto;
+  color: var(--black);
+}
+.center-values {
+  max-width: unset;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  align-self: center !important;
+}
+
+
 
 @media screen and (max-width: 1200px) {
   .box {
     width: 100%;
   }
-
 }
 
 @media screen and (max-width: 990px) {
@@ -75,23 +149,20 @@ body {
     max-width: 100%;
     border-radius: 0;
     padding: 5px;
-
   }
-  .inner{
-    width: 100%;
+  .inner {
     display: flex;
     justify-content: center;
     flex-direction: column;
   }
   .left {
-
   }
 
   .right {
-border: none;
+    border: none;
   }
 
-  .borders  {
+  .borders {
     justify-content: flex-end;
     border-right: 1px solid var(--white);
     height: 10%;

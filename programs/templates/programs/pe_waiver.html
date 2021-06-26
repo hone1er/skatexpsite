@@ -1,18 +1,30 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
-{% endblock %} {% block header %}
-{% for object in programs %}
+{% endblock %} {% block header %} {% for object in programs %}
 <div class="wrapper">
-    <div class="title-wrap">
-      <h1 class="title">{{ object.title }}</h1>
-    </div>
-    <div class="price-wrap">
-    <p class="price">COST: </p>
-      <p class="price"> ${{object.price}}</p>
-    </div>
-    </li>
-    <div class="content">{{object.description | safe}}</div>
-    <button class="btn-primary sign-up">sign-up</button>
+  <div class="left">
+    <h1 class="title">pe waiver program</h1>
+    <hr>
+    <p class="content">
+      Skate XP BHS PE Waiver Program is a wonderfully mixed group of 9th and
+      10th graders with a wide range of skateboarding ability. It is important
+      to us that everyone feels welcome Scholarships and payment assistance
+      available.
+    </p>
+    <p class="content">
+      If you are a BHS student and looking for a spring semester option to fill
+      your PE requirement, please contact info@skatexp.org. Masks required.
+      Deadline for signup will be early January.
+    </p>
+    <button class="sign-up">sign-up</button>
   </div>
-{% endfor %}
-{% endblock %}
+  <div class="right">
+    <p class="cost">cost: $80</p>
+    <p class="right-title"><span class="bold">pe waiver</span> program</p>
+    <div class="sub-wrapper">
+      <p class="subtitle">In collaboration with Berkeley High School</p>
+      <img src="" alt="" />
+    </div>
+  </div>
+</div>
+{% endfor %} {% endblock %}
