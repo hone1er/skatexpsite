@@ -104,8 +104,9 @@ body {
 h5 {
   color: var(--darkred);
   font-weight: bold;
+  font-size: 36px;
   text-decoration: underline;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .values {

@@ -7,7 +7,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 9fr 1fr;
   grid-gap: 5px;
-  margin: 30px auto;
+  margin: 10% auto;
 }
 
 .staff-wrapper {

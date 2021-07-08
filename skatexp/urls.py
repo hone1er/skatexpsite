@@ -26,6 +26,7 @@ urlpatterns = [
     path('staff/', include('staff.urls')),
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('contact', include('contact.urls')),
+    path('donate', include('donate.urls')),
 
 
     

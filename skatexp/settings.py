@@ -46,8 +46,8 @@ INSTALLED_APPS = [
     'news.apps.NewsConfig',
     'programs.apps.ProgramsConfig',
     'staff.apps.StaffConfig',
+    'donate.apps.DonateConfig',
     'phonenumber_field',
-
     'contact.apps.ContactConfig',
     'django.contrib.admin',
     'django.contrib.auth',
