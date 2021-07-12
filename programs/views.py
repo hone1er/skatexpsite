@@ -45,4 +45,4 @@ def hotdoggers(request):
 
 def pe_waiver(request):
     context = {"programs": Program.objects.filter(title="pe waiver program")}
-    return render(request, "programs/pe_waiver.html", context)
+    return render(request, "programs/programs_detail.html", context)
