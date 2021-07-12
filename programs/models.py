@@ -8,8 +8,9 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 class Program(models.Model):
     title = models.CharField(max_length=100)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    description = RichTextField(blank=True, null=True)
+    subtitle = models.CharField(max_length=150, default='', blank=True, null=True)
+    cost = models.DecimalField(max_digits=6, decimal_places=2)
+    content = RichTextField(blank=True, null=True)
 
 
     def __str__(self):

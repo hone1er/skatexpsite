@@ -1,18 +1,23 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
-{% endblock %} {% block header %}
+{% endblock %} {% block header %} 
 {% for object in programs %}
 <div class="wrapper">
-    <div class="title-wrap">
-      <h1 class="title">{{ object.title }}</h1>
-    </div>
-    <div class="price-wrap">
-    <p class="price">COST: </p>
-      <p class="price"> ${{object.price}}</p>
-    </div>
-    </li>
-    <div class="content">{{object.description | safe}}</div>
-    <button class="btn-primary sign-up">sign-up</button>
+  <div class="left">
+    <h1 class="title">{{ object.title }}</h1>
+    <hr>
+    <p class="content">
+        {{ object.content | safe }}
+    </p>
+    <button class="sign-up">sign-up</button>
   </div>
-{% endfor %}
-{% endblock %}
+  <div class="right">
+    <p class="cost">{{ object.cost }}</p>
+    <p class="right-title"><span class="bold">{{ object.title }}</p>
+    <div class="sub-wrapper">
+      <p class="subtitle">{{ object.subtitle }}</p>
+      <img src="" alt="" />
+    </div>
+  </div>
+</div>
+{% endfor %}{% endblock %}
