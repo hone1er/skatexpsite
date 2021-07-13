@@ -2,6 +2,16 @@ html body {
   overflow-x: hidden;
 }
 
+.form > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form {
+  justify-content: center;
+}
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -159,8 +159,9 @@ h5 {
   justify-content: center;
   align-items: center;
   margin: 0 20px;
-  border: 1px solid var(--black);
   padding: 40px;
+  box-shadow: 0px 3px 20px rgba(44, 44, 44, 0.308);
+  border-radius: 8px;
 }
 
 .value-img {

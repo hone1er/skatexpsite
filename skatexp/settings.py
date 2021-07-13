@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'staff.apps.StaffConfig',
     'donate.apps.DonateConfig',
     'phonenumber_field',
+    'phone_field',
     'contact.apps.ContactConfig',
     'django.contrib.admin',
     'django.contrib.auth',

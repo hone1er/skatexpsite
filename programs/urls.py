@@ -6,5 +6,6 @@ urlpatterns = [
     path("", ProgramListView.as_view(), name="program-home"),
     path("hotdoggers/", views.hotdoggers, name="hotdoggers"),
     path("pe_waiver/", views.pe_waiver, name="pe-program"),
+    path("form/", views.form, name="form"),
     
 ]

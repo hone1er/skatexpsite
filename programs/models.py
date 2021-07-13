@@ -20,11 +20,11 @@ class Program(models.Model):
 
 class Customer(models.Model):
     parent = models.CharField(max_length=100)
-    phone = PhoneField(blank=True, help_text='Contact phone number')
+    phone = PhoneField(blank=True)
     parent_email = models.EmailField(max_length=254)
     student = models.CharField(max_length=100)
     student_email = models.EmailField(max_length=254)
-    student_phone = PhoneField(blank=True, help_text='Student phone number')
+    student_phone = PhoneField(blank=True)
     student_grade = models.CharField(max_length=20)
     student_address = models.CharField(max_length=254)
 

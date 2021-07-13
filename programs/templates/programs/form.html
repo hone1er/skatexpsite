@@ -1,0 +1,10 @@
+{% extends "main/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
+{% endblock %} {% block header %}
+<form method="POST" action="/programs/form/" class="form">
+  {% csrf_token %} {{form.as_p}}
+  <p>
+  <input class="btn btn-success" type="submit" value="Submit" />
+</p>
+</form>
+{% endblock %}
