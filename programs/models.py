@@ -3,6 +3,7 @@ from django.db.models.fields.reverse_related import ManyToManyRel, ManyToOneRel
 from django.utils import timezone
 from django import forms
 from ckeditor.fields import RichTextField
+from phone_field import PhoneField
 
 
 # Create your models here.
@@ -17,3 +18,15 @@ class Program(models.Model):
         return self.title
 
 
+class Customer(models.Model):
+    parent = models.CharField(max_length=100)
+    phone = PhoneField(blank=True, help_text='Contact phone number')
+    parent_email = models.EmailField(max_length=254)
+    student = models.CharField(max_length=100)
+    student_email = models.EmailField(max_length=254)
+    student_phone = PhoneField(blank=True, help_text='Student phone number')
+    student_grade = models.CharField(max_length=20)
+    student_address = models.CharField(max_length=254)
+
+    def __str__(self):
+        return self.student
