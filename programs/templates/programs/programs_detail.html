@@ -1,6 +1,6 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
-{% endblock %} {% block header %} 
+{% endblock %} {% block title %}- programs{% endblock %}{% block header %} 
 {% for object in programs %}
 <div class="wrapper">
   <div class="left">
@@ -9,7 +9,7 @@
     <p class="content">
         {{ object.content | safe }}
     </p>
-    <a href="{% url 'form'%}">
+    <a href="{% url 'form' object.title %}">
     <button class="sign-up">sign-up </button></a>
   </div>
   <div class="right">

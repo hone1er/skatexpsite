@@ -1,10 +1,144 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'programs/programs.css' %}" />
+
 {% endblock %} {% block header %}
-<form method="POST" action="/programs/form/" class="form">
-  {% csrf_token %} {{form.as_p}}
-  <p>
-  <input class="btn btn-success" type="submit" value="Submit" />
-</p>
-</form>
+<script src="https://js.stripe.com/v3/"></script>
+<div class="container">
+  <div>
+    <div>
+      {% for data in program %}
+      <div class="container-fluid center">
+        <h1 class="title">{{ data.title }}</h1>
+        <h2>${{ data.cost }}</h2>
+        {% if data.title == "pe waiver program" %}
+        <p class="monthly">/per month</p>
+        {% endif %}
+      </div>
+      <form
+        action="{% url 'charged' %}"
+        method="post"
+        class="form"
+        id="payment-form"
+      >
+        {% csrf_token %} {{form.as_p}}
+
+        <hr />
+        <input type="hidden" name="title" value="{{ data.title }}" />
+
+        <input type="hidden" name="stripe_id" value="{{ data.stripe_id }}" />
+        <input type="hidden" name="cost" value="{{ data.cost }}" />
+        <p>
+          <div class="form-row">
+            <label for="card-element"> Credit or debit card </label>
+            <div id="card-element">
+              <!-- A Stripe Element will be inserted here. -->
+            </div>
+  
+            <!-- Used to display form errors. -->
+            <div id="card-errors" role="alert"></div>
+          </div>
+  
+          <div style="clear: left"></div>
+          <hr />
+  
+          <input
+            class="myButton btn btn-submit"
+            style="background-color: #10a195"
+            type="submit"
+            value="Submit Payment"
+            name=""
+          />
+        </p>
+      </form>
+      {%endfor%}
+      <div class="non-profit">
+        *SKATE XP is a 501c3 tax-exempt organization. Tax ID 85-0741700
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function setValue(objButton) {
+      var value = document.getElementById("amount");
+      value.setAttribute("value", objButton.value);
+    }
+    // Create a Stripe client.
+    var stripe = Stripe("{{ PUBLIC_STRIPE_KEY }}");
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+      base: {
+        color: "#32325d",
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: "antialiased",
+        fontSize: "16px",
+        "::placeholder": {
+          color: "#aab7c4",
+        },
+      },
+      invalid: {
+        color: "#fa755a",
+        iconColor: "#fa755a",
+      },
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create("card", { style: style });
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount("#card-element");
+
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener("change", function (event) {
+      var displayError = document.getElementById("card-errors");
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = "";
+      }
+    });
+
+    // Handle form submission.
+    var form = document.getElementById("payment-form");
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      stripe.createToken(card).then(function (result) {
+        if (result.error) {
+          // Inform the user if there was an error.
+          var errorElement = document.getElementById("card-errors");
+          errorElement.textContent = result.error.message;
+        } else {
+          // Send the token to your server.
+          stripeTokenHandler(result.token);
+        }
+      });
+    });
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById("payment-form");
+      var hiddenInput = document.createElement("input");
+      hiddenInput.setAttribute("type", "hidden");
+      hiddenInput.setAttribute("name", "stripeToken");
+      hiddenInput.setAttribute("value", token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    }
+
+    document
+      .getElementById("id_phone_0")
+      .setAttribute("placeholder", "Parent Phone Number");
+    document
+      .getElementById("id_student_phone_0")
+      .setAttribute("placeholder", "Student Phone Number");
+  </script>
+</div>
 {% endblock %}

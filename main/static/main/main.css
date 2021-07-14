@@ -1,13 +1,13 @@
 :root {
-  --red: #e03131;
+  --red: #f03e3e;
   --darkred: #c92a2a;
 
   --white: #f1f3f5;
   --black: #212529;
-  --blue: #0b7285;
+  --blue: #c5f6fa;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
   --font-family-mono: "Roboto", sans-serif;
-  --darkgray: #495057;
+  --darkgray: #868e96;
 }
 
 body {

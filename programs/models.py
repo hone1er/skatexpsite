@@ -12,7 +12,7 @@ class Program(models.Model):
     subtitle = models.CharField(max_length=150, default='', blank=True, null=True)
     cost = models.DecimalField(max_digits=6, decimal_places=2)
     content = RichTextField(blank=True, null=True)
-
+    stripe_id = models.CharField(max_length=120, blank=True)
 
     def __str__(self):
         return self.title

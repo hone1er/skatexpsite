@@ -1,6 +1,6 @@
 {% extends "main/base.html" %}{% load static %}{% block styles %}
 <link rel="stylesheet" href="{% static 'staff/staff-detail.css' %}" />
-{% endblock %} {% block content %}
+{% endblock %}{% block title %}- {{ object.first_name }}{% endblock %}{% block content %}
 <div class="return-wrap">
   <a class="return-link" href="{% url 'staff-main'%}"
     ><svg

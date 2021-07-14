@@ -1,6 +1,6 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'donate/donate.css' %}" />
-{% endblock %} {% block header %}
+{% endblock %} {% block title %}- donate{% endblock %}{% block header %}
 
 <script src="https://js.stripe.com/v3/"></script>
 
@@ -56,7 +56,7 @@
           <br />
           <br />
           $<input
-            class="form-field-12"
+            class="form-field-12 other"
             required
             type="number"
             name="amount"
