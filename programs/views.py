@@ -78,17 +78,10 @@ def charged(request):
                 f"You signed up for the {title}!",
                 f"Thank you for signing up for the {title}! If you have any questions, reach out to us anytime at info@skatexp.org!",
                 "skatexp.org" +'<info@skatexp.org>',
-                [customer_db.parent_email, customer_db.student_email],
+                [customer_db.parent_email],
                 headers = {'Reply-To': 'info@skatexp.org' }
             )
         email.send()
-        # send_mail(
-        #     f"You signed up for the {title}!",
-        #     f"Thank you for signing up for the {title}! If you have any questions, reach out to us anytime at info@skatexp.org!",
-        #     "info@skatexp.org",
-        #     [customer_db.parent_email, customer_db.student_email],
-        #     fail_silently=False,
-        # )
 
     return redirect(reverse("successProgram", args=[title]))
 

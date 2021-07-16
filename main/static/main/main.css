@@ -3,7 +3,7 @@
   --darkred: #c92a2a;
 
   --white: #f1f3f5;
-  --black: #212529;
+  --black: #14171a;
   --blue: #c5f6fa;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
   --font-family-mono: "Roboto", sans-serif;
@@ -12,7 +12,7 @@
 
 body {
   font-family: var(--font-family-mono);
-  background-color: var(--blue);
+  background-color: var(--white);
 }
 
 .btn-primary {

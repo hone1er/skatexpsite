@@ -42,6 +42,7 @@
 
 <div class="container">
   <div class="frontpage">
+    {% if  posts|slice:"3:" %}
     <div class="fp-cell fp-cell--1">
       <h1 class="old-header">older post</h1>
       <div class="fp-item old-post-wrap">
@@ -60,6 +61,7 @@
         </ul>
       </div>
     </div>
+    {% endif %}
     {% for post in posts|slice:":1"%}
     <div class="fp-cell fp-cell--2">
       <h1 class="latest-news">latest news</h1>
@@ -70,7 +72,7 @@
         <div class="new-auth">
           by {{ post.author }} on {{ post.date_posted }}
         </div>
-        <div class="post-preview">{{ post.content|slice:":350" }}....</div>
+        <div class="post-preview">{{ post.content| safe | slice:":350" }}....</div>
       </div>
       <div class="image-wrap latest-image-wrap">
         <img src="{{ post.image.url }}" alt="">
@@ -90,7 +92,7 @@
         </div>
         <div class="image-wrap">
           <img class="post-img" src="{{ post.image.url }}" alt="">
-          <div class="post-preview">{{ post.content|slice:":200" }}....</div>
+          <div class="post-preview">{{ post.content| safe |slice:":200" }}....</div>
         </div>
       </div>
     </a>
@@ -106,7 +108,7 @@
         </div>
         <div class="image-wrap">
           <img class="post-img" src="{{ post.image.url }}" alt="">
-          <div class="post-preview">{{ post.content|slice:":200" }}....</div>
+          <div class="post-preview">{{ post.content| safe |slice:":200" }}....</div>
         </div>
       </div>
     </a>

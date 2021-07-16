@@ -1,5 +1,5 @@
 body {
-  background-color: var(--blue);
+  background-color: var(--black);
 }
 .image-wrap {
   display: flex;
@@ -18,14 +18,22 @@ body {
   margin: 30px auto;
   letter-spacing: 1.62px;
   line-height: 21px;
-  background-color: var(--darkgray);
+  background-color: var(--white);
+  color: var(--darkgray);
+  box-shadow: 3px 6px 20px rgba(255, 255, 255, 0.226);
   border-radius: 11px;
   padding: 150px 50px 50px 50px;
-  color: var(--white);
   text-align: center;
   position: relative;
   bottom: 150px;
   z-index: 0;
+}
+
+.staff-para > p {
+  max-width: 675px;
+  margin: auto;
+  text-align: center;
+  padding: 10px;
 }
 
 .staff-name {

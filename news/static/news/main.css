@@ -139,6 +139,10 @@ body {
   text-align: center;
 }
 
+img {
+  opacity: 1;
+}
+
 .new-auth {
   font-size: 0.55rem;
   margin-right: auto;
@@ -172,13 +176,11 @@ body {
   color: rgb(131, 131, 131);
   transition: 0.25s;
 }
-.old-link:hover .post-img {
-  width: 205px;
+
+.old-link:hover img {
+  opacity: .85;
 }
 
-.old-link:hover .latest-image-wrap {
-  width: 105% !important;
-}
 
 .info-wrap {
   display: flex;
@@ -219,9 +221,10 @@ img {
   .post-img {
     width: 100%;
   }
-
+  
   .latest-image-wrap > img {
-    max-width: 650px;
+    max-height: 450px;
+    width: auto;
   }
 
   .new-title {
@@ -269,5 +272,5 @@ img {
   .fp-cell--3 {
     grid-column: 1 / span 1;
   }
-  
+
 }

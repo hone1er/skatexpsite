@@ -45,13 +45,7 @@ def contact(request):
                 headers = {'Reply-To': contact_email }
             )
             email.send()
-            # send_mail(
-            #     "New contact form submission",
-            #     content,
-            #     "info@skatexp.org",
-            #     ["info@skatexp.org"],
-            #     fail_silently=False,
-            # )
+            
             return redirect("contact")
 
     return render(

@@ -15,8 +15,18 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 35px auto;
   margin-bottom: 25px;
+  background-color: var(--darkgray);
+  color: var(--white);
+}
+
+.title-wrap > p {
+  font-size: .65rem;
+  color: var(--red);
+  text-align: left;
+  border-left: outset;
+  padding: 5px;
 }
 
 .news-title {
@@ -24,6 +34,7 @@ body {
   margin-bottom: 0;
   font-size: 3rem;
   padding: 0;
+  text-align: center;
 }
 
 .news-content {
@@ -46,6 +57,9 @@ li {
 .image-wrap {
   display: flex;
   margin-bottom: 25px;
+  max-width: 500px;
+  height: auto;
+  margin: auto;
 }
 
 .image {
