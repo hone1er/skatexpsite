@@ -1,0 +1,1 @@
+web: gunicorn skatexpsite.wsgi --log-file -
