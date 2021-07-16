@@ -44,6 +44,7 @@ EMAIL_USE_TLS = True
 INSTALLED_APPS = [
     'main.apps.MainConfig',
     'news.apps.NewsConfig',
+    'story.apps.StoryConfig',
     'programs.apps.ProgramsConfig',
     'staff.apps.StaffConfig',
     'donate.apps.DonateConfig',

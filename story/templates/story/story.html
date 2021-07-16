@@ -1,0 +1,43 @@
+{% extends "main/base.html" %} {% load static %} {% block styles %}
+<link rel="stylesheet" href="{% static 'story/story.css' %}" />
+{% endblock %}{% block title %}- stories{% endblock %} {% block header %}
+
+<div class="container">
+  <p class="header-1">
+    Our community is an inclusive group of people who embrace skateboarding.
+    Whether skaters, former skaters, parents or guardians of skaters, or
+    people interested in learning how to skateboard, we welcome you and
+    consider you part of the Skate XP family. These stories below, submitted
+    by our community, capture the diversity and each individual’s connection
+    to skateboarding. They are the skateboarder experience.
+  </p>
+  <p class="contact">
+    If you’d like to share your experience, submit your story and 1-2 pictures
+    to <span class="bold">sean@skatexp.org.</span>
+  </p>
+  <div class="frontpage">
+    <div class="fp-cell fp-cell--1">
+      <h1 class="header">Stories</h1>
+      <hr>
+      <div class="fp-item story-wrap">
+        <ul class="story-list">
+          {% for story in storys %}
+          <a class="link" href="{% url 'story-detail' story.id  %}">
+            <li class="story-item">
+              <div class="img">
+                <img src="{{ story.image.url }}" alt="{{ story.image_alt }}" />
+              </div>
+              <div class="title">{{ story.title }}</div>
+              <div class="auth">
+                by {{ story.author }} on {{ story.date_posted }}
+              </div>
+            </li>
+          </a>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>
+{% endblock %}

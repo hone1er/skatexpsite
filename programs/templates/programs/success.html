@@ -1,13 +1,12 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'donate/success.css' %}" />
 {% endblock %}{% block title %}- success{% endblock %} {% block header %}
-<div id="box">
+<div id="box" class="programbox">
   <img id="succes-icon" src="{% static 'images/check.png' %}" />
-  <h4>Thank you for your contribution of ${{amount}}!</h4>
+  <h4>Thank you for signing up for the {{title}}!</h4>
   <p>
-    Your donation helps us continue to support skateboarding, the skateboarding
-    community, and allows us to build more spots! You should receive a receipt
-    to the email you provided shortly :)
+   Your participation in these programs is an important part of what keeps us motivated!
+   Thank you for joining and we'll skate soon!
   </p>
   <hr />
   <a class="myButton" href="{% url 'donate' %}">&#x2190;Back to donation page</a>

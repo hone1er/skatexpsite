@@ -141,16 +141,21 @@ h5 {
 .value-box {
   margin: 200px 0;
   justify-content: space-evenly;
+  border-radius: 8px;
+  box-shadow: 0 3px 20px var(--darkgray);
+  width: fit-content;
 }
 
 .value-box:nth-child(odd) {
   display: flex;
   flex-direction: row;
+  float: left;
 }
 
 .value-box:nth-child(even) {
   display: flex;
   flex-direction: row-reverse;
+  float: right;
 }
 
 .value-inner {
@@ -160,13 +165,13 @@ h5 {
   align-items: center;
   margin: 0 20px;
   padding: 40px;
-  box-shadow: 0px 3px 20px rgba(44, 44, 44, 0.308);
-  border-radius: 8px;
+  
 }
 
 .value-img {
   max-width:360px;
   max-height:420px;
+  border-radius: 8px;
 }
 
 

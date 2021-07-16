@@ -13,6 +13,11 @@ h3{
 
 h5{
     font-size: 24px;
+    color: var(--red);
+}
+
+.form-row {
+    color: var(--white);
 }
 
 p, label{
@@ -40,6 +45,8 @@ input[type=number]::-webkit-inner-spin-button {
     width: 94%;
     margin-left: 5px;
 }
+
+
 
 .button-div {
     display: flex;

@@ -7,6 +7,6 @@ urlpatterns = [
     path("form/<program>", views.form, name="form"),
     path("form/", views.form, name="form"),
     path("charged/", views.charged, name="charged"),
-    path('success/<str:args>/', views.successMsg, name="success"),
+    path('successProgram/<str:args>', views.successMsg, name="successProgram"),
     
 ]

@@ -1,0 +1,29 @@
+{% extends "main/base.html" %}{% load static %}{% block styles %}
+<link rel="stylesheet" href="{% static 'news/post-detail.css' %}"/>
+{% endblock %} {% block title %}- news{% endblock %}{% block content %}
+<div class="wrapper">
+  <div class="image-wrap"><img src="{{ object.image.url }}" alt="" class="image"></div>
+  <div class="title-wrap">
+    <h1 class="news-title">{{ object.title }}</h1>
+    <p>By {{ object.author }} on {{ object.date_posted }}</p>
+  </div>
+    <p class="news-content">{{object.content | safe }}</p>
+  </li>
+</div>
+{% for post in posts %}
+  <div class="other-stories-wrapper">
+    <ul class="stories-list">
+    <li class="story-item">
+      <div class="story-card">
+        <img src="" alt="">
+        <h1 class="story-title">{{ post.title }}</h1>
+        <p class="story-preview">{{ post.content }}</p>
+    </div>
+  </li>
+    <li class="story-item"></li>
+    <li class="story-item"></li>
+    <li class="story-item"></li>
+  </ul>
+  </div>
+{% endfor %}
+{% endblock content %}

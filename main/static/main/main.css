@@ -7,7 +7,7 @@
   --blue: #c5f6fa;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
   --font-family-mono: "Roboto", sans-serif;
-  --darkgray: #868e96;
+  --darkgray: #212529;
 }
 
 body {
@@ -170,7 +170,7 @@ nav {
   font-size: 0.975rem;
   max-width: 650px;
   line-height: 1.4rem;
-  color: var(--white);
+  color: var(--darkgray);
 }
 
 /* .hero-wrap {

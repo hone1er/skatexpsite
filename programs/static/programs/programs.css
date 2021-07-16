@@ -2,6 +2,10 @@ html body {
   overflow-x: hidden;
 }
 
+#box {
+  margin: 10% auto;
+  margin-bottom: 10% !important;
+}
 .center {
   margin-top: 10%;
   text-align: center  ;
@@ -16,13 +20,15 @@ html body {
 }
 .form {
   background-color: var(--darkgray);
-  padding: 25px; 
+  padding: 45px 25px; 
   margin: 5% auto 7%;
   width: 500px;
   box-shadow: 0 6px 20px rgba(173, 173, 173, 0.295);
   justify-content: center;
   border-radius: 8px;
+  
 }
+
 .form > p {
   display: flex;
   flex-direction: column;
@@ -49,9 +55,7 @@ p > input {
   background-color: var(--white) !important;
 }
 
-.title {
-  font-variant: small-caps;
-}
+
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -82,7 +86,7 @@ p > input {
   font-size: 4rem;
   font-variant: small-caps;
   font-weight: bold;
-  margin-bottom: 2.5rem;
+  margin-bottom: .7rem;
   color: var(--red);
 }
 
