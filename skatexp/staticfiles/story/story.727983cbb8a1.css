@@ -1,0 +1,49 @@
+body {
+    background-color: var(--white);
+}
+
+.header-1 {
+    margin: 10% auto 15px;
+    font-size: 1.2rem;
+}
+
+.contact {
+
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.header {
+    margin: 5% auto 10px;
+}
+.title {
+    font-size: .8rem;
+    color: var(--black);
+}
+
+.auth {
+    color: var(--darkgray);
+    font-size: .65rem;
+}
+
+.link {
+    text-decoration: none;
+    margin: 2%;
+}
+
+.img {
+    width: 240px;
+    height: auto;
+}
+
+img {
+    width: 100%;
+}
+
+.story-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

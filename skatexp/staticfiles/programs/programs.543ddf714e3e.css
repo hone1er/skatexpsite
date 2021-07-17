@@ -1,0 +1,179 @@
+html body {
+  overflow-x: hidden;
+}
+
+#box {
+  margin: 10% auto;
+  margin-bottom: 10% !important;
+}
+.center {
+  margin-top: 10%;
+  text-align: center  ;
+}
+
+.center > h2 {
+  margin: 0;
+}
+
+.monthly {
+  margin: 0 auto 5%;
+}
+.form {
+  background-color: var(--darkgray);
+  padding: 45px 25px; 
+  margin: 5% auto 7%;
+  width: 500px;
+  box-shadow: 0 6px 20px rgba(173, 173, 173, 0.295);
+  justify-content: center;
+  border-radius: 8px;
+  
+}
+
+.form > p {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form > p > label {
+  color: var(--white);
+  font-weight: bold;
+  font-size: larger;
+}
+
+.form > p > span {
+  color: var(--white);
+  font-weight: bold;
+  font-size: larger;
+}
+
+p > input {
+  width: 264px;
+}
+.__PrivateStripeElement-input {
+  background-color: var(--white) !important;
+}
+
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  max-width: 1440px;
+  background-color: var(--darkgray);
+  color: var(--white);
+  margin: 50px auto;
+  padding: 50px;
+  border-radius: 18px;
+}
+
+.left {
+  padding: 3.5rem;
+}
+.cost {
+  font-size: 1.25rem;
+  font-variant: small-caps;
+  font-weight: lighter;
+  border: 3.5px solid var(--white);
+  border-radius: 30px;
+  padding: 2.5px 35px;
+  width: fit-content;
+}
+
+.title {
+  font-size: 4rem;
+  font-variant: small-caps;
+  font-weight: bold;
+  margin-bottom: .7rem;
+  color: var(--red);
+}
+
+.content {
+  line-height: 1.75rem;
+  letter-spacing: 0.09rem;
+  padding: 10px 0;
+  border-radius: 18px;
+}
+
+.sign-up {
+  margin: 2rem 0;
+  width: 125px;
+  height: 55px;
+  border-radius: 8px;
+  justify-self: flex-end;
+  color: var(--white);
+}
+
+.right-title {
+  font-size: 8rem;
+  font-variant: small-caps;
+  line-height: 7rem;
+  margin-bottom: 3rem;
+  opacity: 0.8;
+}
+
+.bold {
+  font-weight: bolder;
+}
+
+.subtitle {
+  color: var(--red);
+  font-size: 1rem;
+}
+
+.right {
+  width: 100%;
+  min-height: 600px;
+  max-height: 1250px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  text-align: left;
+  padding: 0 3rem;
+  padding-top: 14rem;
+  font-size: 2rem;
+}
+
+.right::after {
+  content: "";
+  background-image: url("/static/images/pe.d7527de3db85.jpeg");
+  opacity: 0.15;
+  top: 0;
+  left: 0;
+  bottom: 0px;
+  right: 0;
+  position: absolute;
+  /* Set a specific height */
+  min-height: 600px;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: bottom;
+}
+
+@media screen and (max-width: 995px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    padding: 0;
+    contain: content;
+  }
+  .title {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  .right {
+    padding: 5px 15%;
+  }
+  .left {
+    padding: 50px 15%;
+  }
+
+  .right-title {
+    font-size: 4rem;
+    line-height: 3rem;
+  }
+}
