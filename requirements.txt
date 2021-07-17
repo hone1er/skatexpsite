@@ -7,6 +7,8 @@ chardet==3.0.4
 Click==7.0
 colorama==0.4.4
 distlib==0.3.2
+dj-database-url==0.5.0
+dj-static==0.0.6
 Django==3.2.3
 django-ckeditor==6.1.0
 django-js-asset==1.2.2
@@ -42,6 +44,7 @@ requests==2.22.0
 six==1.15.0
 splinter==0.14.0
 sqlparse==0.4.1
+static3==0.7.0
 stripe==2.32.1
 toml==0.9.6
 ujson==4.0.2
