@@ -213,6 +213,16 @@ h5 {
   img {
     max-width: 150px;
   }
+  .value-header {
+height: 150px;
+font-size: 2.5rem;
+  }
+
+  .value-box {
+    float: unset;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (max-width: 550px) {
