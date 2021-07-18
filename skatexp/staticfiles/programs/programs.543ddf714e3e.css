@@ -22,7 +22,6 @@ html body {
   background-color: var(--darkgray);
   padding: 45px 25px; 
   margin: 5% auto 7%;
-  width: 500px;
   box-shadow: 0 6px 20px rgba(173, 173, 173, 0.295);
   justify-content: center;
   border-radius: 8px;

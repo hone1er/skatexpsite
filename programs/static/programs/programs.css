@@ -161,6 +161,10 @@ p > input {
     padding: 0;
     contain: content;
   }
+  .form {
+    width: 100%;
+  }
+  
   .title {
     font-size: 2.5rem;
     text-align: center;
