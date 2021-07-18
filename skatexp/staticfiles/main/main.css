@@ -471,10 +471,24 @@ hr.vertical {
     font-variant: small-caps !important;
     font-size: 1.1rem;
   }
+  .hero-header {
+    font-size: 5.8rem;
+  }
 }
 
 @media screen and (max-width: 600px) {
   .text-card {
     height: fit-content;
+  }
+
+  .hero-link {
+    width: 150px;
+  }
+  .hero-button {
+    width: 100%;
+  }
+
+  .inner-card {
+    padding: 5px;
   }
 }
