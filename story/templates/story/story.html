@@ -25,7 +25,7 @@
           <a class="link" href="{% url 'story-detail' story.id  %}">
             <li class="story-item">
               <div class="img">
-                <img src="{{ story.image.url }}" alt="{{ story.image_alt }}" />
+                <img src="{{ MEDIA_ROOT }}{{ story.image.url }}" alt="{{ story.image_alt }}" />
               </div>
               <div class="title">{{ story.title }}</div>
               <div class="auth">
