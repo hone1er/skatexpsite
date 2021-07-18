@@ -50,7 +50,7 @@
           {% for post in posts|slice:"3:"%}
           <a class="old-link" href="{% url 'post-detail' post.id  %}">
           <li class="old-post-item">
-            <div class="old-img"><img src="{{ post.image.url }}" alt="{{ post.image_alt }}"></div>
+            <div class="old-img"><img src="{{MEDIA_ROOT}}{{ post.image.url }}" alt="{{ post.image_alt }}"></div>
             <div class="old-title">{{ post.title }}</div>
             <div class="old-auth">
               by {{ post.author }} on {{ post.date_posted }}
@@ -75,7 +75,7 @@
         <div class="post-preview">{{ post.content| safe | slice:":350" }}....</div>
       </div>
       <div class="image-wrap latest-image-wrap">
-        <img src="{{ post.image.url }}" alt="">
+        <img src="{{ MEDIA_ROOT }}{{ post.image.url }}" alt="">
       </div>
     </div>
   </a>
@@ -91,7 +91,7 @@
           by {{ post.author }} on {{ post.date_posted }}
         </div>
         <div class="image-wrap">
-          <img class="post-img" src="{{ post.image.url }}" alt="">
+          <img class="post-img" src="{{ MEDIA_ROOT }}{{ post.image.url }}" alt="">
           <div class="post-preview">{{ post.content| safe |slice:":200" }}....</div>
         </div>
       </div>
@@ -107,7 +107,7 @@
           by {{ post.author }} on {{ post.date_posted }}
         </div>
         <div class="image-wrap">
-          <img class="post-img" src="{{ post.image.url }}" alt="">
+          <img class="post-img" src="{{ MEDIA_ROOT }}{{ post.image.url }}" alt="">
           <div class="post-preview">{{ post.content| safe |slice:":200" }}....</div>
         </div>
       </div>

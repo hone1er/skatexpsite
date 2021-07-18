@@ -14,7 +14,7 @@
     {% if staff %} {% for staffmember in staff %}
     <a class="staff-link" href="{% url 'staff-detail' staffmember.id  %}">
       <div class="staff-member">
-        <img class="staff-img" src="{{ staffmember.image.url }}" alt="" />
+        <img class="staff-img" src="{{MEDIA_ROOT}}{{ staffmember.image.url }}" alt="" />
         <div class="staff-name">
           {{ staffmember.first_name }}
           <span class="staff-last"> {{ staffmember.last_name }}</span>
