@@ -10,29 +10,13 @@
       <img id="profile-pic" src="{% static 'images/parrot.png' %}" />
       <div id="left-wrapper-header">
         <h3>Keep Us Building!</h3>
-        <h5>One Time Donation</h5>
+        <h5>One Time Or Monthly Donation</h5>
       </div>
       <div style="clear: left"></div>
       <hr />
       <!-- Add form here -->
       <div class="amount-options">
         <label for="amount">Choose Amount:</label>
-        <div class="button-div">
-          <button
-            class="amount btn-primary"
-            value="5"
-            onclick="setValue(this)"
-          >
-            $5
-          </button>
-          <button
-            class="amount btn-primary"
-            value="10"
-            onclick="setValue(this)"
-          >
-            $10
-          </button>
-        </div>
         <div class="button-div">
           <button
             class="amount btn-primary"
@@ -47,6 +31,22 @@
             onclick="setValue(this)"
           >
             $50
+          </button>
+        </div>
+        <div class="button-div">
+          <button
+            class="amount btn-primary"
+            value="100"
+            onclick="setValue(this)"
+          >
+            $100
+          </button>
+          <button
+            class="amount btn-primary"
+            value="250"
+            onclick="setValue(this)"
+          >
+            $250
           </button>
         </div>
       </div>
@@ -64,6 +64,7 @@
             placeholder="other amount: $"
           />
         </div>
+
         <div class="form-row">
           <div class="form-field-6">
             <input required type="text" name="email" placeholder="email..." />
@@ -80,7 +81,6 @@
           </div>
         </div>
 
-
         <div class="form-row">
           <label for="card-element"> Credit or debit card </label>
           <div id="card-element">
@@ -90,16 +90,16 @@
           <!-- Used to display form errors. -->
           <div id="card-errors" role="alert"></div>
         </div>
-
+        <br>
+        <select name="frequency" class="col-sm-2">
+  
+          <option value="one-time">one-time</option>
+          <option value="monthly">monthly</option>
+        </select>
         <div style="clear: left"></div>
         <hr />
 
-        <input
-          class="myButton"
-          type="submit"
-          value="Submit Payment"
-          name=""
-        />
+        <input class="myButton" type="submit" value="Submit Payment" name="" />
       </form>
       <div class="non-profit">
         *SKATE XP is a 501c3 tax-exempt organization. Tax ID 85-0741700
