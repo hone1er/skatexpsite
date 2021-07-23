@@ -137,17 +137,22 @@
 
     document
       .getElementById("id_phone_0")
-      .setAttribute("placeholder", "Parent Phone Number");
+      .setAttribute("placeholder", "Parent Phone Number")
     document
       .getElementById("id_student_phone_0")
       .setAttribute("placeholder", "Student Phone Number");
-      document
+      
+    var ext = document
       .getElementById("id_phone_1")
-      .setAttribute("placeholder", "Extension (Optional)");
-    document
+      
+    var stu_ext = document
       .getElementById("id_student_phone_1")
-      .setAttribute("placeholder", "Extension (Optional)");
-     
+    
+    var labels = document.getElementsByClassName('phone-field-ext');
+    for (let label of labels) label.style.display = 'none'
+    ext.style.display = 'none';
+    stu_ext.style.display = 'none';
+      
   </script>
 </div>
 {% endblock %}

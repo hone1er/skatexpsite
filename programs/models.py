@@ -27,6 +27,8 @@ class Customer(models.Model):
     student_phone = PhoneField(blank=True)
     student_grade = models.CharField(max_length=20)
     student_address = models.CharField(max_length=254)
+    student_id = models.CharField(max_length=254)
+
 
     def __str__(self):
         return self.student

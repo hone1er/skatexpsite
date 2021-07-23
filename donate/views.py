@@ -31,7 +31,7 @@ def charge(request):
 			name=request.POST['name'],
 			source=request.POST['stripeToken']
 			)
-		for item in stripe.Price.list()["data"]:
+		for item in stripe.Price.list(product="prod_JoiTIagNrRn2Vw")["data"]:
 			if item.unit_amount == amount*100:
 				price_id = item.id
 				break
