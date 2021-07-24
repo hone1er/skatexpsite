@@ -48,7 +48,10 @@ def charged(request):
         customer_db.save()
 
         stripe_id = request.POST.get("stripe_id")
-        cost = request.POST.get("cost")
+        cost = stripe.Price.retrieve(
+            stripe_id,
+        ).unit_amount
+        # cost = request.POST.get("cost")
         title = request.POST.get("title")
         print("Data:", request.POST)
 
@@ -70,17 +73,17 @@ def charged(request):
         # else:
         charge = stripe.Charge.create(
             customer=customer,
-            amount=math.floor(float(cost)) * 100,
+            amount=cost,
             currency="usd",
             description=f"{customer_db.parent} signed up for {title}",
         )
         email = EmailMessage(
-                f"You signed up for the {title}!",
-                f"Thank you for signing up for the {title}! If you have any questions, reach out to us anytime at info@skatexp.org!",
-                "skatexp.org" +'<info@skatexp.org>',
-                [customer_db.parent_email],
-                headers = {'Reply-To': 'info@skatexp.org' }
-            )
+            f"You signed up for the {title}!",
+            f"Thank you for signing up for the {title}! If you have any questions, reach out to us anytime at info@skatexp.org!",
+            "skatexp.org" + "<info@skatexp.org>",
+            [customer_db.parent_email],
+            headers={"Reply-To": "info@skatexp.org"},
+        )
         email.send()
 
     return redirect(reverse("successProgram", args=[title]))
