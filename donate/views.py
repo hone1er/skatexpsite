@@ -21,45 +21,58 @@ def donate(request):
 
 
 def charge(request):
-	if request.method == "POST":
-		print("Data:", request.POST)
-		amount = int(request.POST["amount"])
-		frequency = request.POST["frequency"]
-		price_id = None
-		customer = stripe.Customer.create(
-			email=request.POST['email'],
-			name=request.POST['name'],
-			source=request.POST['stripeToken']
-			)
-		for item in stripe.Price.list(product="prod_JoiTIagNrRn2Vw")["data"]:
-			if item.unit_amount == amount*100:
-				price_id = item.id
-				break
-		if frequency == "monthly":
-			# check if price exist, if not create a subscription with new price
-			if price_id:
-				subscription = stripe.Subscription.create(
-					customer=customer.id,
-					items=[{"price": price_id},],)
+    if request.method == "POST":
+        print("Data:", request.POST)
+        fund = request.POST["fund"]
+        fund_prod_id = {
+            "general": "prod_JvTJsoxDmWVMP4",
+            "building": "prod_JvTKrTkJmWobAN",
+            "scholarship": "prod_JvTKYpDfehJYe5",}
+        print(fund_prod_id[fund])
+        amount = int(request.POST["amount"])
+        frequency = request.POST["frequency"]
+        price_id = None
+        customer = stripe.Customer.create(
+            email=request.POST["email"],
+            name=request.POST["name"],
+            source=request.POST["stripeToken"],
+        )
+        print(stripe.Price.list(product=fund_prod_id[fund]))
+        for item in stripe.Price.list(product=fund_prod_id[fund])["data"]:
+            if item.unit_amount == amount * 100:
+                price_id = item.id
+                break
+        if frequency == "monthly":
+            # check if price exist, if not create a subscription with new price
+            if price_id:
+                subscription = stripe.Subscription.create(
+                    customer=customer.id,
+                    items=[
+                        {"price": price_id},
+                    ],
+                )
 
-			else:
-				price = stripe.Price.create(
-					unit_amount=amount * 100,
-					currency="usd",
-					recurring={"interval": "month"},
-					product="prod_JoiTIagNrRn2Vw",
-				)
-				subscription = stripe.Subscription.create(
-					customer=customer.id,
-					items=[{"price": stripe.Price.retrieve(price.id)},],)
-		else:
-			charge = stripe.Charge.create(
-				customer=customer,
-				amount=amount*100,
-				currency='usd',
-				description=f"Donation to Skate XP - {request.POST['name']}"
-				)
-	return redirect(reverse("success", args=[amount]))
+            else:
+                price = stripe.Price.create(
+                    unit_amount=amount * 100,
+                    currency="usd",
+                    recurring={"interval": "month"},
+                    product=fund_prod_id[fund],
+                )
+                subscription = stripe.Subscription.create(
+                    customer=customer.id,
+                    items=[
+                        {"price": stripe.Price.retrieve(price.id)},
+                    ],
+                )
+        else:
+            charge = stripe.Charge.create(
+                customer=customer,
+                amount=amount * 100,
+                currency="usd",
+                description=f"Donation to Skate XP: {fund} fund - {request.POST['name']}",
+            )
+    return redirect(reverse("success", args=[amount]))
 
 
 def successMsg(request, args):

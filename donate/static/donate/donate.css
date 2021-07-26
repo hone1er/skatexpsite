@@ -22,6 +22,11 @@ label {
   font-family: "Inter", sans-serif;
 }
 
+.label{
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
 hr {
   color: #fff;
   background-color: #fff;
