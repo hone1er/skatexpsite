@@ -15,6 +15,7 @@ html body {
   margin: 0;
 }
 
+
 .sign-up {
   font-variant: small-caps;
   font-weight: bold;
@@ -59,6 +60,16 @@ p > input {
 }
 .__PrivateStripeElement-input {
   background-color: var(--white) !important;
+}
+
+label[for=id_food_program] {
+  margin-top: 2rem;
+  font-size: .9rem !important;
+}
+
+.helptext {
+  font-size: .8rem !important;
+  font-weight: lighter !important;
 }
 
 

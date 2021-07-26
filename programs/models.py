@@ -18,7 +18,7 @@ class Program(models.Model):
         return self.title
 
 
-class Customer(models.Model):
+class Hotdogger(models.Model):
     parent = models.CharField(max_length=100)
     phone = PhoneField(blank=True)
     parent_email = models.EmailField(max_length=254)
@@ -28,6 +28,22 @@ class Customer(models.Model):
     student_grade = models.CharField(max_length=20)
     student_address = models.CharField(max_length=254)
     student_id = models.CharField(max_length=254)
+
+
+    def __str__(self):
+        return self.student
+    
+class PeProgram(models.Model):
+    parent = models.CharField(max_length=100)
+    phone = PhoneField(blank=True)
+    parent_email = models.EmailField(max_length=254)
+    student = models.CharField(max_length=100)
+    student_email = models.EmailField(max_length=254)
+    student_phone = PhoneField(blank=True)
+    student_grade = models.CharField(max_length=20)
+    student_address = models.CharField(max_length=254)
+    student_id = models.CharField(max_length=254)
+    food_program = models.BooleanField(verbose_name="Payment Assistance", help_text="**Only check this box if you are enrolled in the free lunch program. We will need to verify enrollement or full price will be charged at the end of the semester.", )
 
 
     def __str__(self):
