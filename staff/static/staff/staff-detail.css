@@ -9,6 +9,7 @@ body {
 }
 .staff-image {
   max-width: 400px;
+  max-height: 442px;
   border-radius: 50%;
   margin: 0 auto;
 }
