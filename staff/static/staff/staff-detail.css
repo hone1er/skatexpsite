@@ -1,5 +1,5 @@
 body {
-  background-color: var(--black);
+  background-color: #0b7285;
 }
 .image-wrap {
   display: flex;
@@ -33,7 +33,7 @@ body {
 .staff-para > p {
   max-width: 675px;
   margin: auto;
-  text-align: center;
+  text-align: left;
   padding: 10px;
 }
 

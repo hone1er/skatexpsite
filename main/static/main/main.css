@@ -12,7 +12,7 @@
 
 body {
   font-family: var(--font-family-mono);
-  background-color: var(--white);
+  background-color: #0b7285;
 }
 
 .btn-primary {

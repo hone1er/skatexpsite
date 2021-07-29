@@ -1,5 +1,5 @@
 body {
-    background-color: var(--white);
+    background-color: #0b7285;
 }
 
 .header-1 {
@@ -11,6 +11,10 @@ body {
 
 }
 
+.container {
+    color: var(--white);
+}
+
 .bold {
     font-weight: bold;
 }
@@ -20,7 +24,7 @@ body {
 }
 .title {
     font-size: .8rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .auth {
