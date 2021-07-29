@@ -1,7 +1,7 @@
 body {
   font-family: "Roboto", sans-serif;
   font-size: 18px;
-  background-color: var(--white);
+  background-color: #0b7285;
 }
 .container {
   border-top: 1px solid #dadce0;

@@ -24,6 +24,10 @@ body {
   border-color: var(--darkred);
 }
 
+.dropdown-item {
+  font-variant: small-caps;
+}
+
 .cap {
   text-transform: uppercase;
 }
@@ -80,6 +84,10 @@ nav {
   color: var(--red);
   font-size: 2.5rem;
   font-weight: bold;
+}
+
+.xp-footer {
+  font-size: 1.7rem !important;
 }
 
 .hero {
@@ -265,6 +273,10 @@ footer {
   color: var(--white);
 }
 
+.inner-footer > h3 {
+  font-variant: small-caps;
+}
+
 hr.vertical {
   height: 75px; /* you might need some positioning for this to work, see other questions about 100% height */
   width: 0;
@@ -390,9 +402,8 @@ hr.vertical {
 .card-button {
   width: 100%;
   height: 50px;
-  background-color: transparent;
   border-width: 2px;
-  color: var(--black);
+  color: var(--white);
   font-weight: 600;
   box-shadow: 2px 2px 6px 3px rgba(85, 52, 52, 0.247);
 }
