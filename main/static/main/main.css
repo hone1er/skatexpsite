@@ -4,7 +4,7 @@
 
   --white: #f1f3f5;
   --black: #14171a;
-  --blue: #c5f6fa;
+  --blue: #0b7285;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
   --font-family-mono: "Roboto", sans-serif;
   --darkgray: #212529;
@@ -12,7 +12,7 @@
 
 body {
   font-family: var(--font-family-mono);
-  background-color: #0b7285;
+  background-color: var(--blue);
 }
 
 .btn-primary {
@@ -128,6 +128,7 @@ nav {
   width: 170px;
   padding: 10px;
   font-variant: small-caps;
+  border-radius: 8px;
 }
 
 .contribute {
@@ -404,7 +405,6 @@ hr.vertical {
   height: 50px;
   border-width: 2px;
   color: var(--white);
-  font-weight: 600;
   box-shadow: 2px 2px 6px 3px rgba(85, 52, 52, 0.247);
 }
 

@@ -14,7 +14,10 @@ body {
 }
 
 .cross-link {
-  color: var(--white);
+  color: var(--darkred);
+}
+.cross-link:hover {
+  color: var(--red);
 }
 
 .outer-wrap {

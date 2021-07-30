@@ -8,6 +8,7 @@ body {
   background-color: var(--white);
   box-shadow: 0 0px 25px 5px rgba(68, 68, 68, 0.185);
   padding: 50px 25px;
+  border-radius: 8px;
 }
 
 .title-wrap {

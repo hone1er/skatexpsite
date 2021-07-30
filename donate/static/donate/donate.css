@@ -202,6 +202,7 @@ input::placeholder {
   transition: 0.3s;
   height: 47px;
   box-shadow: 0 1px 3px 0 #ff6969b9;
+  font-variant: small-caps;
 
 }
 .myButton:hover {
