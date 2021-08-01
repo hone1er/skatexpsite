@@ -75,7 +75,8 @@ iframe {
 }
 
 .subbutton {
-  width: 200px;
+  width: 150px;
+  height: 35px;
   align-self: flex-end;
   position: relative;
   justify-self: flex-end;
@@ -84,6 +85,11 @@ iframe {
   color: var(--white);
   border-radius: 8px;
   font-variant: small-caps;
+  border: none;
+}
+
+.subbutton:hover {
+  background-color: var(--darkred);
 }
 
 label {

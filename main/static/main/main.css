@@ -35,6 +35,9 @@ body {
 .sign-up {
   background-color: var(--red);
   border-color: var(--red);
+  width: 120px;
+    height: 45px;
+    font-size: 1.2rem;
 }
 
 .btn {
@@ -336,7 +339,7 @@ hr.vertical {
     height: 300px;
   }
   .offerings h1 {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   .title-card {
     font-size: 150%;
@@ -345,7 +348,8 @@ hr.vertical {
 
 @media screen and (max-width: 470px) {
   .offerings h1 {
-    font-size: 1.05rem;
+    font-size: 1.18rem;
+    margin: 25px 0;
   }
   .text-card {
     height: 400px;
