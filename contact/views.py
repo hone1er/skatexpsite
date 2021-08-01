@@ -41,7 +41,7 @@ def contact(request):
                 "New contact form submission",
                 content,
                 "skatexp.org" +'<info@skatexp.org>',
-                ['hone@skatexp.org'],
+                ['info@skatexp.org'],
                 headers = {'Reply-To': contact_email }
             )
             email.send()
