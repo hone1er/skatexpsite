@@ -13,7 +13,7 @@ from django.core.mail import EmailMessage
 
 
 def hotdoggers(request):
-    context = {"programs": Program.objects.filter(title="hotdoggers")}
+    context = {"programs": Program.objects.filter(title="hot doggers")}
     return render(request, "programs/programs_detail.html", context)
 
 
@@ -43,7 +43,7 @@ def charged(request):
         print("Data:", request.POST)
         title = request.POST.get("title")
         customer_db = None
-        if title == "hotdoggers":
+        if title == "hot doggers":
             print("hotdog waiver")
             customer_db = Hotdogger()
             customer_db.food_program = False
