@@ -28,6 +28,8 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path('contact', include('contact.urls')),
     path('donate', include('donate.urls')),
+    path('skatespotters', include('skatespotters.urls')),
+
 
 
     

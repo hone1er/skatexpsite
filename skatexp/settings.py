@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     'news.apps.NewsConfig',
     'story.apps.StoryConfig',
+    'skatespotters.apps.SkatespottersConfig',
     'programs.apps.ProgramsConfig',
     'staff.apps.StaffConfig',
     'donate.apps.DonateConfig',

@@ -1,0 +1,93 @@
+{% extends "main/base.html" %}{% load static %}{% block styles %}
+<link rel="stylesheet" href="{% static 'story/story.css' %}" />
+<link rel="stylesheet" href="{% static 'skatespotters/skatespotters.css' %}"/>
+
+{% endblock %} {% block title %}- news{% endblock %}{% block content %}
+<div class="container">
+    <h1 class="header">Skatespotters</h1>
+    <p class="header-1">
+      Skatespotters is a group of local skaters organized by Skate XP to promote development of new skate spots and
+      improve existing skateparks in Berkeley, Oakland, and surrounding cities. Our current activities
+      include developing plans for a skatespot at the James Kenney recreational Center (Berkeley),
+      working on improvements at the Bella Vista Skatespot (Oakland), contributing skate obstacles to
+      San Antonio Park (Oakland), advocating for improvements at the Berkeley Skatepark, and
+      activating the skateboarding (skating) community to be engaged in the process of creating new
+      skate spots and parks.
+    </p>
+    
+    <p class="header-1">We communicate with city officials in order to raise awareness on the benefits of skating
+      and the needs of skaters, and to identify ways to develop new skate facilities. If these
+      activities interest you, we need your help, so please join us.</p>
+    
+    <div class="frontpage">
+      <div class="fp-cell fp-cell--1">
+        <hr>
+        <div class="fp-item story-wrap">
+            <div class="carousel-wrap">
+                <h1 class="team-header header">Projects</h1>
+                <div
+                  id="carouselExampleControls"
+                  class="carousel carousel-dark slide"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="{% static 'images/kenny1.png' %}" alt="" class="img-fluid" />
+                      <div class="carousel-caption">
+                        <h3>James Kenney</h3>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{% static 'images/kenny2.png' %}" alt="" class="img-fluid" />
+                      <div class="carousel-caption">
+                        <h3>James Kenney</h3>
+                        <p>space allocated for new skatepark</p>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{% static 'images/kenny3.jpeg' %}" alt="" class="img-fluid" />
+                      <div class="carousel-caption">
+                        <h3>James Kenney</h3>
+                        <p>inspired by Junipero elementary</p>
+
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{% static 'images/kenny4.png' %}" alt="" class="img-fluid" />
+                      <div class="carousel-caption">
+                        <h3>James Kenney</h3>
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{% static 'images/kenny5.png' %}" alt="" class="img-fluid" />
+                      <div class="carousel-caption">
+                        <h3>James Kenney</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev"
+                  >
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next"
+                  >
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+{% endblock content %}
