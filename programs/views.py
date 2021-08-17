@@ -46,6 +46,7 @@ def charged(request):
         if title == "hotdoggers":
             print("hotdog waiver")
             customer_db = Hotdogger()
+            customer_db.food_program = False
         else:
             customer_db = PeProgram()
             customer_db.food_program = request.POST.get("food_program") == "on"
@@ -66,14 +67,14 @@ def charged(request):
             name=request.POST["parent"],
             source=request.POST["stripeToken"],
         )
+
+        
         if customer_db.food_program == False:
             
             cost = stripe.Price.retrieve(
                 stripe_id,
             ).unit_amount
             # cost = request.POST.get("cost")
-
-
             
             charge = stripe.Charge.create(
                 customer=customer,
