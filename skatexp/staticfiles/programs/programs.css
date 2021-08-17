@@ -8,7 +8,7 @@ html body {
 }
 .center {
   margin-top: 10%;
-  text-align: center  ;
+  text-align: center;
 }
 
 .center > h2 {
@@ -20,13 +20,12 @@ html body {
 }
 .form {
   background-color: var(--darkgray);
-  padding: 45px 25px; 
+  padding: 45px 25px;
   margin: 5% auto 7%;
   width: 500px;
   box-shadow: 0 6px 20px rgba(173, 173, 173, 0.295);
   justify-content: center;
   border-radius: 8px;
-  
 }
 
 .form > p {
@@ -55,18 +54,27 @@ p > input {
   background-color: var(--white) !important;
 }
 
+label[for="id_food_program"] {
+  margin-top: 2rem;
+  font-size: 0.9rem !important;
+}
+
+.helptext {
+  font-size: 0.8rem !important;
+  font-weight: lighter !important;
+}
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  max-width: 1440px;
+  max-width: 1280px;
   background-color: var(--darkgray);
   color: var(--white);
   margin: 50px auto;
   padding: 50px;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .left {
@@ -86,7 +94,7 @@ p > input {
   font-size: 4rem;
   font-variant: small-caps;
   font-weight: bold;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
   color: var(--red);
 }
 
@@ -94,7 +102,7 @@ p > input {
   line-height: 1.75rem;
   letter-spacing: 0.09rem;
   padding: 10px 0;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 .sign-up {
@@ -104,6 +112,9 @@ p > input {
   border-radius: 8px;
   justify-self: flex-end;
   color: var(--white);
+  font-variant: small-caps;
+  letter-spacing: 0.1rem;
+  font-size: 1.25rem;
 }
 
 .right-title {
@@ -164,7 +175,7 @@ p > input {
   .form {
     width: 100%;
   }
-  
+
   .title {
     font-size: 2.5rem;
     text-align: center;

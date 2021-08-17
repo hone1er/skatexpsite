@@ -4,7 +4,7 @@ html {
 body {
   background-color: var(--blue);
   background-color: #5c7f94;
-  background-image: linear-gradient(180deg, #0b7285 23%, #97D9E1 35%, var(--white) 65%, #97D9E1 100%);
+  background-image: linear-gradient(180deg, #0b7285 55%, #97D9E1 65%, var(--white) 75%, #97D9E1 100%);
   
   
 
@@ -14,7 +14,10 @@ body {
 }
 
 .cross-link {
-  color: var(--white);
+  color: var(--darkred);
+}
+.cross-link:hover {
+  color: var(--red);
 }
 
 .outer-wrap {
@@ -138,11 +141,14 @@ h5 {
   align-self: center !important;
 }
 
+.value-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .value-box {
-  margin: 200px 0;
   justify-content: space-evenly;
-  border-radius: 8px;
-  box-shadow: 0 3px 20px var(--darkgray);
   width: fit-content;
 }
 
@@ -169,7 +175,7 @@ h5 {
 }
 
 .value-img {
-  max-width:360px;
+  max-width:100%;
   max-height:420px;
   border-radius: 8px;
 }
@@ -241,5 +247,10 @@ font-size: 2.5rem;
     flex-direction: column !important;
     justify-content: center;
     align-items: center;
+  }
+
+  .value-img {
+    max-width:100%;
+    max-height:100%;
   }
 }

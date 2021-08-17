@@ -1,5 +1,5 @@
 body {
-    background-color: var(--white);
+    background-color: #0b7285;
 }
 
 .header-1 {
@@ -11,6 +11,10 @@ body {
 
 }
 
+.container {
+    color: var(--white);
+}
+
 .bold {
     font-weight: bold;
 }
@@ -20,11 +24,11 @@ body {
 }
 .title {
     font-size: .8rem;
-    color: var(--black);
+    color: var(--white);
 }
 
 .auth {
-    color: var(--darkgray);
+    color: var(--red);
     font-size: .65rem;
 }
 
@@ -46,4 +50,11 @@ img {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: var(--darkgray);
+    padding: 5%;
+    border-radius: 8px;
+}
+
+.story-item {
+    list-style: none;
 }

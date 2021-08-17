@@ -1,5 +1,5 @@
 body {
-  background-color: var(--black);
+  background-color: #0b7285;
 }
 .image-wrap {
   display: flex;
@@ -9,6 +9,7 @@ body {
 }
 .staff-image {
   max-width: 400px;
+  max-height: 442px;
   border-radius: 50%;
   margin: 0 auto;
 }
@@ -32,7 +33,7 @@ body {
 .staff-para > p {
   max-width: 675px;
   margin: auto;
-  text-align: center;
+  text-align: left;
   padding: 10px;
 }
 

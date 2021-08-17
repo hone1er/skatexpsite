@@ -4,7 +4,7 @@
 
   --white: #f1f3f5;
   --black: #14171a;
-  --blue: #c5f6fa;
+  --blue: #0b7285;
   --font-family-sans-serif: "Montserrat", sans-serif !important;
   --font-family-mono: "Roboto", sans-serif;
   --darkgray: #212529;
@@ -12,7 +12,7 @@
 
 body {
   font-family: var(--font-family-mono);
-  background-color: var(--white);
+  background-color: var(--blue);
 }
 
 .btn-primary {
@@ -24,6 +24,10 @@ body {
   border-color: var(--darkred);
 }
 
+.dropdown-item {
+  font-variant: small-caps;
+}
+
 .cap {
   text-transform: uppercase;
 }
@@ -31,6 +35,13 @@ body {
 .sign-up {
   background-color: var(--red);
   border-color: var(--red);
+  width: 120px;
+    height: 45px;
+    font-size: 1.2rem;
+}
+
+.btn {
+  font-variant: small-caps;
 }
 
 .inner-nav {
@@ -77,6 +88,10 @@ nav {
   font-weight: bold;
 }
 
+.xp-footer {
+  font-size: 1.7rem !important;
+}
+
 .hero {
   width: 100%;
   height: 95vh;
@@ -115,6 +130,7 @@ nav {
   width: 170px;
   padding: 10px;
   font-variant: small-caps;
+  border-radius: 8px;
 }
 
 .contribute {
@@ -260,6 +276,10 @@ footer {
   color: var(--white);
 }
 
+.inner-footer > h3 {
+  font-variant: small-caps;
+}
+
 hr.vertical {
   height: 75px; /* you might need some positioning for this to work, see other questions about 100% height */
   width: 0;
@@ -318,7 +338,7 @@ hr.vertical {
     height: 300px;
   }
   .offerings h1 {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   .title-card {
     font-size: 150%;
@@ -327,7 +347,8 @@ hr.vertical {
 
 @media screen and (max-width: 470px) {
   .offerings h1 {
-    font-size: 1.05rem;
+    font-size: 1.18rem;
+    margin: 25px 0;
   }
   .text-card {
     height: 400px;
@@ -385,10 +406,8 @@ hr.vertical {
 .card-button {
   width: 100%;
   height: 50px;
-  background-color: transparent;
   border-width: 2px;
-  color: var(--black);
-  font-weight: 600;
+  color: var(--white);
   box-shadow: 2px 2px 6px 3px rgba(85, 52, 52, 0.247);
 }
 
