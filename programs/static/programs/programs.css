@@ -59,6 +59,10 @@ label[for="id_food_program"] {
   font-size: 0.9rem !important;
 }
 
+label[for="id_student"] {
+  margin-top: 2.5rem;
+}
+ 
 .helptext {
   font-size: 0.8rem !important;
   font-weight: lighter !important;
