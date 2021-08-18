@@ -43,6 +43,8 @@ def charged(request):
         print("Data:", request.POST)
         title = request.POST.get("title")
         customer_db = None
+
+        # save the customer in the Django DB
         if title == "hot doggers":
             print("hotdog waiver")
             customer_db = Hotdogger()
@@ -58,23 +60,23 @@ def charged(request):
         customer_db.student_phone = request.POST.get("student_phone_0")
         customer_db.student_grade = request.POST.get("student_grade")
         customer_db.student_address = request.POST.get("student_address")
+        customer_db.student_id = request.POST.get("student_id")
         customer_db.save()
         stripe_id = request.POST.get("stripe_id")
 
-        
+        # create the customer in stripe database
         customer = stripe.Customer.create(
             email=request.POST["parent_email"],
             name=request.POST["parent"],
             source=request.POST["stripeToken"],
         )
 
-        
+        # Check if student is enrolled in food program, if not, charge them for the program, otherwise it is no charge
         if customer_db.food_program == False:
             
             cost = stripe.Price.retrieve(
                 stripe_id,
             ).unit_amount
-            # cost = request.POST.get("cost")
             
             charge = stripe.Charge.create(
                 customer=customer,
@@ -82,6 +84,8 @@ def charged(request):
                 currency="usd",
                 description=f"{customer_db.parent} signed up for {title}",
             )
+
+        # send confirmation email
         email = EmailMessage(
             f"You signed up for the {title}!",
             f"Thank you for signing up for the {title}! If you have any questions, reach out to us anytime at info@skatexp.org!",

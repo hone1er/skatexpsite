@@ -9,47 +9,40 @@
       {% for data in program %}
       <div class="container-fluid center">
         <h1 class="title">{{ data.title }}</h1>
-        <h2>${{ data.cost }}</h2>
+        <h2 id="cost_header" value="{{data.cost}}">${{ data.cost }}</h2>
         {% if data.title == "pe waiver program" %}
         <p class="monthly">/per semester</p>
         {% else %}
         <p class="monthly">4 week session</p>
         {% endif %}
       </div>
-      <form
-        action="{% url 'charged' %}"
-        method="post"
-        class="form"
-        id="payment-form"
-      >
+      <form action="{% url 'charged' %}" method="post" class="form" id="payment-form">
         {% csrf_token %} {{form.as_p}}
 
         <hr />
         <input type="hidden" name="title" value="{{ data.title }}" />
 
         <input type="hidden" name="stripe_id" value="{{ data.stripe_id }}" />
-        <input type="hidden" name="cost" value="{{ data.cost }}" />
+        <input type="hidden" name="cost" id="cost_input" value="{{ data.cost }}" />
         <p>
-          <div class="form-row">
-            <label for="card-element"> Credit or debit card </label>
-            <div id="card-element">
-              <!-- A Stripe Element will be inserted here. -->
-            </div>
-  
-            <!-- Used to display form errors. -->
-            <div id="card-errors" role="alert"></div>
+        <div class="form-row">
+          <label for="card-element"> Credit or debit card </label>
+          <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
           </div>
-  
-          <div style="clear: left"></div>
-          <hr />
-  
-          <input
-            class="myButton btn btn-submit"
-            style="background-color: #f03e3e; color: #f8f8f8"
-            type="submit"
-            value="submit payment"
-            name=""
-          />
+
+          <!-- Used to display form errors. -->
+          <div id="card-errors" role="alert"></div>
+        </div>
+
+        <div style="clear: left"></div>
+        <hr />
+        <p class="total">total</p>
+        <hr class="line">
+        <p class="total" id="total">${{data.cost}}</p>
+
+        <input class="myButton btn btn-submit" style="background-color: #f03e3e; color: #f8f8f8" type="submit"
+          value="submit payment" name="" />
         </p>
       </form>
       {%endfor%}
@@ -141,18 +134,20 @@
     document
       .getElementById("id_student_phone_0")
       .setAttribute("placeholder", "Student Phone Number");
-      
+
     var ext = document
       .getElementById("id_phone_1")
-      
+
     var stu_ext = document
       .getElementById("id_student_phone_1")
-    
+
     var labels = document.getElementsByClassName('phone-field-ext');
     for (let label of labels) label.style.display = 'none'
     ext.style.display = 'none';
     stu_ext.style.display = 'none';
-    
+
+
+
   </script>
 </div>
 {% endblock %}

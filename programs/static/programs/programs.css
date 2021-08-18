@@ -90,6 +90,17 @@ label[for="id_food_program"] {
   width: fit-content;
 }
 
+.total {
+  color: var(--white);
+  margin: 0;
+  align-items: flex-end !important;
+}
+
+.line {
+  color: var(--white);
+  margin: 0;
+}
+
 .title {
   font-size: 4rem;
   font-variant: small-caps;
