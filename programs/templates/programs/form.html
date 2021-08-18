@@ -147,6 +147,20 @@
     stu_ext.style.display = 'none';
 
 
+    // keep track of food program checkbox...set cost to $0 if box is checked
+    var checkbox = document.querySelector("input[name=food_program]");
+
+    checkbox.addEventListener('change', function () {
+      if (this.checked) {
+        var total = document.getElementById('total');
+        total.innerHTML = `$0`
+      } else {
+        var cost = document.getElementById('cost_input');
+        var total = document.getElementById('total');
+        total.innerHTML = `$${cost.value}`
+
+      }
+    });
 
   </script>
 </div>
