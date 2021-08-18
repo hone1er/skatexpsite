@@ -25,9 +25,11 @@ class Hotdogger(models.Model):
     student = models.CharField(max_length=100)
     student_email = models.EmailField(max_length=254)
     student_phone = PhoneField(blank=True)
-    student_grade = models.CharField(max_length=20)
     student_address = models.CharField(max_length=254)
-    student_id = models.CharField(max_length=254)
+    student_grade = models.CharField(max_length=20)
+    school = models.CharField(max_length=254)
+    created_at = models.DateTimeField(default=timezone.now, blank=True)
+
 
 
     def __str__(self):
@@ -40,10 +42,11 @@ class PeProgram(models.Model):
     student = models.CharField(max_length=100)
     student_email = models.EmailField(max_length=254)
     student_phone = PhoneField(blank=True)
-    student_grade = models.CharField(max_length=20)
     student_address = models.CharField(max_length=254)
+    student_grade = models.CharField(max_length=20)
     student_id = models.CharField(max_length=254)
     food_program = models.BooleanField(verbose_name="Payment Assistance", help_text="**Only check this box if you are enrolled in the free lunch program. We will need to verify enrollement or full price will be charged at the end of the semester.", )
+    created_at = models.DateTimeField(default=timezone.now, blank=True)
 
 
     def __str__(self):

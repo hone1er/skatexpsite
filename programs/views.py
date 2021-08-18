@@ -9,6 +9,30 @@ from decouple import config
 from django.core.mail import EmailMessage
 
 
+
+def save_customer(title, request):
+    if title == "hot doggers":
+                print("hotdog waiver")
+                customer_db = Hotdogger()
+                customer_db.food_program = False
+                customer_db.school = request.POST.get("school")
+
+    else:
+        customer_db = PeProgram()
+        customer_db.food_program = request.POST.get("food_program") == "on"
+        customer_db.student_id = request.POST.get("student_id")
+
+    customer_db.parent = request.POST.get("parent")
+    customer_db.phone = request.POST.get("phone_0")
+    customer_db.parent_email = request.POST.get("parent_email")
+    customer_db.student = request.POST.get("student")
+    customer_db.student_email = request.POST.get("student_email")
+    customer_db.student_phone = request.POST.get("student_phone_0")
+    customer_db.student_grade = request.POST.get("student_grade")
+    customer_db.student_address = request.POST.get("student_address")
+
+    customer_db.save()
+    return customer_db
 # Create your views here.
 
 
@@ -38,32 +62,23 @@ def form(request, program):
 
 
 def charged(request):
-
     if request.method == "POST":
         print("Data:", request.POST)
         title = request.POST.get("title")
-        customer_db = None
-
-        # save the customer in the Django DB
-        if title == "hot doggers":
-            print("hotdog waiver")
-            customer_db = Hotdogger()
-            customer_db.food_program = False
-        else:
-            customer_db = PeProgram()
-            customer_db.food_program = request.POST.get("food_program") == "on"
-        customer_db.parent = request.POST.get("parent")
-        customer_db.phone = request.POST.get("phone_0")
-        customer_db.parent_email = request.POST.get("parent_email")
-        customer_db.student = request.POST.get("student")
-        customer_db.student_email = request.POST.get("student_email")
-        customer_db.student_phone = request.POST.get("student_phone_0")
-        customer_db.student_grade = request.POST.get("student_grade")
-        customer_db.student_address = request.POST.get("student_address")
-        customer_db.student_id = request.POST.get("student_id")
-        customer_db.save()
+        
+        cost = float(request.POST.get("cost"))
+        donation = float(request.POST.get("amount"))
+        amount = int(cost + donation)
+        print(amount)
+        price_id = None
         stripe_id = request.POST.get("stripe_id")
-
+        for item in stripe.Price.list(product=stripe_id)["data"]:
+                    if item.unit_amount == amount * 100:
+                        price_id = item.id
+                        break
+        # save the customer in the Django DB
+        customer_db = save_customer(title, request)
+        
         # create the customer in stripe database
         customer = stripe.Customer.create(
             email=request.POST["parent_email"],
@@ -73,9 +88,18 @@ def charged(request):
 
         # Check if student is enrolled in food program, if not, charge them for the program, otherwise it is no charge
         if customer_db.food_program == False:
+
+            if price_id == None:
+            
+                price = stripe.Price.create(
+                unit_amount=amount*100,
+                currency="usd",
+                product=stripe_id,
+                )
+                price_id = price.id
             
             cost = stripe.Price.retrieve(
-                stripe_id,
+                price_id,
             ).unit_amount
             
             charge = stripe.Charge.create(
@@ -101,3 +125,5 @@ def charged(request):
 def successMsg(request, args):
     title = args
     return render(request, "programs/success.html", {"title": title})
+
+

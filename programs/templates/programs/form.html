@@ -20,6 +20,18 @@
         {% csrf_token %} {{form.as_p}}
 
         <hr />
+        <br />
+        <p class="donation">Add a donation</p>
+          $<input
+            class="form-field-12 other"
+            required
+            type="number"
+            name="amount"
+            id="amount"
+            step="10"
+            min="0"
+            placeholder="other amount: $"
+          />
         <input type="hidden" name="title" value="{{ data.title }}" />
 
         <input type="hidden" name="stripe_id" value="{{ data.stripe_id }}" />
@@ -149,6 +161,14 @@
 
     // keep track of food program checkbox...set cost to $0 if box is checked
     var checkbox = document.querySelector("input[name=food_program]");
+    var donationAmount = document.querySelector("input[name=amount]");
+    donationAmount.addEventListener('change', function () {
+        var cost = document.getElementById('cost_input');
+        var total = document.getElementById('total');
+        var amount = document.getElementById('amount')
+        total.innerHTML = `$${parseInt(cost.value) + parseInt(amount.value)}`
+        console.log(amount.value)
+    })
 
     checkbox.addEventListener('change', function () {
       if (this.checked) {
@@ -157,7 +177,10 @@
       } else {
         var cost = document.getElementById('cost_input');
         var total = document.getElementById('total');
-        total.innerHTML = `$${cost.value}`
+        var amount = document.getElementById('amount')
+        total.innerHTML = `$${parseInt(cost.value) + parseInt(amount.value)}`
+        var originalCost = cost.value
+        cost.value = originalCost + parseInt(amount.value)
 
       }
     });

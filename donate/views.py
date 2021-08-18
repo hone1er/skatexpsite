@@ -24,6 +24,7 @@ def charge(request):
     if request.method == "POST":
         print("Data:", request.POST)
         fund = request.POST["fund"]
+        # product id for stripe API
         fund_prod_id = {
             "general": "prod_JvTJsoxDmWVMP4",
             "building": "prod_JvTKrTkJmWobAN",
@@ -32,6 +33,7 @@ def charge(request):
         amount = int(request.POST["amount"])
         frequency = request.POST["frequency"]
         price_id = None
+        # Add customer to stripe DB
         customer = stripe.Customer.create(
             email=request.POST["email"],
             name=request.POST["name"],
@@ -43,7 +45,7 @@ def charge(request):
                 price_id = item.id
                 break
         if frequency == "monthly":
-            # check if price exist, if not create a subscription with new price
+            # if price exist, charge customer, if not create a subscription with new price
             if price_id:
                 subscription = stripe.Subscription.create(
                     customer=customer.id,

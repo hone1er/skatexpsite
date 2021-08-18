@@ -54,6 +54,12 @@ p > input {
   background-color: var(--white) !important;
 }
 
+.donation {
+  color: var(--white);
+  display: block !important;
+  margin-left: 10px;
+}
+
 label[for="id_food_program"] {
   margin-top: 2rem;
   font-size: 0.9rem !important;
