@@ -9,13 +9,12 @@ from decouple import config
 from django.core.mail import EmailMessage
 
 
-
 def save_customer(title, request):
     if title == "hot doggers":
-                print("hotdog waiver")
-                customer_db = Hotdogger()
-                customer_db.food_program = False
-                customer_db.school = request.POST.get("school")
+        print("hotdog waiver")
+        customer_db = Hotdogger()
+        customer_db.food_program = False
+        customer_db.school = request.POST.get("school")
 
     else:
         customer_db = PeProgram()
@@ -33,6 +32,8 @@ def save_customer(title, request):
 
     customer_db.save()
     return customer_db
+
+
 # Create your views here.
 
 
@@ -52,7 +53,7 @@ def form(request, program):
     for p in program:
         if p.title == "pe waiver program":
             form = PeWaiver()
-    
+
     context = {
         "form": form,
         "PUBLIC_STRIPE_KEY": config("PUBLIC_STRIPE_KEY"),
@@ -65,7 +66,7 @@ def charged(request):
     if request.method == "POST":
         print("Data:", request.POST)
         title = request.POST.get("title")
-        
+
         cost = float(request.POST.get("cost"))
         donation = float(request.POST.get("amount"))
         amount = int(cost + donation)
@@ -73,12 +74,12 @@ def charged(request):
         price_id = None
         stripe_id = request.POST.get("stripe_id")
         for item in stripe.Price.list(product=stripe_id)["data"]:
-                    if item.unit_amount == amount * 100:
-                        price_id = item.id
-                        break
+            if item.unit_amount == amount * 100:
+                price_id = item.id
+                break
         # save the customer in the Django DB
         customer_db = save_customer(title, request)
-        
+
         # create the customer in stripe database
         customer = stripe.Customer.create(
             email=request.POST["parent_email"],
@@ -90,24 +91,37 @@ def charged(request):
         if customer_db.food_program == False:
 
             if price_id == None:
-            
+
                 price = stripe.Price.create(
-                unit_amount=amount*100,
-                currency="usd",
-                product=stripe_id,
+                    unit_amount=amount * 100,
+                    currency="usd",
+                    product=stripe_id,
                 )
                 price_id = price.id
+
+            # cost = stripe.Price.retrieve(
+            #     price_id,
+            # ).unit_amount
+
+            # charge = stripe.Charge.create(
+            #     customer=customer,
+            #     amount=cost,
+            #     currency="usd",
+            #     description=f"{customer_db.parent} signed up for {title}",
+            # )
             
-            cost = stripe.Price.retrieve(
-                price_id,
-            ).unit_amount
-            
-            charge = stripe.Charge.create(
-                customer=customer,
-                amount=cost,
+            order = stripe.Order.create(
                 currency="usd",
-                description=f"{customer_db.parent} signed up for {title}",
+                customer=customer.id,
+                items=[
+                    {
+                        "type": "sku",
+                        "sku": "price_1JPwanAHP5MVK2gMD0l1zEjU",
+                        "amount": amount*100
+                    },
+                ],
             )
+            # stripe.Order.pay(order.id)
 
         # send confirmation email
         email = EmailMessage(
@@ -125,5 +139,3 @@ def charged(request):
 def successMsg(request, args):
     title = args
     return render(request, "programs/success.html", {"title": title})
-
-
