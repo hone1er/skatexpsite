@@ -218,6 +218,9 @@
             }
             cost.value = originalCost + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)
           }
+          else {
+            alert("Invalid coupon")
+          }
         }
       });
     }
