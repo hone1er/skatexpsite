@@ -22,8 +22,8 @@
         <hr />
         <br />
         <p class="donation">Add a donation</p>
-        $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step="10" min="0" value=0
-          placeholder="other amount: $" />
+        $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step="10" min="0"
+          value=0 placeholder="other amount: $" />
         <input type="hidden" name="title" value="{{ data.title }}" />
 
 
@@ -140,6 +140,8 @@
     // Submit the form
     form.submit();
   }
+
+
   document
     .getElementById("id_phone_0")
     .setAttribute("placeholder", "Parent Phone Number")
@@ -162,80 +164,66 @@
   // keep track of food program checkbox...set cost to $0 if box is checked
   var checkbox = document.querySelector("input[name=food_program]");
   var donationListener = document.querySelector("input[name=donation_amount]");
-  
-  
-  donationListener.addEventListener('change', function () {
-    var cost = document.getElementById('cost_input');
-    var total = document.getElementById('total');
-    var donationAmount = document.getElementById('donationAmount')
-    if (checkbox) {
-      if (checkbox.checked) {
+  var cost = document.getElementById('cost_input');
+  var total = document.getElementById('total');
+  var donationAmount = document.getElementById('donationAmount')
+  var discount = 0;
+  var coupon_used = false;
+  var originalCost = parseInt(cost.value);
+
+  function calculate_total(checkbox) {
+    if (checkbox.checked) {
         total.innerHTML = `$${0 + (parseInt(donationAmount.value) || 0)}`
       }
       else {
-        total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0)}`
-
+        total.innerHTML = `$${parseInt(originalCost) + (parseInt(donationAmount.value) || 0) - parseInt(discount)}`
       }
+  }
+
+  donationListener.addEventListener('change', function () {
+    if (checkbox) {
+      calculate_total(checkbox)
     }
     else {
-        total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0)}`
-
-      }
-    console.log(donationAmount.value)
+      total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0)}`
+    }
   })
-  
-  
+
   if (checkbox) {
     checkbox.addEventListener('change', function () {
-      var donationAmount = document.getElementById('donationAmount');
-
-      if (this.checked) {
-        var total = document.getElementById('total');
-        total.innerHTML = `$${0 + (parseInt(donationAmount.value) || 0)}`
-      } else {
-        var cost = document.getElementById('cost_input');
-        var total = document.getElementById('total');
-        total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0) - parseInt(discount)}`
-        var originalCost = parseInt(cost.value);
-        console.log(originalCost)
-        cost.value = parseInt(originalCost) + (parseInt(donationAmount.value) || 0) - parseInt(discount);
-
-      }
-
+      calculate_total(this)
     });
   }
-  var coupon_used = false;
-  var discount = 0;
+
+
   function validateCoupon() {
-    if (!coupon_used){
-    var coupon = $('#coupon_code').val();
-    console.log(coupon);
-    $.ajax({
-      type: "GET",
-      url: "{% url 'validate_coupon' %}",
-      data: {
-        'coupon': coupon
-      },
-      dataType: 'json',
-      success: function (data) {
-        if (data.coupon) {
-          coupon_used = true;
-          console.log(data.coupon);
-          console.log(parseInt(data.discount));
-          discount = data.discount;
-          var cost = document.getElementById('cost_input');
-          var total = document.getElementById('total');
-          var donationAmount = document.getElementById('donationAmount')
-          total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)}`
-          var originalCost = cost.value
-          cost.value = originalCost + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)
+    if (!coupon_used) {
+      var coupon = $('#coupon_code').val();
+      $.ajax({
+        type: "GET",
+        url: "{% url 'validate_coupon' %}",
+        data: {
+          'coupon': coupon
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data.coupon) {
+            coupon_used = true;
+            discount = data.discount;
+            if (checkbox) {
+              calculate_total(checkbox)
+            }
+            else {
+            total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)}`
+            }
+            cost.value = originalCost + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)
+          }
         }
-      }
-    });
-  }
-  else {
-    alert("Coupon already applied")
-  }
+      });
+    }
+    else {
+      alert("Coupon already applied")
+    }
   }
 </script>
 {% endblock %}

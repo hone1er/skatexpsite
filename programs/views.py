@@ -71,7 +71,7 @@ def charged(request):
         title = request.POST.get("title")
 
         cost = float(request.POST.get("cost"))
-        donation = float(request.POST.get("donationAmount"))
+        donation = float(request.POST.get("donation_amount"))
         amount = int(cost + donation)
         print(amount)
         stripe_id = request.POST.get("stripe_id")
@@ -96,6 +96,12 @@ def charged(request):
                 currency="usd",
                 description=f"{customer_db.parent} signed up for {title}",
             )
+        elif customer_db.food_program == True and int(donation) > 0:
+            charge = stripe.Charge.create(
+                customer=customer,
+                amount=int(donation) *100,
+                currency="usd",
+                description=f"{customer_db.parent} signed up for {title}",)
             
             
         # send confirmation email
