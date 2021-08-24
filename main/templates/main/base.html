@@ -26,8 +26,7 @@
     />
     <link rel="stylesheet" href="{% static 'main/main.css' %}" />
     {% block styles %} {% endblock %}
-    <title>skatexp  {% block title %}{% endblock %}</title>
-    
+    <title>skatexp {% block title %}{% endblock %}</title>
   </head>
   <body>
     <div class="outer-container">
@@ -76,7 +75,6 @@
                     programs
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    
                     <li>
                       <a class="dropdown-item" href="{% url 'hotdoggers' %}"
                         >hot doggers</a
@@ -97,7 +95,7 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'donate'%}">donate</a>
                 </li>
-                
+
                 <li class="nav-item dropdown">
                   <a
                     class="nav-link dropdown-toggle"
@@ -111,11 +109,15 @@
                   </a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li>
-                      <a class="dropdown-item" href="{% url 'skatespotters'%}">skate spotters</a>
+                      <a class="dropdown-item" href="{% url 'skatespotters'%}"
+                        >skate spotters</a
+                      >
                     </li>
                     <li><hr class="dropdown-divider" /></li>
                     <li>
-                      <a class="dropdown-item" href="{% url 'story' %}">stories</a>
+                      <a class="dropdown-item" href="{% url 'story' %}"
+                        >stories</a
+                      >
                     </li>
                   </ul>
                 </li>
@@ -149,27 +151,26 @@
               </li>
               <hr class="vertical" />
               <li>
-                <a name="facebook" target="_blank" href="https://www.facebook.com/Sk8Xp"
+                <a
+                  name="facebook"
+                  target="_blank"
+                  href="https://www.facebook.com/Sk8Xp"
                   ><i class="fa fa-facebook fa-2x" aria-hidden="true"></i
                 ></a>
               </li>
             </ul>
           </div>
-         
+
           <div class="copyright">
             &copy; 2021 Skateboard Experience 501c3 tax-exempt organization
           </div>
         </div>
       </footer>
     </div>
+    
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
       crossorigin="anonymous"
     ></script>
     <script
@@ -179,5 +180,6 @@
     ></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{% static 'app.js' %}"></script>
+    {% block javascript %}{% endblock %}
   </body>
 </html>

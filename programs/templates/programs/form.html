@@ -22,17 +22,10 @@
         <hr />
         <br />
         <p class="donation">Add a donation</p>
-          $<input
-            class="form-field-12 other"
-            required
-            type="number"
-            name="amount"
-            id="amount"
-            step="10"
-            min="0"
-            placeholder="other amount: $"
-          />
+        $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step="10" min="0" value=0
+          placeholder="other amount: $" />
         <input type="hidden" name="title" value="{{ data.title }}" />
+
 
         <input type="hidden" name="stripe_id" value="{{ data.stripe_id }}" />
         <input type="hidden" name="cost" id="cost_input" value="{{ data.cost }}" />
@@ -57,6 +50,12 @@
           value="submit payment" name="" />
         </p>
       </form>
+      <form action="validate_coupon" id="coupon">
+        <input type="text" class="coupon" id="coupon_code">
+        <input class="myButton btn btn-submit" id="coupon_button" style="background-color: #f03e3e; color: #f8f8f8"
+          onclick="validateCoupon()" value="apply coupon" name="coupon_button" />
+      </form>
+
       {%endfor%}
       <div class="non-profit">
         *SKATE XP is a 501c3 tax-exempt organization. Tax ID 85-0741700
@@ -64,127 +63,179 @@
     </div>
   </div>
 
-  <script>
-    function setValue(objButton) {
-      var value = document.getElementById("amount");
-      value.setAttribute("value", objButton.value);
+</div>
+{% endblock %}
+{% block javascript %}
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script>
+
+  // Create a Stripe client.
+  var stripe = Stripe("{{ PUBLIC_STRIPE_KEY }}");
+
+  // Create an instance of Elements.
+  var elements = stripe.elements();
+
+  // Custom styling can be passed to options when creating an Element.
+  // (Note that this demo uses a wider set of styles than the guide below.)
+  var style = {
+    base: {
+      color: "#e8e8e8",
+      fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+      fontSmoothing: "antialiased",
+      fontSize: "16px",
+      "::placeholder": {
+        color: "#aab7c4",
+      },
+    },
+    invalid: {
+      color: "#fa755a",
+      iconColor: "#fa755a",
+    },
+  };
+
+  // Create an instance of the card Element.
+  var card = elements.create("card", { style: style });
+
+  // Add an instance of the card Element into the `card-element` <div>.
+  card.mount("#card-element");
+
+  // Handle real-time validation errors from the card Element.
+  card.addEventListener("change", function (event) {
+    var displayError = document.getElementById("card-errors");
+    if (event.error) {
+      displayError.textContent = event.error.message;
+    } else {
+      displayError.textContent = "";
     }
-    // Create a Stripe client.
-    var stripe = Stripe("{{ PUBLIC_STRIPE_KEY }}");
+  });
 
-    // Create an instance of Elements.
-    var elements = stripe.elements();
+  // Handle form submission.
+  var form = document.getElementById("payment-form");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-    // Custom styling can be passed to options when creating an Element.
-    // (Note that this demo uses a wider set of styles than the guide below.)
-    var style = {
-      base: {
-        color: "#e8e8e8",
-        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: "antialiased",
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#aab7c4",
-        },
-      },
-      invalid: {
-        color: "#fa755a",
-        iconColor: "#fa755a",
-      },
-    };
-
-    // Create an instance of the card Element.
-    var card = elements.create("card", { style: style });
-
-    // Add an instance of the card Element into the `card-element` <div>.
-    card.mount("#card-element");
-
-    // Handle real-time validation errors from the card Element.
-    card.addEventListener("change", function (event) {
-      var displayError = document.getElementById("card-errors");
-      if (event.error) {
-        displayError.textContent = event.error.message;
+    stripe.createToken(card).then(function (result) {
+      if (result.error) {
+        // Inform the user if there was an error.
+        var errorElement = document.getElementById("card-errors");
+        errorElement.textContent = result.error.message;
       } else {
-        displayError.textContent = "";
+        // Send the token to your server.
+        stripeTokenHandler(result.token);
       }
     });
+  });
 
-    // Handle form submission.
+  // Submit the form with the token ID.
+  function stripeTokenHandler(token) {
+    // Insert the token ID into the form so it gets submitted to the server
     var form = document.getElementById("payment-form");
-    form.addEventListener("submit", function (event) {
-      event.preventDefault();
+    var hiddenInput = document.createElement("input");
+    hiddenInput.setAttribute("type", "hidden");
+    hiddenInput.setAttribute("name", "stripeToken");
+    hiddenInput.setAttribute("value", token.id);
+    form.appendChild(hiddenInput);
 
-      stripe.createToken(card).then(function (result) {
-        if (result.error) {
-          // Inform the user if there was an error.
-          var errorElement = document.getElementById("card-errors");
-          errorElement.textContent = result.error.message;
-        } else {
-          // Send the token to your server.
-          stripeTokenHandler(result.token);
-        }
-      });
-    });
+    // Submit the form
+    form.submit();
+  }
+  document
+    .getElementById("id_phone_0")
+    .setAttribute("placeholder", "Parent Phone Number")
+  document
+    .getElementById("id_student_phone_0")
+    .setAttribute("placeholder", "Student Phone Number");
 
-    // Submit the form with the token ID.
-    function stripeTokenHandler(token) {
-      // Insert the token ID into the form so it gets submitted to the server
-      var form = document.getElementById("payment-form");
-      var hiddenInput = document.createElement("input");
-      hiddenInput.setAttribute("type", "hidden");
-      hiddenInput.setAttribute("name", "stripeToken");
-      hiddenInput.setAttribute("value", token.id);
-      form.appendChild(hiddenInput);
+  var ext = document
+    .getElementById("id_phone_1")
 
-      // Submit the form
-      form.submit();
+  var stu_ext = document
+    .getElementById("id_student_phone_1")
+
+  var labels = document.getElementsByClassName('phone-field-ext');
+  for (let label of labels) label.style.display = 'none'
+  ext.style.display = 'none';
+  stu_ext.style.display = 'none';
+
+
+  // keep track of food program checkbox...set cost to $0 if box is checked
+  var checkbox = document.querySelector("input[name=food_program]");
+  var donationListener = document.querySelector("input[name=donation_amount]");
+  
+  
+  donationListener.addEventListener('change', function () {
+    var cost = document.getElementById('cost_input');
+    var total = document.getElementById('total');
+    var donationAmount = document.getElementById('donationAmount')
+    if (checkbox) {
+      if (checkbox.checked) {
+        total.innerHTML = `$${0 + (parseInt(donationAmount.value) || 0)}`
+      }
+      else {
+        total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0)}`
+
+      }
     }
+    else {
+        total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0)}`
 
-    document
-      .getElementById("id_phone_0")
-      .setAttribute("placeholder", "Parent Phone Number")
-    document
-      .getElementById("id_student_phone_0")
-      .setAttribute("placeholder", "Student Phone Number");
-
-    var ext = document
-      .getElementById("id_phone_1")
-
-    var stu_ext = document
-      .getElementById("id_student_phone_1")
-
-    var labels = document.getElementsByClassName('phone-field-ext');
-    for (let label of labels) label.style.display = 'none'
-    ext.style.display = 'none';
-    stu_ext.style.display = 'none';
-
-
-    // keep track of food program checkbox...set cost to $0 if box is checked
-    var checkbox = document.querySelector("input[name=food_program]");
-    var donationAmount = document.querySelector("input[name=amount]");
-    donationAmount.addEventListener('change', function () {
-        var cost = document.getElementById('cost_input');
-        var total = document.getElementById('total');
-        var amount = document.getElementById('amount')
-        total.innerHTML = `$${parseInt(cost.value) + parseInt(amount.value)}`
-        console.log(amount.value)
-    })
-
+      }
+    console.log(donationAmount.value)
+  })
+  
+  
+  if (checkbox) {
     checkbox.addEventListener('change', function () {
+      var donationAmount = document.getElementById('donationAmount');
+
       if (this.checked) {
         var total = document.getElementById('total');
-        total.innerHTML = `$0`
+        total.innerHTML = `$${0 + (parseInt(donationAmount.value) || 0)}`
       } else {
         var cost = document.getElementById('cost_input');
         var total = document.getElementById('total');
-        var amount = document.getElementById('amount')
-        total.innerHTML = `$${parseInt(cost.value) + parseInt(amount.value)}`
-        var originalCost = cost.value
-        cost.value = originalCost + parseInt(amount.value)
+        total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0) - parseInt(discount)}`
+        var originalCost = parseInt(cost.value);
+        console.log(originalCost)
+        cost.value = parseInt(originalCost) + (parseInt(donationAmount.value) || 0) - parseInt(discount);
 
       }
-    });
 
-  </script>
-</div>
+    });
+  }
+  var coupon_used = false;
+  var discount = 0;
+  function validateCoupon() {
+    if (!coupon_used){
+    var coupon = $('#coupon_code').val();
+    console.log(coupon);
+    $.ajax({
+      type: "GET",
+      url: "{% url 'validate_coupon' %}",
+      data: {
+        'coupon': coupon
+      },
+      dataType: 'json',
+      success: function (data) {
+        if (data.coupon) {
+          coupon_used = true;
+          console.log(data.coupon);
+          console.log(parseInt(data.discount));
+          discount = data.discount;
+          var cost = document.getElementById('cost_input');
+          var total = document.getElementById('total');
+          var donationAmount = document.getElementById('donationAmount')
+          total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)}`
+          var originalCost = cost.value
+          cost.value = originalCost + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)
+        }
+      }
+    });
+  }
+  else {
+    alert("Coupon already applied")
+  }
+  }
+</script>
 {% endblock %}

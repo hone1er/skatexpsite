@@ -49,5 +49,14 @@ class PeProgram(models.Model):
     created_at = models.DateTimeField(default=timezone.now, blank=True)
 
 
+
     def __str__(self):
         return self.student
+
+
+class Coupon(models.Model):
+    code = models.CharField(max_length=100)
+    amount_off = models.DecimalField(max_digits=6, decimal_places=2)
+
+    def __str__(self):
+        return self.code

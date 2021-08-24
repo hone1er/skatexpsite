@@ -1,4 +1,5 @@
 from django.urls import include, path
+from django.conf.urls import url
 from . import views
 
 urlpatterns = [
@@ -8,5 +9,7 @@ urlpatterns = [
     path("form/", views.form, name="form"),
     path("charged/", views.charged, name="charged"),
     path('successProgram/<str:args>', views.successMsg, name="successProgram"),
+    path('ajax/validate_coupon/', views.validate_coupon, name='validate_coupon'),
+    path('ajax/validate_coupon/<str:args>', views.validate_coupon, name='validate_coupon'),
     
 ]

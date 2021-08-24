@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from programs.models import Program
 from django.urls import reverse
 from .forms import HotdoggerForm, PeWaiver
-from .models import Hotdogger, PeProgram
+from .models import Hotdogger, PeProgram, Coupon
 import stripe
 import math
 from decouple import config
 from django.core.mail import EmailMessage
+from django.http import JsonResponse
 
 
 def save_customer(title, request):
@@ -29,6 +30,8 @@ def save_customer(title, request):
     customer_db.student_phone = request.POST.get("student_phone_0")
     customer_db.student_grade = request.POST.get("student_grade")
     customer_db.student_address = request.POST.get("student_address")
+    customer_db.coupon = request.POST.get("coupon")
+
 
     customer_db.save()
     return customer_db
@@ -68,15 +71,11 @@ def charged(request):
         title = request.POST.get("title")
 
         cost = float(request.POST.get("cost"))
-        donation = float(request.POST.get("amount"))
+        donation = float(request.POST.get("donationAmount"))
         amount = int(cost + donation)
         print(amount)
-        price_id = None
         stripe_id = request.POST.get("stripe_id")
-        for item in stripe.Price.list(product=stripe_id)["data"]:
-            if item.unit_amount == amount * 100:
-                price_id = item.id
-                break
+        
         # save the customer in the Django DB
         customer_db = save_customer(title, request)
 
@@ -90,39 +89,15 @@ def charged(request):
         # Check if student is enrolled in food program, if not, charge them for the program, otherwise it is no charge
         if customer_db.food_program == False:
 
-            if price_id == None:
 
-                price = stripe.Price.create(
-                    unit_amount=amount * 100,
-                    currency="usd",
-                    product=stripe_id,
-                )
-                price_id = price.id
-
-            # cost = stripe.Price.retrieve(
-            #     price_id,
-            # ).unit_amount
-
-            # charge = stripe.Charge.create(
-            #     customer=customer,
-            #     amount=cost,
-            #     currency="usd",
-            #     description=f"{customer_db.parent} signed up for {title}",
-            # )
-            
-            order = stripe.Order.create(
+            charge = stripe.Charge.create(
+                customer=customer,
+                amount=amount *100,
                 currency="usd",
-                customer=customer.id,
-                items=[
-                    {
-                        "type": "sku",
-                        "sku": "price_1JPwanAHP5MVK2gMD0l1zEjU",
-                        "amount": amount*100
-                    },
-                ],
+                description=f"{customer_db.parent} signed up for {title}",
             )
-            # stripe.Order.pay(order.id)
-
+            
+            
         # send confirmation email
         email = EmailMessage(
             f"You signed up for the {title}!",
@@ -131,7 +106,7 @@ def charged(request):
             [customer_db.parent_email],
             headers={"Reply-To": "info@skatexp.org"},
         )
-        email.send()
+        # email.send()
 
     return redirect(reverse("successProgram", args=[title]))
 
@@ -139,3 +114,20 @@ def charged(request):
 def successMsg(request, args):
     title = args
     return render(request, "programs/success.html", {"title": title})
+
+
+
+def validate_coupon(request):
+    coupon_code = request.GET.get('coupon', None)
+    coupon = False
+    discount = None
+    if Coupon.objects.filter(code=coupon_code):
+        coupon = True
+        for obj in Coupon.objects.filter(code=coupon_code):
+            discount = obj.amount_off
+            break
+    data = {
+        'coupon': coupon,
+        'discount': discount
+    }
+    return JsonResponse(data)
