@@ -112,7 +112,7 @@ def charged(request):
             [customer_db.parent_email],
             headers={"Reply-To": "info@skatexp.org"},
         )
-        # email.send()
+        email.send()
 
     return redirect(reverse("successProgram", args=[title]))
 
