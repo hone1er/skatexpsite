@@ -1,5 +1,5 @@
 html body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 #box {
@@ -20,7 +20,7 @@ html body {
 }
 .form {
   background-color: var(--darkgray);
-  padding: 45px 25px;
+  padding: 45px 25px 105px 25px;
   margin: 5% auto 7%;
   width: 500px;
   box-shadow: 0 6px 20px rgba(173, 173, 173, 0.295);
@@ -54,11 +54,32 @@ p > input {
   background-color: var(--white) !important;
 }
 
+#coupon {
+  width: 500px;
+  margin: auto;
+  position: relative;
+  bottom: 150px;
+  left: 25px;
+}
+
+.donation {
+  color: var(--white);
+  display: block !important;
+  margin-left: 10px;
+}
+
 label[for="id_food_program"] {
   margin-top: 2rem;
   font-size: 0.9rem !important;
 }
 
+label[for="id_student"] {
+  margin-top: 2.5rem;
+}
+ 
+label[for="id_coupon"] {
+  margin-top: 2.5rem;
+}
 .helptext {
   font-size: 0.8rem !important;
   font-weight: lighter !important;
@@ -88,6 +109,17 @@ label[for="id_food_program"] {
   border-radius: 30px;
   padding: 2.5px 35px;
   width: fit-content;
+}
+
+.total {
+  color: var(--white);
+  margin: 0;
+  align-items: flex-end !important;
+}
+
+.line {
+  color: var(--white);
+  margin: 0;
 }
 
 .title {
@@ -190,5 +222,13 @@ label[for="id_food_program"] {
   .right-title {
     font-size: 4rem;
     line-height: 3rem;
+  }
+
+  #coupon {
+    width: 75%;
+    margin: auto;
+    position: relative;
+    bottom: 130px;
+    left: 25px;
   }
 }
