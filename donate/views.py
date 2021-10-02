@@ -34,9 +34,9 @@ def charge(request):
         fund = request.POST["fund"]
         # product id for stripe API
         fund_prod_id = {
-            "general": "prod_JvTJsoxDmWVMP4",
-            "building": "prod_JvTKrTkJmWobAN",
-            "scholarship": "prod_JvTKYpDfehJYe5",}
+            "general": "prod_KKrwwGtBmkhFcA",
+            "building": "prod_KKrwwFYUKEKwbc",
+            "scholarship": "prod_KKrw7n2mptDGnP",}
         print(fund_prod_id[fund])
         amount = int(request.POST["amount"])
         frequency = request.POST["frequency"]
