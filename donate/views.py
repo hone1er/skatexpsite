@@ -6,6 +6,14 @@ from decouple import config
 
 import stripe
 
+from stripe.api_resources.abstract import CreateableAPIResource
+from stripe.api_resources.abstract import ListableAPIResource
+from stripe.api_resources.abstract import UpdateableAPIResource
+
+
+class Price(CreateableAPIResource, ListableAPIResource, UpdateableAPIResource):
+    OBJECT_NAME = "price"
+
 stripe.api_key = config("STRIPE_KEY")
 
 # Create your views here.
@@ -39,8 +47,8 @@ def charge(request):
             name=request.POST["name"],
             source=request.POST["stripeToken"],
         )
-        print(stripe.Price.list(product=fund_prod_id[fund]))
-        for item in stripe.Price.list(product=fund_prod_id[fund])["data"]:
+        print(Price.list(product=fund_prod_id[fund]))
+        for item in Price.list(product=fund_prod_id[fund])["data"]:
             if item.unit_amount == amount * 100:
                 price_id = item.id
                 break
@@ -55,7 +63,7 @@ def charge(request):
                 )
 
             else:
-                price = stripe.Price.create(
+                price = Price.create(
                     unit_amount=amount * 100,
                     currency="usd",
                     recurring={"interval": "month"},
