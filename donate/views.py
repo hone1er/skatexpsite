@@ -38,7 +38,7 @@ def charge(request):
             "building": "prod_KKrwwFYUKEKwbc",
             "scholarship": "prod_KKrw7n2mptDGnP",}
         print(fund_prod_id[fund])
-        amount = int(request.POST["amount"])
+        amount = int(float(request.POST["amount"]))
         frequency = request.POST["frequency"]
         price_id = None
         # Add customer to stripe DB
