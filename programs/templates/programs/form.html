@@ -9,11 +9,9 @@
       {% for data in program %}
       <div class="container-fluid center">
         <h1 class="title">{{ data.title }}</h1>
-        <h2 id="cost_header" value="{{data.cost}}">${{ data.cost }}</h2>
         {% if data.title == "pe waiver program" %}
+        <h2 id="cost_header" value="{{data.cost}}">${{ data.cost }}</h2>
         <p class="monthly">/per semester</p>
-        {% else %}
-        <p class="monthly">4 week session</p>
         {% endif %}
       </div>
       <form action="{% url 'charged' %}" method="post" class="form" id="payment-form">
@@ -42,9 +40,13 @@
 
         <div style="clear: left"></div>
         <hr />
+        {% if data.title == "pe waiver program" %}
+        <h2 id="cost_header" value="{{data.cost}}">${{ data.cost }}</h2>
+        <p class="monthly">/per semester</p>
         <p class="total">total</p>
         <hr class="line">
         <p class="total" id="total">${{data.cost}}</p>
+        {% endif %}
 
         <input class="myButton btn btn-submit" style="background-color: #f03e3e; color: #f8f8f8" type="submit"
           value="submit payment" name="" />

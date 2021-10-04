@@ -20,16 +20,16 @@ def save_customer(title, request):
     else:
         customer_db = PeProgram()
         customer_db.food_program = request.POST.get("food_program") == "on"
-        customer_db.student_id = request.POST.get("student_id")
+        customer_db.skater_id = request.POST.get("skater_id")
 
     customer_db.parent = request.POST.get("parent")
     customer_db.phone = request.POST.get("phone_0")
     customer_db.parent_email = request.POST.get("parent_email")
-    customer_db.student = request.POST.get("student")
-    customer_db.student_email = request.POST.get("student_email")
-    customer_db.student_phone = request.POST.get("student_phone_0")
-    customer_db.student_grade = request.POST.get("student_grade")
-    customer_db.student_address = request.POST.get("student_address")
+    customer_db.skater = request.POST.get("skater")
+    customer_db.skater_email = request.POST.get("skater_email")
+    customer_db.skater_phone = request.POST.get("skater_phone_0")
+    customer_db.skater_grade = request.POST.get("skater_grade")
+    customer_db.skater_address = request.POST.get("skater_address")
     customer_db.coupon = request.POST.get("coupon")
 
 
@@ -74,7 +74,6 @@ def charged(request):
         donation = float(request.POST.get("donation_amount"))
         amount = int(float(cost + donation))
         print(amount)
-        stripe_id = request.POST.get("stripe_id")
         
         # save the customer in the Django DB
         customer_db = save_customer(title, request)
@@ -86,7 +85,7 @@ def charged(request):
             source=request.POST["stripeToken"],
         )
 
-        # Check if student is enrolled in food program, if not, charge them for the program, otherwise it is no charge
+        # Check if skater is enrolled in food program, if not, charge them for the program, otherwise it is no charge
         if customer_db.food_program == False:
 
 
