@@ -9,16 +9,16 @@ class HotdoggerForm(ModelForm):
         fields = "__all__"
         exclude = ("created_at", "coupon")
         widgets = {
-            "parent": forms.TextInput(attrs={"placeholder": "Parent Name"}),
-            "phone": PhoneField(blank=True, help_text="Contact phone number"),
+            "parent": forms.TextInput(attrs={"placeholder": "Parent Name(required)"}),
+            "phone": PhoneField(blank=True, help_text="Contact Phone Number"),
             "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
             "parent_address": forms.TextInput(
-                attrs={"placeholder": "skater Address"}
+                attrs={"placeholder": "Parent Address"}
             ),
-            "skater": forms.TextInput(attrs={"placeholder": "skater"}),
-            "skater_email": forms.EmailInput(attrs={"placeholder": "skater Email"}),
-            "skater_phone": PhoneField(blank=True, help_text="skater phone number"),
-            "skater_grade": forms.TextInput(attrs={"placeholder": "skater Grade"}),
+            "skater": forms.TextInput(attrs={"placeholder": "Skater Name(required)"}),
+            "skater_email": forms.EmailInput(attrs={"placeholder": "Skater Email"}),
+            "skater_phone": PhoneField(blank=True, help_text="Skater Phone Number"),
+            "skater_grade": forms.TextInput(attrs={"placeholder": "Skater Grade"}),
             "school": forms.TextInput(attrs={"placeholder": "School"}),
         }
 
@@ -30,17 +30,17 @@ class PeWaiver(ModelForm):
         fields = "__all__"
         exclude = ("created_at", "coupon")
         widgets = {
-            "parent": forms.TextInput(attrs={"placeholder": "Parent Name"}),
-            "phone": PhoneField(blank=True, help_text="Contact phone number"),
+            "parent": forms.TextInput(attrs={"placeholder": "Parent Name(required)"}),
+            "phone": PhoneField(blank=True, help_text="Contact Phone Number"),
             "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
             "parent_address": forms.TextInput(
-                attrs={"placeholder": "skater Address"}
+                attrs={"placeholder": "Parent Address"}
             ),
-            "skater": forms.TextInput(attrs={"placeholder": "skater"}),
-            "skater_email": forms.EmailInput(attrs={"placeholder": "skater Email"}),
-            "skater_phone": PhoneField(blank=True, help_text="skater phone number"),
-            "skater_grade": forms.TextInput(attrs={"placeholder": "skater Grade"}),
-            "skater_id": forms.TextInput(attrs={"placeholder": "skater ID"}),
+            "skater": forms.TextInput(attrs={"placeholder": "Skater Name(required)"}),
+            "skater_email": forms.EmailInput(attrs={"placeholder": "Skater Email"}),
+            "skater_phone": PhoneField(blank=True, help_text="Skater Phone Number"),
+            "skater_grade": forms.TextInput(attrs={"placeholder": "Skater Grade"}),
+            "skater_id": forms.TextInput(attrs={"placeholder": "Skater ID"}),
             "food_program": forms.CheckboxInput(),
             
         }

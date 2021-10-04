@@ -19,7 +19,7 @@ html body {
   margin: 0 auto 5%;
 }
 .form {
-  background-color: var(--darkgray);
+  background-color: var(--darkgray) !important;
   padding: 45px 25px 105px 25px;
   margin: 5% auto 7%;
   width: 500px;
@@ -35,6 +35,7 @@ html body {
   align-items: center;
 }
 
+
 .form > p > label {
   color: var(--white);
   font-weight: bold;
@@ -46,6 +47,7 @@ html body {
   font-weight: bold;
   font-size: larger;
 }
+
 
 p > input {
   width: 264px;
@@ -196,6 +198,10 @@ label[for="id_coupon"] {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: bottom;
+}
+
+label {
+  color: var(--white) !important;
 }
 
 @media screen and (max-width: 995px) {

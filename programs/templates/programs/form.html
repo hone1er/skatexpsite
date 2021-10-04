@@ -18,14 +18,16 @@
         {% csrf_token %} {{form.as_p}}
 
         <hr />
-        <br />
+        <br />{% if data.title == "hot doggers" %}
+        <p class="donation">Enter payment amount</p>
+        {% else %}
         <p class="donation">Add a donation</p>
+        {% endif %}
         $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step="10" min="0"
           value=0 placeholder="other amount: $" />
         <input type="hidden" name="title" value="{{ data.title }}" />
 
 
-        <input type="hidden" name="stripe_id" value="{{ data.stripe_id }}" />
         <input type="hidden" name="cost" id="cost_input" value="{{ data.cost }}" />
         <p>
         <div class="form-row">
@@ -41,10 +43,7 @@
         <div style="clear: left"></div>
         <hr />
         {% if data.title == "pe waiver program" %}
-        <h2 id="cost_header" value="{{data.cost}}">${{ data.cost }}</h2>
-        <p class="monthly">/per semester</p>
-        <p class="total">total</p>
-        <hr class="line">
+               <hr class="line">
         <p class="total" id="total">${{data.cost}}</p>
         {% endif %}
 
@@ -148,14 +147,14 @@
     .getElementById("id_phone_0")
     .setAttribute("placeholder", "Parent Phone Number")
   document
-    .getElementById("id_student_phone_0")
-    .setAttribute("placeholder", "Student Phone Number");
+    .getElementById("id_skater_phone_0")
+    .setAttribute("placeholder", "Skater Phone Number");
 
   var ext = document
     .getElementById("id_phone_1")
 
   var stu_ext = document
-    .getElementById("id_student_phone_1")
+    .getElementById("id_skater_phone_1")
 
   var labels = document.getElementsByClassName('phone-field-ext');
   for (let label of labels) label.style.display = 'none'

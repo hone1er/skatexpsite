@@ -13,7 +13,9 @@
     <button class="sign-up">sign-up </button></a>
   </div>
   <div class="right">
+   {% if data.title == "hot doggers" %}
     <p class="cost">${{ object.cost }}</p>
+    {% endif %}
     <p class="right-title"><span class="bold">{{ object.title }}</p>
     <div class="sub-wrapper">
       <p class="subtitle">{{ object.subtitle }}</p>

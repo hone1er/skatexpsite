@@ -25,11 +25,11 @@ def save_customer(title, request):
     customer_db.parent = request.POST.get("parent")
     customer_db.phone = request.POST.get("phone_0")
     customer_db.parent_email = request.POST.get("parent_email")
+    customer_db.parent_address = request.POST.get("parent_address")
     customer_db.skater = request.POST.get("skater")
     customer_db.skater_email = request.POST.get("skater_email")
     customer_db.skater_phone = request.POST.get("skater_phone_0")
     customer_db.skater_grade = request.POST.get("skater_grade")
-    customer_db.skater_address = request.POST.get("skater_address")
     customer_db.coupon = request.POST.get("coupon")
 
 
