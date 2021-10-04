@@ -23,35 +23,35 @@ class Hotdogger(models.Model):
     phone = PhoneField(blank=True)
     parent_email = models.EmailField(max_length=254)
     parent_address = models.CharField(max_length=254)
-    student = models.CharField(max_length=100)
-    student_email = models.EmailField(max_length=254)
-    student_phone = PhoneField(blank=True)
-    student_grade = models.CharField(max_length=20)
+    skater = models.CharField(max_length=100)
+    skater_email = models.EmailField(max_length=254)
+    skater_phone = PhoneField(blank=True)
+    skater_grade = models.CharField(max_length=20)
     school = models.CharField(max_length=254)
     created_at = models.DateTimeField(default=timezone.now, blank=True)
 
 
 
     def __str__(self):
-        return self.student
+        return self.skater
     
 class PeProgram(models.Model):
     parent = models.CharField(max_length=100)
     phone = PhoneField(blank=True)
     parent_email = models.EmailField(max_length=254)
     parent_address = models.CharField(max_length=254)
-    student = models.CharField(max_length=100)
-    student_email = models.EmailField(max_length=254)
-    student_phone = PhoneField(blank=True)
-    student_grade = models.CharField(max_length=20)
-    student_id = models.CharField(max_length=254)
+    skater = models.CharField(max_length=100)
+    skater_email = models.EmailField(max_length=254)
+    skater_phone = PhoneField(blank=True)
+    skater_grade = models.CharField(max_length=20)
+    skater_id = models.CharField(max_length=254)
     food_program = models.BooleanField(verbose_name="Payment Assistance", help_text="**Only check this box if you are enrolled in the free lunch program. We will need to verify enrollement or full price will be charged at the end of the semester.", )
     created_at = models.DateTimeField(default=timezone.now, blank=True)
 
 
 
     def __str__(self):
-        return self.student
+        return self.skater
 
 
 class Coupon(models.Model):

@@ -13,12 +13,12 @@ class HotdoggerForm(ModelForm):
             "phone": PhoneField(blank=True, help_text="Contact phone number"),
             "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
             "parent_address": forms.TextInput(
-                attrs={"placeholder": "Student Address"}
+                attrs={"placeholder": "skater Address"}
             ),
-            "student": forms.TextInput(attrs={"placeholder": "Student"}),
-            "student_email": forms.EmailInput(attrs={"placeholder": "Student Email"}),
-            "student_phone": PhoneField(blank=True, help_text="Student phone number"),
-            "student_grade": forms.TextInput(attrs={"placeholder": "Student Grade"}),
+            "skater": forms.TextInput(attrs={"placeholder": "skater"}),
+            "skater_email": forms.EmailInput(attrs={"placeholder": "skater Email"}),
+            "skater_phone": PhoneField(blank=True, help_text="skater phone number"),
+            "skater_grade": forms.TextInput(attrs={"placeholder": "skater Grade"}),
             "school": forms.TextInput(attrs={"placeholder": "School"}),
         }
 
@@ -34,13 +34,13 @@ class PeWaiver(ModelForm):
             "phone": PhoneField(blank=True, help_text="Contact phone number"),
             "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
             "parent_address": forms.TextInput(
-                attrs={"placeholder": "Student Address"}
+                attrs={"placeholder": "skater Address"}
             ),
-            "student": forms.TextInput(attrs={"placeholder": "Student"}),
-            "student_email": forms.EmailInput(attrs={"placeholder": "Student Email"}),
-            "student_phone": PhoneField(blank=True, help_text="Student phone number"),
-            "student_grade": forms.TextInput(attrs={"placeholder": "Student Grade"}),
-            "student_id": forms.TextInput(attrs={"placeholder": "Student ID"}),
+            "skater": forms.TextInput(attrs={"placeholder": "skater"}),
+            "skater_email": forms.EmailInput(attrs={"placeholder": "skater Email"}),
+            "skater_phone": PhoneField(blank=True, help_text="skater phone number"),
+            "skater_grade": forms.TextInput(attrs={"placeholder": "skater Grade"}),
+            "skater_id": forms.TextInput(attrs={"placeholder": "skater ID"}),
             "food_program": forms.CheckboxInput(),
             
         }
