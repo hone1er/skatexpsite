@@ -11,7 +11,7 @@ class HotdoggerForm(ModelForm):
         widgets = {
             "parent": forms.TextInput(attrs={"placeholder": "Parent Name(required)"}),
             "phone": PhoneField(blank=True, help_text="Contact Phone Number"),
-            "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
+            "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email(required)"}),
             "parent_address": forms.TextInput(
                 attrs={"placeholder": "Parent Address"}
             ),
@@ -32,7 +32,7 @@ class PeWaiver(ModelForm):
         widgets = {
             "parent": forms.TextInput(attrs={"placeholder": "Parent Name(required)"}),
             "phone": PhoneField(blank=True, help_text="Contact Phone Number"),
-            "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
+            "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email(required)"}),
             "parent_address": forms.TextInput(
                 attrs={"placeholder": "Parent Address"}
             ),
