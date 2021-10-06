@@ -52,6 +52,7 @@
         </p>
       </form>
       <form action="validate_coupon" id="coupon">
+        {% csrf_token %}
         <input type="text" class="coupon" id="coupon_code">
         <input class="myButton btn btn-submit" id="coupon_button" style="background-color: #f03e3e; color: #f8f8f8"
           onclick="validateCoupon()" value="apply coupon" name="coupon_button" />
