@@ -20,11 +20,13 @@
         <hr />
         <br />{% if data.title == "hot doggers" %}
         <p class="donation">Enter payment amount</p>
+        $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step=".01" min="0"
+         placeholder="$X.XX" required/>
         {% else %}
         <p class="donation">Add a donation</p>
+        $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step=".01" min="0"
+         placeholder="$X.XX" />
         {% endif %}
-        $<input class="form-field-12 other" type="number" name="donation_amount" id="donationAmount" step="10" min="0"
-          value=0 placeholder="other amount: $" />
         <input type="hidden" name="title" value="{{ data.title }}" />
 
 
@@ -171,14 +173,14 @@
   var donationAmount = document.getElementById('donationAmount')
   var discount = 0;
   var coupon_used = false;
-  var originalCost = parseInt(cost.value);
+  var originalCost = parseFloat(cost.value);
 
   function calculate_total(checkbox) {
     if (checkbox.checked) {
-        total.innerHTML = `$${0 + (parseInt(donationAmount.value) || 0)}`
+        total.innerHTML = `$${0.00 + (parseFloat(donationAmount.value) || 0.00)}`
       }
       else {
-        total.innerHTML = `$${parseInt(originalCost) + (parseInt(donationAmount.value) || 0) - parseInt(discount)}`
+        total.innerHTML = `$${parseFloat(originalCost) + (parseFloat(donationAmount.value) || 0.00) - parseFloat(discount)}`
       }
   }
 
@@ -187,7 +189,7 @@
       calculate_total(checkbox)
     }
     else {
-      total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0)}`
+      total.innerHTML = `$${parseFloat(cost.value) + (parseFloat(donationAmount.value) || 0.00)}`
     }
   })
 
@@ -216,9 +218,9 @@
               calculate_total(checkbox)
             }
             else {
-            total.innerHTML = `$${parseInt(cost.value) + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)}`
+            total.innerHTML = `$${parseFloat(cost.value) + (parseFloat(donationAmount.value) || 0) - parseFloat(data.discount)}`
             }
-            cost.value = originalCost + (parseInt(donationAmount.value) || 0) - parseInt(data.discount)
+            cost.value = originalCost + (parseFloat(donationAmount.value) || 0) - parseFloat(data.discount)
           }
           else {
             alert("Invalid coupon")

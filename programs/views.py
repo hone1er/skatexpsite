@@ -72,7 +72,7 @@ def charged(request):
 
         cost = float(request.POST.get("cost"))
         donation = float(request.POST.get("donation_amount"))
-        amount = int(float(cost + donation))
+        amount = float(cost + donation)
         print(amount)
         
         # save the customer in the Django DB
@@ -91,14 +91,14 @@ def charged(request):
 
             charge = stripe.Charge.create(
                 customer=customer,
-                amount=amount *100,
+                amount=int(amount *100),
                 currency="usd",
                 description=f"{customer_db.parent} signed up for {title}",
             )
-        elif customer_db.food_program == True and int(float(donation)) > 0:
+        elif customer_db.food_program == True and int(donation) > 0:
             charge = stripe.Charge.create(
                 customer=customer,
-                amount=int(float(donation)) *100,
+                amount=int(float(donation) *100),
                 currency="usd",
                 description=f"{customer_db.parent} signed up for {title}",)
             
