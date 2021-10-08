@@ -31,7 +31,9 @@ def donate(request):
 def charge(request):
     if request.method == "POST":
         print("Data:", request.POST)
-        fund = request.POST["fund"]
+        # everything is currently sent to general fund by request of SkateXP, replace 'general' w/
+        # 'request.POST["fund"]' for dynamic funds
+        fund = "general"
         # product id for stripe API
         fund_prod_id = {
             "general": "prod_KKrwwGtBmkhFcA",
