@@ -71,7 +71,7 @@ def charged(request):
         title = request.POST.get("title")
 
         cost = float(request.POST.get("cost"))
-        donation = float(request.POST.get("donation_amount"))
+        donation = float(request.POST.get("donation_amount") or 0)
         amount = float(cost + donation)
         print(amount)
         
