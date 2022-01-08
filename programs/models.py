@@ -24,8 +24,8 @@ class Hotdogger(models.Model):
     parent_email = models.EmailField(max_length=254)
     skater = models.CharField(max_length=100)
     month_or_event = models.CharField(max_length=254)
-    emergency_contact = models.CharField(max_length=254)
-    emergency_contact_phone = PhoneField()
+    emergency_contact = models.CharField(blank=True, max_length=254)
+    emergency_contact_phone = PhoneField(blank=True)
     created_at = models.DateTimeField(default=timezone.now, blank=True)
 
     def __str__(self):
