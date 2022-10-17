@@ -45,6 +45,11 @@ def hotdoggers(request):
     return render(request, "programs/programs_detail.html", context)
 
 
+def sk8xp_vans(request):
+    context = {"programs": Program.objects.filter(title="SK8XP Van Tours")}
+    return render(request, "programs/programs_detail.html", context)
+
+
 def pe_waiver(request):
     context = {"programs": Program.objects.filter(title="pe waiver program")}
     return render(request, "programs/programs_detail.html", context)
