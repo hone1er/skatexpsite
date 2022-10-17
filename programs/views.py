@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from programs.models import Program
 from django.urls import reverse
 from .forms import HotdoggerForm, PeWaiver, VanTourForm
-from .models import Hotdogger, PeProgram, Coupon
+from .models import Hotdogger, PeProgram, VanTour, Coupon
 import stripe
 import math
 from decouple import config
@@ -11,9 +11,8 @@ from django.http import JsonResponse
 
 
 def save_customer(title, request):
-    if title == "hot doggers":
-        print("hotdog waiver")
-        customer_db = Hotdogger()
+    if title == "SK8XP Van Tours":
+        customer_db = VanTour()
         customer_db.food_program = False
         customer_db.school = request.POST.get("school")
 
