@@ -1,11 +1,31 @@
 from django.db.models import fields
 from django.forms import ModelForm
-from .models import Coupon, Hotdogger, PeProgram, forms, PhoneField
+from .models import Coupon, Hotdogger, PeProgram, forms, VanTour, PhoneField
 
 
 class HotdoggerForm(ModelForm):
     class Meta:
         model = Hotdogger
+        fields = "__all__"
+        exclude = ("created_at", "coupon")
+        widgets = {
+            "parent": forms.TextInput(attrs={"placeholder": "Parent Name"}),
+            "phone": PhoneField(help_text="Contact Phone Number"),
+            "parent_email": forms.EmailInput(attrs={"placeholder": "Parent Email"}),
+            "skater": forms.TextInput(attrs={"placeholder": "Skater Name"}),
+            "month_or_event": forms.TextInput(attrs={"placeholder": "Month or Event"}),
+            "emergency_contact": forms.TextInput(
+                attrs={"placeholder": "Emergency Contact Name"}
+            ),
+            "emergency_contact_phone": PhoneField(
+                help_text="Emergency Contact Phone",
+            ),
+        }
+
+
+class VanTourForm(ModelForm):
+    class Meta:
+        model = VanTour
         fields = "__all__"
         exclude = ("created_at", "coupon")
         widgets = {

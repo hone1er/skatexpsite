@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from programs.models import Program
 from django.urls import reverse
-from .forms import HotdoggerForm, PeWaiver
+from .forms import HotdoggerForm, PeWaiver, VanTourForm
 from .models import Hotdogger, PeProgram, Coupon
 import stripe
 import math
@@ -56,7 +56,7 @@ def pe_waiver(request):
 
 def form(request, program):
     program = Program.objects.filter(title=program)
-    form = HotdoggerForm()
+    form = VanTourForm()
     for p in program:
         if p.title == "pe waiver program":
             form = PeWaiver()

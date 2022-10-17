@@ -32,6 +32,20 @@ class Hotdogger(models.Model):
         return str(self.skater)
 
 
+class VanTour(models.Model):
+    parent = models.CharField(max_length=100)
+    phone = PhoneField()
+    parent_email = models.EmailField(max_length=254)
+    skater = models.CharField(max_length=100)
+    month_or_event = models.CharField(max_length=254)
+    emergency_contact = models.CharField(blank=True, max_length=254)
+    emergency_contact_phone = PhoneField(blank=True)
+    created_at = models.DateTimeField(default=timezone.now, blank=True)
+
+    def __str__(self):
+        return str(self.skater)
+
+
 class PeProgram(models.Model):
     parent = models.CharField(max_length=100)
     phone = PhoneField()
