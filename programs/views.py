@@ -20,7 +20,7 @@ def save_customer(title, request):
     else:
         customer_db = PeProgram()
         customer_db.food_program = request.POST.get("food_program") == "on"
-        customer_db.skater_id = request.POST.get("skater_id")
+        customer_db.skater_school_number = request.POST.get("skater_school_number")
 
     customer_db.parent = request.POST.get("parent")
     customer_db.phone = request.POST.get("phone_0")
@@ -30,8 +30,8 @@ def save_customer(title, request):
     customer_db.skater_email = request.POST.get("skater_email")
     customer_db.skater_phone = request.POST.get("skater_phone_0")
     customer_db.skater_grade = request.POST.get("skater_grade")
+    customer_db.slc_number = request.POST.get("slc_number")
     customer_db.coupon = request.POST.get("coupon")
-
 
     customer_db.save()
     return customer_db
@@ -79,7 +79,7 @@ def charged(request):
         donation = float(request.POST.get("donation_amount") or 0)
         amount = float(cost + donation)
         print(amount)
-        
+
         # save the customer in the Django DB
         customer_db = save_customer(title, request)
 
@@ -93,21 +93,20 @@ def charged(request):
         # Check if skater is enrolled in food program, if not, charge them for the program, otherwise it is no charge
         if customer_db.food_program == False:
 
-
             charge = stripe.Charge.create(
                 customer=customer,
-                amount=int(amount *100),
+                amount=int(amount * 100),
                 currency="usd",
                 description=f"{customer_db.parent} signed up for {title}",
             )
         elif customer_db.food_program == True and int(donation) > 0:
             charge = stripe.Charge.create(
                 customer=customer,
-                amount=int(float(donation) *100),
+                amount=int(float(donation) * 100),
                 currency="usd",
-                description=f"{customer_db.parent} signed up for {title}",)
-            
-            
+                description=f"{customer_db.parent} signed up for {title}",
+            )
+
         # send confirmation email
         email = EmailMessage(
             f"You signed up for the {title}!",
@@ -126,9 +125,8 @@ def successMsg(request, args):
     return render(request, "programs/success.html", {"title": title})
 
 
-
 def validate_coupon(request):
-    coupon_code = request.GET.get('coupon', None)
+    coupon_code = request.GET.get("coupon", None)
     coupon = False
     discount = None
     if Coupon.objects.filter(code=coupon_code):
@@ -136,8 +134,5 @@ def validate_coupon(request):
         for obj in Coupon.objects.filter(code=coupon_code):
             discount = obj.amount_off
             break
-    data = {
-        'coupon': coupon,
-        'discount': discount
-    }
+    data = {"coupon": coupon, "discount": discount}
     return JsonResponse(data)

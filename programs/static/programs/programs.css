@@ -35,7 +35,6 @@ html body {
   align-items: center;
 }
 
-
 .form > p > label {
   color: var(--white);
   font-weight: bold;
@@ -47,7 +46,6 @@ html body {
   font-weight: bold;
   font-size: larger;
 }
-
 
 p > input {
   width: 264px;
@@ -78,7 +76,7 @@ label[for="id_food_program"] {
 label[for="id_student"] {
   margin-top: 2.5rem;
 }
- 
+
 label[for="id_coupon"] {
   margin-top: 2.5rem;
 }
@@ -237,4 +235,9 @@ label {
     bottom: 130px;
     left: 25px;
   }
+}
+
+.phone-field-ext,
+.phone-field-ext + input {
+  display: none !important;
 }

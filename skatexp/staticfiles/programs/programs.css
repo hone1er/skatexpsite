@@ -19,7 +19,7 @@ html body {
   margin: 0 auto 5%;
 }
 .form {
-  background-color: var(--darkgray);
+  background-color: var(--darkgray) !important;
   padding: 45px 25px 105px 25px;
   margin: 5% auto 7%;
   width: 500px;
@@ -76,7 +76,7 @@ label[for="id_food_program"] {
 label[for="id_student"] {
   margin-top: 2.5rem;
 }
- 
+
 label[for="id_coupon"] {
   margin-top: 2.5rem;
 }
@@ -198,6 +198,10 @@ label[for="id_coupon"] {
   background-position-y: bottom;
 }
 
+label {
+  color: var(--white) !important;
+}
+
 @media screen and (max-width: 995px) {
   .wrapper {
     grid-template-columns: 1fr;
@@ -231,4 +235,9 @@ label[for="id_coupon"] {
     bottom: 130px;
     left: 25px;
   }
+}
+
+.phone-field-ext,
+.phone-field-ext + input {
+  display: none !important;
 }
