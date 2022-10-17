@@ -5,12 +5,12 @@ from . import views
 urlpatterns = [
     path("hotdoggers/", views.hotdoggers, name="hotdoggers"),
     path("pe_waiver/", views.pe_waiver, name="pe-program"),
-    path("SK8XP Van Tours/", views.sk8xp_vans_tour, name="skateXP-vans-tour"),
     path("form/<program>", views.form, name="form"),
     path("form/", views.form, name="form"),
     path("charged/", views.charged, name="charged"),
-    path('successProgram/<str:args>', views.successMsg, name="successProgram"),
-    path('ajax/validate_coupon/', views.validate_coupon, name='validate_coupon'),
-    path('ajax/validate_coupon/<str:args>', views.validate_coupon, name='validate_coupon'),
-    
+    path("successProgram/<str:args>", views.successMsg, name="successProgram"),
+    path("ajax/validate_coupon/", views.validate_coupon, name="validate_coupon"),
+    path(
+        "ajax/validate_coupon/<str:args>", views.validate_coupon, name="validate_coupon"
+    ),
 ]
