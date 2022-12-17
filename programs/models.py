@@ -33,7 +33,7 @@ class Hotdogger(models.Model):
 
 
 class VanTour(models.Model):
-    parent = models.CharField(max_length=105)
+    parent = models.CharField(max_length=100)
     phone = PhoneField()
     parent_email = models.EmailField(max_length=254)
     skater = models.CharField(max_length=100)
