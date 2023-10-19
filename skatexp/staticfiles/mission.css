@@ -2,13 +2,6 @@ html {
   overflow-x: hidden;
 }
 body {
-  background-color: var(--blue);
-  background-color: #5c7f94;
-  background-image: linear-gradient(180deg, #0b7285 55%, #97D9E1 65%, var(--white) 75%, #97D9E1 100%);
-  
-  
-
-  color: var(--white);
   box-shadow: 0px 0px 15px 3px rgba(27, 27, 27, 0.295);
   overflow-x: hidden;
 }
@@ -25,20 +18,24 @@ body {
   flex-direction: column;
   width: 100%;
   min-height: 555px;
-  max-width: 1500px;
+  max-width: 1200px;
   margin: auto;
   justify-content: space-evenly;
 }
 
 .right {
-  border-top: 1px solid var(--white);
-  border-left: 1px solid var(--white);
-  border-bottom: 1px solid var(--white);
   align-self: flex-end;
   position: relative;
   bottom: 0px;
 }
+.banner {
+  display: block;
+  height: 32px;
+  background-color: #002E9D;
+  border-radius: 16px;
+  width: 100%;
 
+}
 .left {
   align-self: flex-start;
 }
@@ -48,10 +45,15 @@ body {
   flex-direction: row;
   align-items: center;
   padding: 10px 60px;
-  width: 60%;
+  width: 100%;
   margin: 8% 0;
-  max-width: 750px;
+  max-width: 850px;
 }
+
+.right.box {
+  margin-bottom: 0px;
+}
+
 
 .header-wrap {
   display: flex;
@@ -67,6 +69,9 @@ body {
   font-weight: 700;
   color: var(--black);
   margin-bottom: 25px;
+}
+.ws {
+    transition: transform 0.3s;
 }
 
 @keyframes spin {
@@ -124,7 +129,8 @@ h5 {
   width: 100%;
   background-color: var(--darkgray);
   color: var(--white);
-  height: 250px;
+  height: 140px;
+  border-radius: 16px;
   font-size: 3.5rem;
 }
 
@@ -185,6 +191,9 @@ h5 {
   .box {
     width: 100%;
   }
+  .banner {
+    border-radius: 0;
+  }
 }
 
 @media screen and (max-width: 990px) {
@@ -193,6 +202,7 @@ h5 {
     border-radius: 0;
     padding: 5px;
   }
+
   .inner {
     display: flex;
     justify-content: center;

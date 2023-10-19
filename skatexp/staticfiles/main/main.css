@@ -12,7 +12,7 @@
 
 body {
   font-family: var(--font-family-mono);
-  background-color: var(--blue);
+
 }
 
 .btn-primary {
@@ -305,6 +305,71 @@ hr.vertical {
 .icons {
   font-size: 10px;
 }
+
+
+/* Skate Xp Style Guide CSS */
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Logo */
+.logo {
+    font-family: 'Armstrong', sans-serif; /* Note: You'll need to include the Armstrong font separately as it's not available on Google Fonts */
+}
+
+/* Typography */
+h1 {
+    font-weight: 700; /* Bold */
+    font-size: 28pt;
+}
+
+h2 {
+    font-weight: 700; /* Bold */
+    font-size: 20pt;
+}
+
+h3 {
+    font-weight: 600; /* Semi Bold */
+    font-size: 18pt;
+}
+
+p {
+    font-weight: 400; /* Regular */
+    font-size: 12pt;
+    line-height: 15pt;
+    max-width: calc(15 * 4em); /* Approximate width for 15-18 words per line */
+    margin: auto;
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ul li {
+    font-weight: 400; /* Regular */
+    font-size: 12pt;
+    line-height: 15pt;
+    /* make the dot before each li a red circle */
+    
+    /* Note: You can also use a custom image for the bullet point */
+}
+
+
+/* Accent Text */
+.accent-text-red {
+    color: red;
+}
+
+.accent-text-yellow {
+    color: yellow;
+}
+
+/* Note: Add specific background colors for accent text as needed */
+
 
 /*  */
 @media screen and (min-width: 1018px) {

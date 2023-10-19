@@ -81,9 +81,16 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-SECURE_SSL_REDIRECT = True
-
+# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+# SECURE_SSL_REDIRECT = True
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "main/static/main"),
+    os.path.join(BASE_DIR, "main/static/mission"),
+    os.path.join(BASE_DIR, "main/static/solutions"),
+    os.path.join(BASE_DIR, "news/static/news"),
+    os.path.join(BASE_DIR, "story/static/story"),
+    os.path.join(BASE_DIR, "skatespotters/static/skatespotters"),
+]
 ROOT_URLCONF = "skatexp.urls"
 
 TEMPLATES = [

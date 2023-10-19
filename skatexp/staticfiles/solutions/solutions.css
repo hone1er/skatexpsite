@@ -1,0 +1,65 @@
+/* Custom Styles */
+.skate-xp-parallax {
+    background-image: url('path_to_your_image.jpg'); /* Replace with your image */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+/* Header */
+header {
+    background: var(--blue); /* A dark blue color, consider changing this to a color that suits your design better */
+}
+
+/* Main Titles */
+h1, h2 {
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 40px;
+}
+
+/* Sections */
+section {
+    padding: 40px 0;
+}
+
+/* Offerings List */
+.skate-xp-offerings ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.skate-xp-offerings li {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+/* Contact */
+.skate-xp-contact address {
+    font-style: normal;
+    line-height: 1.6;
+}
+
+/* Links */
+a, a:hover {
+    color: #fff;
+}
+
+/* Containers */
+.container {
+    max-width: 1140px;
+    margin: auto;
+    padding: 0 15px;
+}

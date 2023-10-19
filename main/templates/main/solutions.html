@@ -1,0 +1,134 @@
+{% extends "main/base.html" %} 
+{% load static %} 
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'solutions/solutions.css' %}" />
+<style>
+    /* Custom colors from the style guide */
+    .primary-red { color: #E10027; }
+    .primary-dark { color: #111B23; background-color: #111B23; }
+    .primary-light { color: #BBC2C6; background-color: #BBC2C6; }
+    .secondary-yellow { color: #FFE900; background-color: #FFE900; }
+    .secondary-blue { color: #002E9D; background-color: #002E9D; }
+    .bg-primary-dark { background-color: #111B23; }
+    .bg-secondary-yellow { background-color: #FFE900; }
+    .btn-primary-red { background-color: #E10027; border: none; }
+    .text-primary-red { color: #E10027; }
+    .text-secondary-blue { color: #002E9D; }
+    .text-secondary-yellow { color: #FFE900; }
+</style>
+{% endblock %} 
+
+{% block title %}- mission{% endblock %} 
+
+{% block header %}
+<head>
+  <meta charset="UTF-8" />
+  <title>Skate XP - Your Skatepark Solutions Partner</title>
+  <script>
+    document.addEventListener('scroll', function () {
+      var scrolled = window.pageYOffset;
+      var parallaxElements = document.querySelectorAll('.parallax');
+
+      parallaxElements.forEach(function (element) {
+        var speed = element.dataset.speed;
+        var offset = -(scrolled * speed) + 'px';
+        element.style.backgroundPositionY = offset;
+      });
+    });
+  </script>
+</head>
+
+<div class="skate-xp-parallax parallax bg-white text-primary-dark" data-speed="0.5">
+  <div class="container mt-5">
+    <header class="text-center py-5 bg-primary-dark rounded">
+      <h1 class="display-4 text-white">Welcome Municipalities, Cities, and Institutions</h1>
+      <p class="lead text-primary-red">Skate XP - Your Skatepark Solutions Partner</p>
+    </header>
+
+    <section class="my-5" id="introduction">
+      <p class="h2 text-dark px-2">
+        At Skate XP, we welcome municipalities, cities, and institutions to explore our expertise in the vibrant world of skateboarding.
+      </p>
+    </section>
+
+      <h2 class="display-5 text-secondary-blue pb-4">Our Expertise</h2>
+      <p class="text-dark">
+        Skate XP specializes in guiding institutions through the challenges and opportunities within the skateboarding world. Whether you aim to create a skate spot or a full-fledged skate park, organize skateboarding events, or develop engaging programs, Skate XP is here to be your trusted partner throughout this journey.
+      </p>
+    </section>
+
+    <section class="my-5 bg-light rounded py-1 pb-5" id="bridge">
+      <h2 class="display-5 text-secondary-blue pb-4">Bridging the Gap</h2>
+      <p class="text-dark">
+        We take pride in being the bridge between institutions and the skateboarding community. Our team possesses the knowledge and experience required to align your institution's requirements with the goals and desires of the skateboarding community.
+      </p>
+    </section>
+
+    <section class="my-5  rounded py-1 pb-5" id="services">
+      <h2 class="display-5 text-secondary-blue pb-4">Discover How Skate XP Can Help You Connect</h2>
+      <p class="text-dark">
+        Explore our tailored services to connect effectively with the skateboarding community, including:
+      </p>
+    </section>
+
+    <section class="my-5" id="offerings">
+      <h2 class="display-5 text-dark">Our Offerings</h2>
+      <div class="row">
+        <div class="col-md-4 d-flex">
+          <div class="card bg-light mb-3 flex-grow-1 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">
+                <strong>Skatepark Development:</strong>
+              </h5>
+              <p class="card-text mb-auto">
+                We assist from concept to completion, creating safe, attractive,
+                and functional skate spaces for the benefit of your community.
+                Additionally, Skate XP can evaluate your existing skatepark for
+                usability and recommend improvements.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card bg-light mb-3 flex-grow-1 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><strong>Event Planning:</strong></h5>
+              <p class="card-text mb-auto">
+                We organize exciting skateboarding events, fostering community
+                engagement with the skate culture.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 d-flex">
+          <div class="card bg-light mb-3 flex-grow-1 d-flex flex-column">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title"><strong>Program Development:</strong></h5>
+              <p class="card-text mb-auto">
+                We craft tailored skate programs that align with your goals and
+                resonate with skateboarders.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="my-5 bg-light rounded p-4" id="contact">
+      <h2 class="display-5 text-secondary-blue">Contact Us</h2>
+      <p class="text-dark">
+        Ready to get started? Feel free to reach out to Sean O'Loughlin, our dedicated Director:
+      </p>
+      <address class="text-dark">
+        Sean O'Loughlin<br />
+        <a href="mailto:sean@skatexp.org" class="text-dark fw-bold text-uppercase text-decoration-underline text-decoration-underline-hover">sean@skatexp.org</a><br />
+        Phone: <a class="text-dark fw-bold text-uppercase text-decoration-underline text-decoration-underline-hover" href="tel:+15103844313">(510) 384-4313</a>
+      </address>
+      <p class="text-dark">
+        Let Skate XP be your guide through the diverse world of skateboarding. Together, we can create a positive impact on your institution and the skateboarding community.
+      </p>
+    </section>
+  </div>
+{% endblock %}
+</div>

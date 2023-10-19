@@ -6,12 +6,11 @@
   <div class="hero-wrap">
     <h1 class="hero-header">skate<span class="xp cap">xp</span></h1>
     <h4 class="hero-text">
-      The Skateboard Experience is a non-profit organization giving
-      skateboarding a hug
+      Welcome to the skateboard experience
     </h4>
     <div class="button-wrap">
-      <a class="hero-link" href="{% url 'main-mission'%}">
-        <button type="button" class="hero-button">learn more</button>
+      <a class="hero-link" href="{% url 'story'%}">
+        <button type="button" class="hero-button">skate stories</button>
       </a>
       <a class="hero-link" href="{% url 'donate'%}">
         <button type="button" class="hero-button contribute">contribute</button>
@@ -21,9 +20,9 @@
 </div>
 
 <div class="offerings main1" id="startchange">
-  <h1>take part in the skateboarding experience</h1>
-  <a class="link" href="{% url 'news-home'%}">
-    <button type="button" class="sign-up btn btn-primary">welcome</button>
+  <h1>for cities, municipalities and institutions</h1>
+  <a class="link" href="{% url 'main-solutions'%}">
+    <button type="button" class="sign-up btn btn-primary">learn more</button>
   </a>
 </div>
 
@@ -97,12 +96,12 @@
       />
 
       <div class="inner-card">
-        <h4 class="title-card">van tours</h4>
+        <h4 class="title-card">skate solutions</h4>
         <p class="text-card">
           A program designed for the experienced younger skater – one who is hungry
           to progress and be challenged!
         </p>
-        <a class="link" href="{% url 'van-tour' %}">
+        <a class="link" href="{% url 'main-solutions' %}">
           <button type="button" class="btn btn-primary card-button">
             sign-up
           </button>

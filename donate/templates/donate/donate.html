@@ -92,16 +92,15 @@
           <!-- Used to display form errors. -->
           <div id="card-errors" role="alert"></div>
         </div>
-        <br>
+        <br />
         <label class="label" for="frequency">Donation frequency:</label>
-        <br>
+        <br />
         <select name="frequency" class="col-sm-2">
-  
           <option value="one-time">one-time</option>
           <option value="monthly">monthly</option>
         </select>
-        <br>
-        <br>
+        <br />
+        <br />
         <!-- <label class="label" for="fund">Choose where you would like your donation to go:</label>
         <br> -->
         <!-- <select name="fund" class="col-sm-2">
@@ -113,9 +112,15 @@
         <div style="clear: left"></div>
         <hr />
 
-        <input class="myButton" type="submit" value="submit payment" name="" />
+        <input
+          class="myButton"
+          id="submit-button"
+          type="submit"
+          value="submit payment"
+          name=""
+        />
       </form>
-      <div class="non-profit">
+      <div class="non-profit text-light">
         *SKATE XP is a 501(c)(3) tax-exempt organization. Tax ID 85-0741700
       </div>
     </div>
@@ -123,11 +128,11 @@
 
   <script>
     function setValue(objButton) {
-      var value = document.getElementById("amount");
-      value.setAttribute("value", objButton.value);
+      var value = document.getElementById('amount');
+      value.setAttribute('value', objButton.value);
     }
     // Create a Stripe client.
-    var stripe = Stripe("{{ PUBLIC_STRIPE_KEY }}");
+    var stripe = Stripe('{{ PUBLIC_STRIPE_KEY }}');
 
     // Create an instance of Elements.
     var elements = stripe.elements();
@@ -136,46 +141,51 @@
     // (Note that this demo uses a wider set of styles than the guide below.)
     var style = {
       base: {
-        color: "#32325d",
+        color: '#32325d',
         fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-        fontSmoothing: "antialiased",
-        fontSize: "16px",
-        "::placeholder": {
-          color: "#aab7c4",
+        fontSmoothing: 'antialiased',
+        fontSize: '16px',
+        '::placeholder': {
+          color: '#aab7c4',
         },
       },
       invalid: {
-        color: "#fa755a",
-        iconColor: "#fa755a",
+        color: '#fa755a',
+        iconColor: '#fa755a',
       },
     };
 
     // Create an instance of the card Element.
-    var card = elements.create("card", { style: style });
+    var card = elements.create('card', { style: style });
 
     // Add an instance of the card Element into the `card-element` <div>.
-    card.mount("#card-element");
+    card.mount('#card-element');
 
     // Handle real-time validation errors from the card Element.
-    card.addEventListener("change", function (event) {
-      var displayError = document.getElementById("card-errors");
+    card.addEventListener('change', function (event) {
+      var displayError = document.getElementById('card-errors');
       if (event.error) {
         displayError.textContent = event.error.message;
       } else {
-        displayError.textContent = "";
+        displayError.textContent = '';
       }
     });
 
     // Handle form submission.
-    var form = document.getElementById("payment-form");
-    form.addEventListener("submit", function (event) {
+    var form = document.getElementById('payment-form');
+    var submitButton = document.getElementById('submit-button'); // Reference to your submit button
+
+    form.addEventListener('submit', function (event) {
       event.preventDefault();
+
+      submitButton.disabled = true; // Disable the submit button immediately after form submission
 
       stripe.createToken(card).then(function (result) {
         if (result.error) {
           // Inform the user if there was an error.
-          var errorElement = document.getElementById("card-errors");
+          var errorElement = document.getElementById('card-errors');
           errorElement.textContent = result.error.message;
+          submitButton.disabled = false; // Re-enable the submit button if there’s an error
         } else {
           // Send the token to your server.
           stripeTokenHandler(result.token);
@@ -186,11 +196,11 @@
     // Submit the form with the token ID.
     function stripeTokenHandler(token) {
       // Insert the token ID into the form so it gets submitted to the server
-      var form = document.getElementById("payment-form");
-      var hiddenInput = document.createElement("input");
-      hiddenInput.setAttribute("type", "hidden");
-      hiddenInput.setAttribute("name", "stripeToken");
-      hiddenInput.setAttribute("value", token.id);
+      var form = document.getElementById('payment-form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', token.id);
       form.appendChild(hiddenInput);
 
       // Submit the form

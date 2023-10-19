@@ -1,0 +1,60 @@
+body {
+    background-color: #0b7285;
+}
+
+.header-1 {
+    margin: 10% auto 15px;
+    font-size: 1.2rem;
+}
+
+.contact {
+
+}
+
+.container {
+    color: var(--white);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.header {
+    margin: 5% auto 10px;
+}
+.title {
+    font-size: .8rem;
+    color: var(--white);
+}
+
+.auth {
+    color: var(--red);
+    font-size: .65rem;
+}
+
+.link {
+    text-decoration: none;
+    margin: 2%;
+}
+
+.img {
+    width: 240px;
+    height: auto;
+}
+
+img {
+    width: 100%;
+}
+
+.story-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--darkgray);
+    padding: 5%;
+    border-radius: 8px;
+}
+
+.story-item {
+    list-style: none;
+}
