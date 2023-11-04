@@ -15,3 +15,7 @@ def mission(request):
 
 def solutions(request):
     return render(request, "main/solutions.html")
+
+
+def special_events(request):
+    return render(request, "main/events.html")

@@ -107,8 +107,8 @@ nav {
 
 .hero::after {
   content: "";
-  background-image: url(/static/images/landingskate.jpg);
-  opacity: 0.35;
+  background-image: url(/static/images/home_page_hero.jpg);
+  opacity: 0.95;
   top: 0;
   left: 0;
   bottom: 0;
@@ -121,6 +121,7 @@ nav {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-y: center;
 }
 
 .hero-button {
@@ -407,6 +408,8 @@ ul li {
   }
   .title-card {
     font-size: 150%;
+    align-items: center;
+    min-height: 106px;
   }
 }
 
@@ -457,6 +460,7 @@ ul li {
 .img-card {
   max-width: 100%;
   width: 100%;
+  max-height: 225px;
   height: auto;
 }
 
@@ -481,6 +485,8 @@ ul li {
 }
 .title-card {
   width: 100%;
+  align-items: center;
+  min-height: 106px;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -499,17 +505,20 @@ ul li {
 .text-card {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 20px;
   margin: 0 0 25px 0;
   color: #575d68;
   background-color: var(--white);
   box-shadow: 2px 2px 6px 3px rgba(68, 68, 68, 0.068);
   border-radius: 8px;
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   letter-spacing: 0.05rem;
   min-height: fit-content;
   line-height: 1.55rem;
   font-kerning: auto;
+  height: 175px;
+
 }
 
 @media screen and (max-width: 1440px) {

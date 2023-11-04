@@ -1,0 +1,121 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'solutions/solutions.css' %}" />
+<style>
+  /* Custom colors from the style guide */
+  .primary-red {
+    color: #E10027;
+  }
+
+  .primary-dark {
+    color: #111B23;
+    background-color: #111B23;
+  }
+
+  .primary-light {
+    color: #BBC2C6;
+    background-color: #BBC2C6;
+  }
+
+  .secondary-yellow {
+    color: #FFE900;
+    background-color: #FFE900;
+  }
+
+  .secondary-blue {
+    color: #002E9D;
+    background-color: #002E9D;
+  }
+
+  .bg-primary-dark {
+    background-color: #111B23;
+  }
+
+  .bg-secondary-yellow {
+    background-color: #FFE900;
+  }
+
+  .btn-primary-red {
+    background-color: #E10027;
+    border: none;
+  }
+
+  .text-primary-red {
+    color: #E10027;
+  }
+
+  .text-secondary-blue {
+    color: #002E9D;
+  }
+
+  .text-secondary-yellow {
+    color: #FFE900;
+  }
+</style>
+{% endblock %}
+
+{% block title %}- special events{% endblock %}
+
+{% block header %}
+
+<div class="skate-xp-parallax parallax bg-white text-primary-dark" data-speed="0.5">
+  <div class="container mt-5">
+    <header class="text-center py-5 bg-primary-dark rounded">
+      <h1 class="display-4 text-white">We Remember Moments</h1>
+      <p class="lead text-secondary-yellow">Let's make some new memories and celebrate our past achievements.
+      </p>
+    </header>
+
+    <section class="my-5 mb-2" id="introduction">
+      <p class="h2 text-dark px-2">
+        Skate XP proudly produces and contributes to a wide variety of events for the community
+      </p>
+    </section>
+
+    <h2 class="display-5 text-primary-red pb-4">Check out our social media links to learn more</h2>
+    <p class="text-dark">
+      <hr class="border"/>
+    </p>
+    <div style="display: flex; flex-direction: row; justify-content: flex-start; gap: 16px; align-items: flex-start; width: fit-content; margin: auto;">
+
+    <div >
+      <a href="https://www.instagram.com/norcasl"
+        class="text-dark fw-bold text-uppercase text-decoration-underline text-decoration-underline-hover"> <img src="https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg" alt="instagram logo" class="img-fluid m-2" 
+        style="height: 24px;" />NOR CASL
+      </a><br />
+      </div>  
+      <div  >
+      <a href="https://www.instagram.com/sk8xp"
+        class="text-dark fw-bold text-uppercase text-decoration-underline text-decoration-underline-hover"> <img src="https://www.vectorlogo.zone/logos/instagram/instagram-icon.svg" alt="instagram logo" class="img-fluid m-2"
+        style="height: 24px;" />SK8XP</a><br />
+    </div>
+    <div>
+      <a href="https://www.youtube.com/channel/UCYZK8eSax5rvWxGAoUUkCTQ"
+        class="text-dark fw-bold text-uppercase text-decoration-underline text-decoration-underline-hover"> <img src="https://www.vectorlogo.zone/logos/youtube/youtube-icon.svg" alt="youtube logo" class="img-fluid m-2"
+        style="height: 24px;" />SK8XP Youtube</a><br />
+    </div>
+    </div>
+    <hr class="border"/>
+    </section>
+    <section class="my-5 bg-light rounded p-4 pb-2" id="bridge">
+      <ul class="list-unstyled d-flex flex-wrap justify-content-around gap-4"
+      >
+          <li class="text-dark fw-bold text-uppercase">NOR CASL</li>
+          <li class="text-dark fw-bold text-uppercase">MAC GAMES</li>
+          <li class="text-dark fw-bold text-uppercase">SK8XP JAMS</li>
+          <li class="text-dark fw-bold text-uppercase">Skatepark special Events</li>
+          <li class="text-dark fw-bold text-uppercase">Video premiers</li>
+          <li class="text-dark fw-bold text-uppercase">Tributes to skateboardings icons</li>
+          <li class="text-dark fw-bold text-uppercase">Demos</li>
+          <li class="text-dark fw-bold text-uppercase">After school programs</li>
+          <li class="text-dark fw-bold text-uppercase">Music events</li>
+          <li class="text-dark fw-bold text-uppercase">Community round tables</li>
+          <li class="text-dark fw-bold text-uppercase">Skateable ART</li>
+      </ul>
+      <img src="{% static 'images/event_pic_4_home.jpg' %}" class="img-fluid rounded " alt="skatepark solutions" />
+
+    </section>
+  {% endblock %}
+</div>
