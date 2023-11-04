@@ -120,7 +120,7 @@ nav {
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: inherit;
+  background-size: cover;
   background-position-y: center;
 }
 
