@@ -124,6 +124,13 @@ nav {
   background-position-y: center;
 }
 
+/* contain image on mobile */
+@media screen and (max-width: 990px) {
+  .hero::after {
+    background-attachment: scroll;
+  }
+}
+
 .hero-button {
   margin: 20px 0;
   border: 2px solid #111;

@@ -120,8 +120,15 @@ nav {
   /* Create the parallax scrolling effect */
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-size: inherit;
+  background-size: cover;
   background-position-y: center;
+}
+
+/* contain image on mobile */
+@media screen and (max-width: 990px) {
+  .hero::after {
+    background-attachment: scroll;
+  }
 }
 
 .hero-button {
