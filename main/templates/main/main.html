@@ -2,22 +2,34 @@
 <link rel="stylesheet" href="{% static 'main/main.css' %}" />
 {% endblock %}{% block title %}- home{% endblock %} {% block header %}
 
-<div class="hero" style="position: relative;">
+<div class="hero" style="position: relative">
   <div class="hero-wrap">
     <h1 class="hero-header">skate<span class="xp cap">xp</span></h1>
     <h4 class="hero-text">
-      Welcome to the skateboard experience
+      We need your help. Your donation goes directly toward helping skaters
+      thrive. With your help, we can create skateparks and skate spots, advocate
+      for the skate community, and continue to offer events for all. Skate XP is
+      a 501(c)(3) Non-Profit with EIN 85-0741700.
     </h4>
     <div class="button-wrap">
       <a class="hero-link" href="{% url 'story'%}">
-        <button type="button" class="hero-button text-dark fw-bold">skate stories</button>
+        <button type="button" class="hero-button text-dark fw-bold">
+          skate stories
+        </button>
       </a>
       <a class="hero-link" href="{% url 'donate'%}">
-        <button type="button" class="hero-button contribute fw-bold ">contribute</button>
+        <button type="button" class="hero-button contribute fw-bold">
+          contribute
+        </button>
       </a>
     </div>
   </div>
-  <p style="position: absolute; bottom: 10px; right: 10px">📸: <a href="https://510skateboarding.com/" target="_blank" style="color: black;">510 25 year anniversy</a></p>
+  <p style="position: absolute; bottom: 10px; right: 10px">
+    📸:
+    <a href="https://510skateboarding.com/" target="_blank" style="color: black"
+      >510 25 year anniversy</a
+    >
+  </p>
 </div>
 
 <div class="offerings main1" id="startchange">
@@ -47,7 +59,7 @@
       <div class="inner-card">
         <h4 class="title-card">special events</h4>
         <p class="text-card text-center justify-content-center">
-          Something to look <br/>forward to
+          Something to look <br />forward to
         </p>
         <a class="link" href="{% url 'main-events' %}">
           <button type="button" class="btn btn-primary card-button">
@@ -66,13 +78,12 @@
       <img
         src="{% static 'images/Stephen-Morrison-768x934.jpg' %}"
         class="img-card card-img"
+        id="img-card-steven"
         alt="steven doing a backtail"
       />
       <div class="inner-card">
         <h4 class="title-card">stories</h4>
-        <p class="text-card">
-          Skateboard <br />experiences
-        </p>
+        <p class="text-card">Skateboard <br />experiences</p>
         <a class="link" href="{% url 'story' %}"
           ><button type="button" class="btn btn-primary card-button">
             read stories
@@ -96,8 +107,8 @@
       <div class="inner-card">
         <h4 class="title-card">institutions, municipalities, & cities</h4>
         <p class="text-card">
-          From concept to programming let Skate XP be your partner
-          in the skateboard community
+          From concept to programming let Skate XP be your partner in the
+          skateboard community
         </p>
         <a class="link" href="{% url 'main-solutions' %}">
           <button type="button" class="btn btn-primary card-button">
