@@ -1,6 +1,29 @@
 {% extends "main/base.html" %} {% load static %} {% block styles %}
 <link rel="stylesheet" href="{% static 'donate/success.css' %}" />
 {% endblock %}{% block title %}- success{% endblock %} {% block header %}
+<head>
+  <script>
+    function generateTransactionId(length) {
+      var result = '';
+      var characters =
+        'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    }
+  </script>
+  <script>
+    gtag('event', 'conversion', {
+      send_to: 'AW-11433236506/F6h7CNKSsv4YEJqw5csq',
+      transaction_id: generateTransactionId(22),
+    });
+  </script>
+</head>
+
 <div id="box">
   <img id="succes-icon" src="{% static 'images/check.png' %}" />
   <h4>Thank you for your contribution of ${{amount}}!</h4>
@@ -10,7 +33,9 @@
     to the email you provided shortly :)
   </p>
   <hr />
-  <a class="myButton" href="{% url 'donate' %}">&#x2190;Back to donation page</a>
+  <a class="myButton" href="{% url 'donate' %}"
+    >&#x2190;Back to donation page</a
+  >
 </div>
 
 {% endblock %}
